@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class VoteInsertController {
 
-    @GetMapping("test")
+    @GetMapping("/test")
     public String test() {
         return "배포테스트";
     }
