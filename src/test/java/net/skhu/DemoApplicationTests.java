@@ -8,14 +8,14 @@ import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 @ExtendWith(SpringExtension.class)
-@ActiveProfiles("test")
+@ActiveProfiles("Test")
 @SpringBootTest
 public class DemoApplicationTests {
 
     @Test
     @DisplayName("테스트")
     public void contextLoads() {
-        
+
     }
 
 }
