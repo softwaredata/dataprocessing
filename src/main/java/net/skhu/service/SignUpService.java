@@ -2,9 +2,10 @@ package net.skhu.service;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import net.skhu.Mapper.UserMapper;
 import net.skhu.domain.Users;
 import net.skhu.dto.SignUpRequestDto;
-import net.skhu.repository.SignUpRepository;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Slf4j
@@ -12,7 +13,8 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class SignUpService {
 
-    private final SignUpRepository signUpRepository;
+    private final PasswordEncoder passwordEncoder;
+    private final UserMapper userMapper;
 
     public Users signUp(SignUpRequestDto signUpRequestDto) {
 
@@ -20,11 +22,15 @@ public class SignUpService {
                 .name(signUpRequestDto.getName())
                 .studentIdx(signUpRequestDto.getStudentIdx())
                 .department(signUpRequestDto.getDepartment())
-                .password(signUpRequestDto.getPassword())
+                .password(passwordEncoder.encode(signUpRequestDto.getPassword()))
                 .email(signUpRequestDto.getEmail())
                 .type(signUpRequestDto.getType())
                 .build();
 
-        return signUpRepository.save(users);
+        userMapper.insertUsers(users);
+       return users;
     }
+
+
+
 }
