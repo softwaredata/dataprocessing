@@ -4,30 +4,23 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
-
 @Getter
 @NoArgsConstructor
-@Entity
 public class Users {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "idx")
-    Long id;
+    private Long id;
 
-    String name;
+    private String name;
 
-    @Column(name = "student_Idx")
-    int studentIdx;
+    private int studentIdx;
 
-    String department;
+    private String department;
 
-    String password;
+    private String password;
 
-    String email;
+    private String email;
 
-    int type;
+    private int type;
 
     @Builder
     public Users(String name, int studentIdx, String department, String password, String email, int type) {

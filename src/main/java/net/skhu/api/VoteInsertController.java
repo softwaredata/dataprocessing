@@ -20,7 +20,7 @@ public class VoteInsertController {
 
     private final SignUpService signUpService;
 
-    //TODO 회원가입 유효성 검사와 아이디 만들기
+//    TODO 회원가입 유효성 검사와 아이디 만들기
     @PostMapping("/api/v1/signUp")
     public ResponseEntity<Users> createAccount(@Valid @RequestBody SignUpRequestDto signUpRequestDto) {
         Users user = signUpService.signUp(signUpRequestDto);
