@@ -20,7 +20,7 @@ public class Users {
 
     private String email;
 
-    private int type;
+    private Integer type;
 
     @Builder
     public Users(String name, Integer studentIdx, String department, String password, String email, int type) {
