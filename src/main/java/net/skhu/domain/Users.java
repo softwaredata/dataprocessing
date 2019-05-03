@@ -12,7 +12,7 @@ public class Users {
 
     private String name;
 
-    private int studentIdx;
+    private Integer studentIdx;
 
     private String department;
 
@@ -23,7 +23,7 @@ public class Users {
     private int type;
 
     @Builder
-    public Users(String name, int studentIdx, String department, String password, String email, int type) {
+    public Users(String name, Integer studentIdx, String department, String password, String email, int type) {
         this.name = name;
         this.studentIdx = studentIdx;
         this.department = department;

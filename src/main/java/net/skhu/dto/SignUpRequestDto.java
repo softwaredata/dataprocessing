@@ -10,7 +10,7 @@ public class SignUpRequestDto {
 
     private String name;
 
-    private int studentIdx;
+    private Integer studentIdx;
 
     private String department;
 
@@ -21,7 +21,7 @@ public class SignUpRequestDto {
     private int type;
 
     @Builder
-    public SignUpRequestDto(String name, int studentIdx, String department, String password, String email, int type) {
+    public SignUpRequestDto(String name, Integer studentIdx, String department, String password, String email, int type) {
         this.name = name;
         this.studentIdx = studentIdx;
         this.department = department;
