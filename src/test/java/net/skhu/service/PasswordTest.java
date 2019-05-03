@@ -1,5 +1,6 @@
 package net.skhu.service;
 
+import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -13,6 +14,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @ExtendWith(SpringExtension.class)
 @SpringBootTest
+@Slf4j
 public class PasswordTest {
 
     private PasswordEncoder passwordEncoder;
@@ -28,4 +30,5 @@ public class PasswordTest {
         String passwordTest = "test";
         assertTrue(passwordEncoder.matches(passwordTest,passwordEncoder.encode(passwordTest)));
     }
+
 }
