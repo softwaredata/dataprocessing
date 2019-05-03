@@ -22,17 +22,20 @@ public class SignUpServiceTest {
     }
 
     @Test
-    @DisplayName("Users 값 없을때")
-    void throwsExceptionWhenUserInsert () {
+    @DisplayName("sql에 삽입할 Users가 null을 갖고 있을때")
+    void throwsExceptionWhenUserInsert () throws Exception {
 
+        //given
         Users users = Users.builder()
                 .name("test")
                 .studentIdx(20111111)
+                .department("소프트웨어")
                 .password(passwordEncoder.encode("test"))
                 .email("test@test.com")
                 .type(1)
                 .build();
 
+        //when
 
     }
 }
