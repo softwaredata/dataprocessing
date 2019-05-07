@@ -1,14 +1,15 @@
-package net.skhu.Mapper;
+package net.skhu.mapper;
 
 import net.skhu.domain.Users;
 import net.skhu.dto.PwsReq;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Update;
+import org.apache.ibatis.annotations.*;
+
 
 @Mapper
 public interface UserMapper {
+
+    @Select("SELECT * FROM users WHERE idx = {id}")
+    Users findById(@Param("id") int idx);
 
     @Insert("insert into Users(name, studentIdx, department, password, email, type)" +
             "values(#{name}, #{studentIdx}, #{department}, #{password}, #{email}, #{type})")
