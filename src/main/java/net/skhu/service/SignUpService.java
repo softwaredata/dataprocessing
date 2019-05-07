@@ -2,7 +2,7 @@ package net.skhu.service;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import net.skhu.Mapper.UserMapper;
+import net.skhu.mapper.UserMapper;
 import net.skhu.domain.Users;
 import net.skhu.dto.SignUpRequestDto;
 import org.springframework.security.crypto.password.PasswordEncoder;
