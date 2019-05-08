@@ -1,4 +1,4 @@
-package net.skhu.Mapper;
+package net.skhu.mapper;
 
 import net.skhu.domain.Users;
 import org.apache.ibatis.annotations.Insert;
