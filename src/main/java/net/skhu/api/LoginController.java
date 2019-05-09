@@ -2,7 +2,7 @@ package net.skhu.api;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import net.skhu.dto.LoginReq;
+import net.skhu.dto.LoginRequest;
 import net.skhu.service.LoginService;
 
 import org.springframework.http.HttpStatus;
@@ -24,7 +24,7 @@ public class LoginController {
     private final LoginService loginService;
 
     @PostMapping("")
-    public ResponseEntity login(@RequestBody LoginReq loginReq) {
+    public ResponseEntity login(@RequestBody LoginRequest loginReq) {
         return new ResponseEntity(HttpStatus.OK);
     }
 
