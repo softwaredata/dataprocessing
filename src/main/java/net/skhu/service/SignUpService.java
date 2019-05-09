@@ -4,7 +4,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import net.skhu.mapper.UserMapper;
 import net.skhu.domain.Users;
-import net.skhu.dto.SignUpRequestDto;
+import net.skhu.dto.SignUpRequest;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -16,7 +16,7 @@ public class SignUpService {
     private final PasswordEncoder passwordEncoder;
     private final UserMapper userMapper;
 
-    public Users signUp(SignUpRequestDto signUpRequestDto) {
+    public Users signUp(SignUpRequest signUpRequestDto) {
 
         Users users = Users.builder()
                 .name(signUpRequestDto.getName())
