@@ -18,10 +18,10 @@ public class SignUpRequestDto {
 
     private String email;
 
-    private int type;
+    private Integer type;
 
     @Builder
-    public SignUpRequestDto(String name, Integer studentIdx, String department, String password, String email, int type) {
+    public SignUpRequestDto(String name, Integer studentIdx, String department, String password, String email, Integer type) {
         this.name = name;
         this.studentIdx = studentIdx;
         this.department = department;
