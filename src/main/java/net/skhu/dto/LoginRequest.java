@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-public class LoginReq {
+public class LoginRequest {
     private int idx;
     private String password;
 }
