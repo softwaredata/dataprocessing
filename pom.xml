@@ -12,6 +12,7 @@
     <groupId>net.skhu</groupId>
     <artifactId>demo</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+    <packaging>war</packaging>
     <name>vote</name>
     <description>School System Voting</description>
 
@@ -24,6 +25,14 @@
     </properties>
 
     <dependencies>
+
+        <!-- 개발용 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+
         <dependency>
             <groupId>org.mybatis.spring.boot</groupId>
             <artifactId>mybatis-spring-boot-starter</artifactId>
