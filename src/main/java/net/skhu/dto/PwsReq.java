@@ -1,18 +1,14 @@
 package net.skhu.dto;
 
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
-@Getter
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class PwsReq {
 
-    private Integer studentIdx;
-    private String password;
+    private int id; //아이디(학번)
     private String email;
-
 
 }
