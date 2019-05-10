@@ -1,17 +1,24 @@
-<%@ page contentType="text/html; charset=UTF-8" language="java" pageEncoding="UTF-8" %>
+<%--
+  Created by IntelliJ IDEA.
+  User: BOMI
+  Date: 2019-05-10
+  Time: 오후 6:00
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <link rel="stylesheet" href="https://unpkg.com/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.css">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap/dist/css/bootstrap.min.css"/>
+    <link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.css"/>
+    <script src="https://unpkg.com/vue"></script>
     <script src="https://unpkg.com/babel-polyfill@latest/dist/polyfill.min.js"></script>
     <script src="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="https://unpkg.com/vue"></script>
-    <script src="login.js"></script>
-    <title>성공회대 투표 시스템</title>
+    <title>성공회대학교 투표 시스템</title>
 </head>
 <body>
 <form name="frm" action="login" method="post">
@@ -39,5 +46,35 @@
         </b-container>
     </div>
 </form>
+
+<script>
+    window.app = new Vue({
+        el: "#app",
+        data: {
+            userId: '',
+            password: '',
+            showAlert: false,
+            errMsg: ''
+        },
+        methods: {
+            jssubmit: function() {
+                if ( this.userId === '' ) {
+                    this.showAlert = true;
+                    this.errMsg = 'Please enter your ID';
+                    return;
+                }
+                if ( this.password === '' ) {
+                    this.showAlert = true;
+                    this.errMsg = 'Please enter the password';
+                    return;
+                }
+                this.showAlert = false;
+                document.frm.submit();
+            }
+        }
+    })
+</script>
+
 </body>
+
 </html>
