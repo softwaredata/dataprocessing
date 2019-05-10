@@ -40,8 +40,9 @@
 
             <div class="pull-right">
                 <br/>
-                <b-btn variant="outline-primary" @click="singUp">회원가입</b-btn>
-                <b-btn variant="outline-primary" @click="findPass">비밀번호찾기</b-btn>
+                <b-btn variant="outline-primary"  @click="singUp">회원가입</b-btn>
+                <b-btn variant="outline-primary" href="findPws" @click="findPws">비밀번호찾기</b-btn>
+
             </div>
         </b-container>
     </div>
