@@ -25,5 +25,4 @@ public class VoteInsertController {
         Users user = signUpService.signUp(signUpRequestDto);
         return new ResponseEntity<>(user, HttpStatus.OK);
     }
-
 }
