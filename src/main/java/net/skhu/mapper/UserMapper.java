@@ -20,9 +20,9 @@ public interface UserMapper {
     int findUserMatchEmail(Users user);
 
     //비밀번호 변경
-    @Update("update Users set password = #{password} where studentIdx ={studentIdx}")
+    @Update("update Users set password = #{password} where studentIdx =#{studentIdx}")
     void updatePws(Users users);
 
-    @Select("select count(*) from Users where studentIdx={studentIdx}")
+    @Select("select count(*) from Users where studentIdx=#{studentIdx}")
     int findUser(int studentIdx);
 }
