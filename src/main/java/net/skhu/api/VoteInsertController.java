@@ -7,6 +7,7 @@ import net.skhu.dto.SignUpRequestDto;
 import net.skhu.service.SignUpService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -25,5 +26,4 @@ public class VoteInsertController {
         Users user = signUpService.signUp(signUpRequestDto);
         return new ResponseEntity<>(user, HttpStatus.OK);
     }
-
 }
