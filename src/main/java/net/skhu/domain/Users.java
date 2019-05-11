@@ -1,11 +1,13 @@
 package net.skhu.domain;
 
 import lombok.Builder;
+import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Getter
 @NoArgsConstructor
+@Data
 public class Users {
 
     private Long id;
