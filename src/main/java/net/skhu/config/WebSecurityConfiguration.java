@@ -10,6 +10,7 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @Configuration
 @EnableWebSecurity
@@ -29,10 +30,16 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
         .formLogin()
                 .loginPage("/")
                 .loginPage("/login")
-                .permitAll()
+                .loginProcessingUrl("/login-processing")
+                .failureForwardUrl("/login")
+                .defaultSuccessUrl("/main", true)
+                .usernameParameter("id")
+                .passwordParameter("password")
                 .and()
         .logout()
-                .permitAll();
+                .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+                .logoutSuccessUrl("/")
+                .invalidateHttpSession(true);
     }
 
     @Bean

@@ -21,7 +21,7 @@
     <title>성공회대학교 투표 시스템</title>
 </head>
 <body>
-<form name="frm" action="login" method="post">
+<form name="frm" action="login-processing" method="post">
     <div id="app">
         <b-container>
             <b-jumbotron header="SKHU VOTE">
