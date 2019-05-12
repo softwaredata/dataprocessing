@@ -34,6 +34,13 @@ public class UpdateController {
         pwsService.find_psw(response,pwsReq);
 
     }
+    
+    @GetMapping("mypage")
+    public String mypage(Model model,PwsReq mypage){
+
+        model.addAttribute("mypage",mypage);
+        return "users/mypage";
+    }
 
 
 }
