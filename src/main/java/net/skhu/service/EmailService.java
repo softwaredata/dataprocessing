@@ -2,7 +2,6 @@ package net.skhu.service;
 
 
 import net.skhu.email.Email;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
@@ -15,7 +14,6 @@ import java.util.Date;
 @Service
 public class EmailService {
 
-    @Autowired
     private JavaMailSender javaMailSender;
 
     public void sendMail(Email email) throws MessagingException {
