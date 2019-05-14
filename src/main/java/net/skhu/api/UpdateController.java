@@ -1,6 +1,7 @@
 package net.skhu.api;
 
 
+import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import net.skhu.dto.PwsReq;
@@ -14,11 +15,10 @@ import javax.servlet.http.HttpServletResponse;
 
 @Slf4j
 @Controller
-@RequiredArgsConstructor
+@AllArgsConstructor
 @RequestMapping("/")
 public class UpdateController {
 
-    @Autowired
     private PwsService pwsService;
 
     @GetMapping("findPws")
