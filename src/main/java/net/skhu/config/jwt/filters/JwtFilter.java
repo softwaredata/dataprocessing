@@ -27,7 +27,7 @@ public class JwtFilter extends AbstractAuthenticationProcessingFilter {
     //public JwtFilter(RequestMatcher matcher, JwtAuthenticationFailureHandler ) {};
 
     @Value("${jwt.secret}")
-    private String PREFIX;
+    private static String PREFIX;
 
     public JwtFilter(RequestMatcher matcher) {
         super(matcher);
