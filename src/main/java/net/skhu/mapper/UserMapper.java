@@ -1,7 +1,6 @@
 package net.skhu.mapper;
 
-import net.skhu.domain.Users;
-import net.skhu.dto.PwsReq;
+import net.skhu.domain.Member;
 import org.apache.ibatis.annotations.*;
 
 
@@ -9,16 +8,16 @@ import org.apache.ibatis.annotations.*;
 public interface UserMapper {
 
     @Select("SELECT * FROM users WHERE idx = {id}")
-    Users findById(@Param("id") int idx);
+    Member findById(@Param("id") int idx);
 
-    @Insert("insert into Users(name, studentIdx, department, password, email, type)" +
+    @Insert("insert into Member(name, studentIdx, department, password, email, type)" +
             "values(#{name}, #{studentIdx}, #{department}, #{password}, #{email}, #{type})")
-    void insertUsers(Users users);
+    void insertUsers(Member member);
 
-    @Select("select * from Users where studentIdx = #{studentIdx} and email = #{email}")
-    Users findUser(Users user);
+    @Select("select * from Member where studentIdx = #{studentIdx} and email = #{email}")
+    Member findUser(Member user);
 
 
-    @Update("update Users set password = #{password} where studentIdx ={studentIdx}")
-    void updatePws(Users users);
+    @Update("update Member set password = #{password} where studentIdx ={studentIdx}")
+    void updatePws(Member member);
 }

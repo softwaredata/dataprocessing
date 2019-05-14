@@ -6,7 +6,7 @@ import lombok.NoArgsConstructor;
 
 @Getter
 @NoArgsConstructor
-public class Users {
+public class Member {
 
     private Long id;
 
@@ -23,7 +23,7 @@ public class Users {
     private Integer type;
 
     @Builder
-    public Users(String name, Integer studentIdx, String department, String password, String email, int type) {
+    public Member(String name, Integer studentIdx, String department, String password, String email, int type) {
         this.name = name;
         this.studentIdx = studentIdx;
         this.department = department;
