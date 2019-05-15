@@ -5,8 +5,8 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import net.skhu.dto.PwsReq;
 import net.skhu.email.Email;
-import net.skhu.mapper.UserMapper;
-import net.skhu.domain.Users;
+import net.skhu.mapper.MemberMapper;
+import net.skhu.domain.Member;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -20,7 +20,7 @@ import java.io.PrintWriter;
 public class PwsService {
 
     private final PasswordEncoder passwordEncoder;
-    private final UserMapper userMapper;
+    private final MemberMapper memberMapper;
 
     @Autowired
     EmailService emailService;
@@ -30,18 +30,18 @@ public class PwsService {
         response.setContentType("text/html;charset=utf-8");
         PrintWriter out = response.getWriter();
 
-        Users user= Users.builder()
+        Member user= Member.builder()
                 .studentIdx(pwsReq.getId())
                 .email(pwsReq.getEmail())
                 .build();
 
         // 아이디가 없으면
-        if(userMapper.findUser(user.getStudentIdx())==0) {
+        if(memberMapper.findUser(user.getStudentIdx())==0) {
             out.print("존재하지 않는 아이디 입니다.");
             out.close();
         }
         // 가입한 아이디에 이메일이 아니면
-        else if(userMapper.findUserMatchEmail(user) ==0) {
+        else if(memberMapper.findUserMatchEmail(user) ==0) {
             out.print("가입한 아이디와 이메일이 일치하지않습니다.");
             out.close();
         }
@@ -54,7 +54,7 @@ public class PwsService {
             //비밀번호인코딩
             user.setPassword(passwordEncoder.encode(pw));
             //비밀번호 변경
-            userMapper.updatePws(user);
+            memberMapper.updatePws(user);
 
             // 비밀번호 변경 메일 발송
             send_email(user,pw);
@@ -64,7 +64,7 @@ public class PwsService {
     }
 
 
-    public void send_email(Users user, String pw) throws Exception {
+    public void send_email(Member user, String pw) throws Exception {
 
         String sender= "dont_reply";
         String recipient= user.getEmail();

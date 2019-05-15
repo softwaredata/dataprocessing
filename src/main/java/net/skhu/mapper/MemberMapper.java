@@ -5,9 +5,9 @@ import org.apache.ibatis.annotations.*;
 
 
 @Mapper
-public interface UserMapper {
+public interface MemberMapper {
 
-    @Select("SELECT * FROM users WHERE idx = {id}")
+    @Select("SELECT * FROM member WHERE idx = {id}")
     Member findById(@Param("id") int idx);
 
     @Insert("insert into Member(name, studentIdx, department, password, email, type)" +
