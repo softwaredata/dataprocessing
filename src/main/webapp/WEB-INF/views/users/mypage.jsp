@@ -87,47 +87,77 @@
 				</div>
 
 
-				<div class="form-group" id="divName"><!-- value값 이름으로 하기  -->
+				<div class="form-group" id="divName">
+					<!-- value값 이름으로 하기  -->
 					<div class='kickass_field'>
-						<input required='required'
-							type="text" class="form-control onlyHangul" id="name"
+						<input required='required' type="text"
+							class="form-control onlyHangul" id="name"
 							data-rule-required="true" placeholder="한글만 입력 가능합니다."
 							maxlength="15">
-							<lable for="inputName"> 이름 </lable>
+						<lable for="inputName"> 이름 </lable>
 					</div>
 				</div>
 
 				<div class="form-group" id="divEmail">
 					<!-- 학내 메일을 사용하기  -->
 					<div class='kickass_field'>
-						<input required='required' type="email" class="form-control" id="email"
-							data-rule-required="true" placeholder="이메일" maxlength="40">
-							
-							<lable for="inputEmail">이메일 </lable>
+						<input required='required' type="email" class="form-control"
+							id="email" data-rule-required="true" placeholder="이메일"
+							maxlength="40">
+
+						<lable for="inputEmail">이메일 </lable>
 					</div>
 				</div>
-				
-				<div class="form-group" id="divPhoneNumber"><!-- value값 핸드폰 번호 불러오기 -->
-				<div class='kickass_field'>
-						<input required='required' type="tel" class="form-control onlyNumber" id="phoneNumber"
+
+				<div class="form-group" id="divPhoneNumber">
+					<!-- value값 핸드폰 번호 불러오기 -->
+					<div class='kickass_field'>
+						<input required='required' type="tel"
+							class="form-control onlyNumber" id="phoneNumber"
 							data-rule-required="true" placeholder="-를 제외하고 숫자만 입력하세요."
 							maxlength="11">
-							<lable for="inputPhoneNumber">핸드폰 번호  </lable>
+						<lable for="inputPhoneNumber">핸드폰 번호 </lable>
 					</div>
 				</div>
 				<div class="form-group">
-					<label for="inputMajor" class="col-lg-2 control-label">학과</label>
-					<div class="col-lg-10">
-						<select class="form-control" id="gender">
+					<div class='kickass_field'>
+
+						<select class="form-control" id="major">
 							<option value="M">남</option>
 							<option value="F">여</option>
 						</select>
+						<lable for="inputMajor">학과 </lable>
 					</div>
 				</div>
 
 				<div class="form-group">
-					<div class="col-lg-offset-2 col-lg-10">
-						<button type="submit" class="btn btn-default">Sign in</button>
+					<div class='kickass_field'>
+
+						<select class="form-control" id="major">
+							<option value="M">A</option>
+							<option value="F">B</option>
+						</select>
+						<lable for="inputMajor">반</lable>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class='kickass_field'>
+
+						<select class="form-control" id="major">
+							<option value="1">1학년</option>
+							<option value="2">2학년</option>
+							<option value="3">3학년</option>
+							<option value="4">4학년</option>
+							
+						</select>
+						<lable for="inputMajor">학년 </lable>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<div class='kickass_field'>
+
+						<button type="submit" class="btn btn-default">수정 완료</button>
 					</div>
 				</div>
 			</fieldset>
