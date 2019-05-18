@@ -18,6 +18,7 @@ class SelectAnElectionTypeTest {
 
     @Test
     @DisplayName("선거 기간에 들어 갈 수 있는지 확인")
+    //TODO 테스트코드 리팩토링 하기
     void  enterElectionPeriod(){
 
         LocalDate today = LocalDate.now();
