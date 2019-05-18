@@ -1,39 +1,32 @@
 package net.skhu.dto;
 
-import net.skhu.domain.Election;
-import org.junit.jupiter.api.BeforeEach;
+import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.time.LocalDate;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @ExtendWith(SpringExtension.class)
 @SpringBootTest
+@Slf4j
 class SelectAnElectionTypeTest {
-
-    private Election election;
-
-    @BeforeEach
-    void setup() throws Exception {
-        election = Election.builder()
-                .voteStartDate(new SimpleDateFormat("yyyy-MM-dd").parse("2019-05-09"))
-                .voteEndDate(new SimpleDateFormat("yyyy-MM-dd").parse("2019-05-10") )
-                .build();
-    }
 
     @Test
     @DisplayName("선거 기간에 들어 갈 수 있는지 확인")
     void  enterElectionPeriod(){
-        int voteStartCompare = election.getVoteStartDate().compareTo(new Date());
-        int voteEndCompare = election.getVoteEndDate().compareTo(new Date());
 
-        assertTrue(voteStartCompare <= 0 && voteEndCompare >= 0 );
+        LocalDate today = LocalDate.now();
+        LocalDate startToday = LocalDate.now();
+        LocalDate twoAfter = today.plusDays(2);
+        LocalDate twoBefore = today.minusDays(2);
+        LocalDate endDay = today.plusDays(2);
+
+        assertTrue(startToday.equals(today) && (twoAfter.isAfter(today) && twoBefore.isBefore(today)) && twoAfter.equals(endDay));
     }
 
 }

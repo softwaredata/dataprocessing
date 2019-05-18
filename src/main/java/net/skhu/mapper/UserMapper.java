@@ -17,7 +17,6 @@ public interface UserMapper {
     @Select("select * from Users where studentIdx = #{studentIdx} and email = #{email}")
     Users findUser(Users user);
 
-
     @Update("update Users set password = #{password} where studentIdx ={studentIdx}")
     void updatePws(Users users);
 }
