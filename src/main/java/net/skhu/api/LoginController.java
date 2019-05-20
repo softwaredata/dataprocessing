@@ -26,9 +26,11 @@ public class LoginController {
         return new ResponseEntity(HttpStatus.OK);
     }
 
+
     @GetMapping({"", "login"})
     public String login() {
         return "login";
     }
 
 }
+

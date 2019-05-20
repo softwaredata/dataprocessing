@@ -2,7 +2,7 @@ package net.skhu.api;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import net.skhu.domain.Users;
+import net.skhu.domain.Member;
 import net.skhu.dto.SignUpRequest;
 import net.skhu.service.SignUpService;
 import org.springframework.http.HttpStatus;
@@ -21,9 +21,9 @@ public class VoteInsertController {
     private final SignUpService signUpService;
 
     @PostMapping("/api/v1/signUp")
-    public ResponseEntity<Users> createAccount(@Valid @RequestBody SignUpRequest signUpRequestDto) {
-        Users user = signUpService.signUp(signUpRequestDto);
-        return new ResponseEntity<>(user, HttpStatus.OK);
+    public ResponseEntity<Member> createAccount(@Valid @RequestBody SignUpRequest signUpRequest) {
+        Member member = signUpService.signUp(signUpRequest);
+        return new ResponseEntity<>(member, HttpStatus.OK);
     }
 
 

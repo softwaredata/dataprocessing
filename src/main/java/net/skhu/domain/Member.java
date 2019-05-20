@@ -1,12 +1,11 @@
 package net.skhu.domain;
 
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Getter
 @NoArgsConstructor
-public class Users {
+@Setter
+public class Member {
 
     private String name;
 
@@ -21,7 +20,7 @@ public class Users {
     private Integer type;
 
     @Builder
-    public Users(String name, Integer studentIdx, String department, String password, String email, int type) {
+    public Member(String name, Integer studentIdx, String department, String password, String email, int type) {
         this.name = name;
         this.studentIdx = studentIdx;
         this.department = department;
