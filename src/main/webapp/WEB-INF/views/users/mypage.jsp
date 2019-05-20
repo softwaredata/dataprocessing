@@ -60,9 +60,9 @@
 					<!-- 나중에 못 바꾸게 하기~ -->
 					<div class='kickass_field'>
 						<input maxlength='30' required='required' type="text"
-							class="form-control onlyAlphabetAndNumber" id="id"
-							data-rule-required="true">
-						<lable for="inputId"> 아이디 </lable>
+							class="form-control onlyAlphabetAndNumber" id="id" readonly
+							data-rule-required="true" value = "${member.studentIdx}">
+						<lable for="inputId"> 학번 </lable>
 					</div>
 				</div>
 
@@ -93,8 +93,7 @@
 					<div class='kickass_field'>
 						<input required='required' type="text"
 							class="form-control onlyHangul" id="name"
-							data-rule-required="true" placeholder="한글만 입력 가능합니다."
-							maxlength="15">
+							maxlength="15" value = "${member.name}" readonly>
 						<lable for="inputName"> 이름 </lable>
 					</div>
 				</div>
@@ -103,30 +102,17 @@
 					<!-- 학내 메일을 사용하기  -->
 					<div class='kickass_field'>
 						<input required='required' type="email" class="form-control"
-							id="email" data-rule-required="true" placeholder="이메일"
+							id="email" data-rule-required="true" value = "${member.email}"
 							maxlength="40">
 
 						<lable for="inputEmail">이메일 </lable>
 					</div>
 				</div>
 
-				<div class="form-group" id="divPhoneNumber">
-					<!-- value값 핸드폰 번호 불러오기 -->
-					<div class='kickass_field'>
-						<input required='required' type="tel"
-							class="form-control onlyNumber" id="phoneNumber"
-							data-rule-required="true" placeholder="-를 제외하고 숫자만 입력하세요."
-							maxlength="11">
-						<lable for="inputPhoneNumber">핸드폰 번호 </lable>
-					</div>
-				</div>
 				<div class="form-group">
 					<div class='kickass_field'>
 
 						<select class="form-control" id="major">
-							<option value="0"
-								<c:if test="${major.departmentId == 0}">selected</c:if>>
-								전공을 선택해 주세요</option>
 							<option value="11"
 								<c:if test="${major.departmentId == 11}">selected</c:if>>디지털
 								컨텐츠학과</option>
@@ -164,30 +150,6 @@
 					</div>
 				</div>
 
-				<div class="form-group">
-					<div class='kickass_field'>
-
-						<select class="form-control" id="major">
-							<option value="M">반을 선택해 주세요</option>
-							<option value="M">A</option>
-							<option value="F">B</option>
-						</select>
-						<lable for="inputMajor">반</lable>
-					</div>
-				</div>
-				<div class="form-group">
-					<div class='kickass_field'>
-
-						<select class="form-control" id="major">
-							<option value="1">1학년</option>
-							<option value="2">2학년</option>
-							<option value="3">3학년</option>
-							<option value="4">4학년</option>
-
-						</select>
-						<lable for="inputMajor">학년 </lable>
-					</div>
-				</div>
 
 				<div class="form-group">
 					<div class='kickass_field'>
@@ -296,18 +258,6 @@
 				}
 			});
 
-			$('#phoneNumber').keyup(function(event) {
-
-				var divPhoneNumber = $('#divPhoneNumber');
-
-				if ($.trim($('#phoneNumber').val()) == "") {
-					divPhoneNumber.removeClass("has-success");
-					divPhoneNumber.addClass("has-error");
-				} else {
-					divPhoneNumber.removeClass("has-error");
-					divPhoneNumber.addClass("has-success");
-				}
-			});
 
 			//------- validation 검사
 			$("form").submit(
@@ -405,21 +355,6 @@
 							divEmail.addClass("has-success");
 						}
 
-						//휴대폰 번호
-						if ($('#phoneNumber').val() == "") {
-							modalContents.text("휴대폰 번호를 입력하여 주시기 바랍니다.");
-							modal.modal('show');
-
-							divPhoneNumber.removeClass("has-success");
-							divPhoneNumber.addClass("has-error");
-							$('#phoneNumber').focus();
-							return false;
-						} else {
-							divPhoneNumber.removeClass("has-error");
-							divPhoneNumber.addClass("has-success");
-						}
-
-					});
 
 		});
 	</script>
