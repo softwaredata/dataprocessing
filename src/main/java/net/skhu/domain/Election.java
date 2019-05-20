@@ -22,13 +22,16 @@ public class Election {
 
     private LocalDate regEndDate;
 
+    private int totalVote;
+
     @Builder
-    public Election(String name, LocalDate voteStartDate, LocalDate voteEndDate, int type, LocalDate regStartDate, LocalDate regEndDate) {
+    public Election(String name, LocalDate voteStartDate, LocalDate voteEndDate, int type, LocalDate regStartDate, LocalDate regEndDate, int totalVote) {
         this.name = name;
         this.voteStartDate = voteStartDate;
         this.voteEndDate = voteEndDate;
         this.type = type;
         this.regStartDate = regStartDate;
         this.regEndDate = regEndDate;
+        this.totalVote = totalVote;
     }
 }
