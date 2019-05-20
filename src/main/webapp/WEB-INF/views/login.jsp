@@ -42,7 +42,12 @@
                 <br/>
                 <b-btn variant="outline-primary"  @click="singUp">회원가입</b-btn>
                 <b-btn variant="outline-primary" href="findPws" @click="findPws">비밀번호찾기</b-btn>
-                <b-btn variant="outline-primary" href="mypage" @click="mypage">회원정보수정</b-btn>
+
+                <br/>
+                <br/>
+                <br/>
+<%--                <b-btn variant="outline-primary" href="main" @click="main">메인페이지</b-btn>--%>
+
 
             </div>
         </b-container>
