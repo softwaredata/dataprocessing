@@ -7,8 +7,6 @@ import lombok.*;
 @Setter
 public class Member {
 
-    private Long id;
-
     private String name;
 
     private Integer studentIdx;
