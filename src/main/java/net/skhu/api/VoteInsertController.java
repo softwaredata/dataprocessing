@@ -2,8 +2,8 @@ package net.skhu.api;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import net.skhu.domain.Users;
-import net.skhu.dto.SignUpRequestDto;
+import net.skhu.domain.Member;
+import net.skhu.dto.SignUpRequest;
 import net.skhu.service.SignUpService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,10 +20,11 @@ public class VoteInsertController {
 
     private final SignUpService signUpService;
 
-    //TODO 회원가입 유효성 검사와 아이디 만들기
     @PostMapping("/api/v1/signUp")
-    public ResponseEntity<Users> createAccount(@Valid @RequestBody SignUpRequestDto signUpRequestDto) {
-        Users user = signUpService.signUp(signUpRequestDto);
-        return new ResponseEntity<>(user, HttpStatus.OK);
+    public ResponseEntity<Member> createAccount(@Valid @RequestBody SignUpRequest signUpRequest) {
+        Member member = signUpService.signUp(signUpRequest);
+        return new ResponseEntity<>(member, HttpStatus.OK);
     }
+
+
 }

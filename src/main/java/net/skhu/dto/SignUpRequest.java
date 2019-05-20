@@ -4,35 +4,24 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotEmpty;
-
 @Getter
 @NoArgsConstructor
-public class SignUpRequestDto {
+public class SignUpRequest {
 
-    @NotEmpty
     private String name;
 
-    @Column(nullable = false)
-    private int studentIdx;
+    private Integer studentIdx;
 
-    @NotEmpty
     private String department;
 
-    @NotEmpty
     private String password;
 
-    @NotEmpty
-    @Email
     private String email;
 
-    @Column(nullable = false)
-    private int type;
+    private Integer type;
 
     @Builder
-    public SignUpRequestDto(String name, int studentIdx, String department, String password, String email, int type) {
+    public SignUpRequest(String name, Integer studentIdx, String department, String password, String email, Integer type) {
         this.name = name;
         this.studentIdx = studentIdx;
         this.department = department;
