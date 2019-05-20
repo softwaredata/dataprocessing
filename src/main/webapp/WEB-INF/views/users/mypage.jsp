@@ -24,6 +24,7 @@
 
 
 	<!--// 헤더 들어가는 부분 -->
+
 	<!-- 모달창 -->
 	<div class="modal fade" id="defaultModal">
 		<div class="modal-dialog">
@@ -123,10 +124,43 @@
 					<div class='kickass_field'>
 
 						<select class="form-control" id="major">
-							<option value="M">남</option>
-							<option value="F">여</option>
+							<option value="0"
+								<c:if test="${major.departmentId == 0}">selected</c:if>>
+								전공을 선택해 주세요</option>
+							<option value="11"
+								<c:if test="${major.departmentId == 11}">selected</c:if>>디지털
+								컨텐츠학과</option>
+							<option value="12"
+								<c:if test="${major.departmentId == 12 }">selected</c:if>>소프트웨어
+								공학과</option>
+							<option value="13"
+								<c:if test="${major.departmentId == 13 }">selected</c:if>>정보통신학과</option>
+							<option value="14"
+								<c:if test="${major.departmentId == 14}">selected</c:if>>컴퓨터공학과</option>
+							<option value="15"
+								<c:if test="${major.departmentId ==15}">selected</c:if>>글로컬
+								IT학과</option>
+							<option value="20"
+								<c:if test="${major.departmentId ==20}">selected</c:if>>경영학부</option>
+							<option value="21"
+								<c:if test="${major.departmentId ==21}">selected</c:if>>디지털컨텐츠학과</option>
+							<option value="23"
+								<c:if test="${major.departmentId ==23}">selected</c:if>>사회과학부</option>
+							<option value="24"
+								<c:if test="${major.departmentId ==24}">selected</c:if>>사회복지학과</option>
+							<option value="26"
+								<c:if test="${major.departmentId ==26}">selected</c:if>>신문방송학과</option>
+							<option value="30"
+								<c:if test="${major.departmentId ==30}">selected</c:if>>신학과</option>
+							<option value="31"
+								<c:if test="${major.departmentId ==31}">selected</c:if>>영어학과</option>
+							<option value="32"
+								<c:if test="${major.departmentId ==32}">selected</c:if>>일어일본학과</option>
+							<option value="34"
+								<c:if test="${major.departmentId ==34}">selected</c:if>>중어중국학과</option>
 						</select>
 						<lable for="inputMajor">학과 </lable>
+
 					</div>
 				</div>
 
@@ -134,6 +168,7 @@
 					<div class='kickass_field'>
 
 						<select class="form-control" id="major">
+							<option value="M">반을 선택해 주세요</option>
 							<option value="M">A</option>
 							<option value="F">B</option>
 						</select>
@@ -148,7 +183,7 @@
 							<option value="2">2학년</option>
 							<option value="3">3학년</option>
 							<option value="4">4학년</option>
-							
+
 						</select>
 						<lable for="inputMajor">학년 </lable>
 					</div>
