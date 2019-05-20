@@ -27,7 +27,7 @@ class CheckVoteDayPossibleServiceTest {
                 .build();
     }
 
-    @Test //TODO 테스트코드 리팩토링 하기
+    @Test
     void 현재날짜가_종료기간일때 (){
         LocalDate now = LocalDate.of(2019,5,14);
         assertTrue(now.isEqual(electionVoteDate.getVoteEndDate()));

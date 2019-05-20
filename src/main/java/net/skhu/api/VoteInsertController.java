@@ -3,9 +3,7 @@ package net.skhu.api;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import net.skhu.domain.Users;
-import net.skhu.dto.ElectionVoteDate;
 import net.skhu.dto.SignUpRequest;
-import net.skhu.service.CheckVoteDayPossibleService;
 import net.skhu.service.SignUpService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,7 +19,6 @@ import javax.validation.Valid;
 public class VoteInsertController {
 
     private final SignUpService signUpService;
-    private final CheckVoteDayPossibleService checkVoteDayPossibleService;
 
     @PostMapping("/api/v1/signUp")
     public ResponseEntity<Users> createAccount(@Valid @RequestBody SignUpRequest signUpRequestDto) {
@@ -29,11 +26,5 @@ public class VoteInsertController {
         return new ResponseEntity<>(user, HttpStatus.OK);
     }
 
-    @PostMapping("/api/v1/voteDate")
-    public String checkPossibleVote(@RequestBody ElectionVoteDate electionVoteDate)  {
-         if (checkVoteDayPossibleService.isPossibleVoteDay(electionVoteDate))
-             return "성공";
-        return "실패";
-    }
 
 }
