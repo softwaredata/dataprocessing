@@ -22,16 +22,22 @@ public class Election {
 
     private LocalDate regEndDate;
 
-    private int totalVote;
+    private int collegeElectionTotalVote;
+
+    private int underGraduateElectionTotalVote;
+
+    private int majorElectionTotalVote;
 
     @Builder
-    public Election(String name, LocalDate voteStartDate, LocalDate voteEndDate, int type, LocalDate regStartDate, LocalDate regEndDate, int totalVote) {
+    public Election(String name, LocalDate voteStartDate, LocalDate voteEndDate, int type, LocalDate regStartDate, LocalDate regEndDate, int collegeElectionTotalVote, int underGraduateElectionTotalVote, int majorElectionTotalVote) {
         this.name = name;
         this.voteStartDate = voteStartDate;
         this.voteEndDate = voteEndDate;
         this.type = type;
         this.regStartDate = regStartDate;
         this.regEndDate = regEndDate;
-        this.totalVote = totalVote;
+        this.collegeElectionTotalVote = collegeElectionTotalVote;
+        this.underGraduateElectionTotalVote = underGraduateElectionTotalVote;
+        this.majorElectionTotalVote = majorElectionTotalVote;
     }
 }

@@ -57,6 +57,7 @@
             <artifactId>jstl</artifactId>
             <version>1.2</version>
         </dependency>
+
         <dependency>
             <groupId>org.apache.tomcat.embed</groupId>
             <artifactId>tomcat-embed-jasper</artifactId>
@@ -174,8 +175,6 @@
             <artifactId>spring-context-support</artifactId>
             <version>3.1.1.RELEASE</version>
         </dependency>
-
-
 
     </dependencies>
 

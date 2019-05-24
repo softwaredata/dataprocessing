@@ -18,12 +18,15 @@ public class ElectionVoteDate {
 
     private int type;
 
+    private int vote;
+
     @Builder
-    public ElectionVoteDate(LocalDate voteStartDate, LocalDate voteEndDate, String name, int type) {
+    public ElectionVoteDate(LocalDate voteStartDate, LocalDate voteEndDate, String name, int type, int vote) {
         this.voteStartDate = voteStartDate;
         this.voteEndDate = voteEndDate;
         this.name = name;
         this.type = type;
+        this.vote = vote;
     }
 
 }

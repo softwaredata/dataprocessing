@@ -1,6 +1,7 @@
 package net.skhu.service;
 
 import lombok.RequiredArgsConstructor;
+import net.skhu.domain.Election;
 import net.skhu.dto.ElectionVoteDate;
 import net.skhu.mapper.ElectionMapper;
 import org.springframework.stereotype.Service;
@@ -14,15 +15,15 @@ public class CheckVoteDayPossibleService {
     private final ElectionMapper electionMapper;
 
      public boolean isPossibleVoteDay(ElectionVoteDate electionVoteDate) {
-        ElectionVoteDate compareVoteDate = getVoteDate(electionVoteDate);
+        Election compareVoteDate = getVoteDate(electionVoteDate);
         return isCheckIntermediatePeriod(compareVoteDate) || isCheckStartDuration(compareVoteDate.getVoteStartDate()) || isCheckEndDuration(compareVoteDate.getVoteEndDate());
     }
 
-    private ElectionVoteDate getVoteDate(ElectionVoteDate electionVoteDate) {
+    private Election getVoteDate(ElectionVoteDate electionVoteDate) {
          return electionMapper.findByVoteDate(electionVoteDate);
     }
 
-    private boolean isCheckIntermediatePeriod(ElectionVoteDate electionVoteDate) {
+    private boolean isCheckIntermediatePeriod(Election electionVoteDate) {
          return (electionVoteDate.getVoteEndDate().isAfter(LocalDate.now()) && electionVoteDate.getVoteStartDate().isBefore(LocalDate.now()));
     }
 
