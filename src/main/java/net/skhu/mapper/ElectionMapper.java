@@ -1,6 +1,7 @@
 package net.skhu.mapper;
 
 import net.skhu.domain.Election;
+import net.skhu.dto.ElectionVoteDate;
 import org.apache.ibatis.annotations.*;
 
 import java.time.LocalDateTime;
@@ -28,4 +29,8 @@ public interface ElectionMapper {
             "type = #{type}, reg_start_date = #{regStartDate}, reg_end_date = #{regEndDate}" +
             "WHERE idx = #{idx}")
     void update(final Election election);
+
+    @Select("select * from Election where name = #{name} and type = #{type}")
+    ElectionVoteDate findByVoteDate(ElectionVoteDate electionVoteDate);
+
 }

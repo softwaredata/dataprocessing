@@ -6,7 +6,7 @@ import lombok.NoArgsConstructor;
 
 @Getter
 @NoArgsConstructor
-public class SignUpRequestDto {
+public class SignUpRequest {
 
     private String name;
 
@@ -21,7 +21,7 @@ public class SignUpRequestDto {
     private Integer type;
 
     @Builder
-    public SignUpRequestDto(String name, Integer studentIdx, String department, String password, String email, Integer type) {
+    public SignUpRequest(String name, Integer studentIdx, String department, String password, String email, Integer type) {
         this.name = name;
         this.studentIdx = studentIdx;
         this.department = department;

@@ -4,21 +4,31 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
-/**
- * Created by bomi on 2019-05-15.
- */
-
-@NoArgsConstructor
 @Getter
-@Builder
+@NoArgsConstructor
 public class Election {
-    private long idx;
+
     private String name;
-    private LocalDateTime voteStartDate;
-    private LocalDateTime voteEndDate;
+
+    private LocalDate voteStartDate;
+
+    private LocalDate voteEndDate;
+
     private int type;
-    private LocalDateTime regStartDate;
-    private LocalDateTime regEndDate;
+
+    private LocalDate regStartDate;
+
+    private LocalDate regEndDate;
+
+    @Builder
+    public Election(String name, LocalDate voteStartDate, LocalDate voteEndDate, int type, LocalDate regStartDate, LocalDate regEndDate) {
+        this.name = name;
+        this.voteStartDate = voteStartDate;
+        this.voteEndDate = voteEndDate;
+        this.type = type;
+        this.regStartDate = regStartDate;
+        this.regEndDate = regEndDate;
+    }
 }
