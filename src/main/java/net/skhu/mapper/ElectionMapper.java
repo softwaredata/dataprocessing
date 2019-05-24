@@ -1,10 +1,10 @@
 package net.skhu.mapper;
 
-import net.skhu.dto.Election;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Update;
+import net.skhu.domain.Election;
+import org.apache.ibatis.annotations.*;
+
+import java.time.LocalDateTime;
+import java.util.List;
 
 /**
  * Created by bomi on 2019-05-15.
@@ -12,12 +12,20 @@ import org.apache.ibatis.annotations.Update;
 
 @Mapper
 public interface ElectionMapper {
-    @Insert("INSERT INTO election(name, vote_start_date, vote_end_date, type, reg_start_date, reg_end_date)" +
+    @Select("SELECT name, vote_start_date, vote_end_date, type, reg_start_date, reg_end_date " +
+            "FROM election WHERE vote_end_date >= #{now}")
+    List<Election> findElections(@Param("now")final LocalDateTime dateTime);
+
+    @Select("SELECT name, vote_start_date, vote_end_date, type, reg_start_date, reg_end_date " +
+            "FROM election WHERE name = #{name}")
+    Election findByName(@Param("name") final String name);
+
+    @Insert("INSERT INTO election(name, vote_start_date, vote_end_date, type, reg_start_date, reg_end_date) " +
             "VALUES(#{name}, #{voteStartDate}, #{voteEndDate}, #{type}, #{regDateDate}, #{redEndDate})")
-    void createElection(final Election election);
+    void create(final Election election);
 
     @Update("UPDATE election SET name = #{name}, vote_start_date = #{voteStartDate}, vote_end_date = #{voteEndDate}" +
             "type = #{type}, reg_start_date = #{regStartDate}, reg_end_date = #{regEndDate}" +
             "WHERE idx = #{idx}")
-    void updateElection(final Election election);
+    void update(final Election election);
 }
