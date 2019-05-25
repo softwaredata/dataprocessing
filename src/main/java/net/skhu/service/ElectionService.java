@@ -27,31 +27,30 @@ public class ElectionService {
         return resultList;
     }
 
-    public void setElection(List<ElectionRequest> list) {
-        List<>
-        for(int i=0; i<electionList.size(); i++) {
-            Election election = electionList.get(i);
-            String name;
-            if(election.getType() == 1) {
-                name = electionList.get(i).getName() + "대 총학";
-            } else if(election.getType() == 2) {
-                name = election.getName() + "대 학부";
-            } else {
-                name = election.getName() + "대 전공";
-            }
-             Election newElection = election.builder()
-                     .name(name)
-
-        }
-    }
-
-    public void createElection(final ElectionRequest electionRequest) {
-        final Election election = Election.builder()
-                .voteStartDate(dateTime);
-
-                SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-                LocalDateTime dateTime = LocalDateTime.parse(electionRequest.getVoteStartDate(), format);
-    }
+//    public void setElection(List<ElectionRequest> list) {
+//        for(int i=0; i<electionList.size(); i++) {
+//            Election election = electionList.get(i);
+//            String name;
+//            if(election.getType() == 1) {
+//                name = electionList.get(i).getName() + "대 총학";
+//            } else if(election.getType() == 2) {
+//                name = election.getName() + "대 학부";
+//            } else {
+//                name = election.getName() + "대 전공";
+//            }
+//             Election newElection = election.builder()
+//                     .name(name)
+//
+//        }
+//    }
+//
+//    public void createElection(final ElectionRequest electionRequest) {
+//        final Election election = Election.builder()
+//                .voteStartDate(dateTime);
+//
+//                SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+//                LocalDateTime dateTime = LocalDateTime.parse(electionRequest.getVoteStartDate(), format);
+//    }
 
 
 
