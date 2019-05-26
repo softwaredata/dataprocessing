@@ -4,7 +4,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Getter
 @NoArgsConstructor
@@ -12,18 +12,18 @@ public class Election {
 
     private long name;
 
-    private LocalDate voteStartDate;
+    private LocalDateTime voteStartDate;
 
-    private LocalDate voteEndDate;
+    private LocalDateTime voteEndDate;
 
     private int type;
 
-    private LocalDate regStartDate;
+    private LocalDateTime regStartDate;
 
-    private LocalDate regEndDate;
+    private LocalDateTime regEndDate;
 
     @Builder
-    public Election(long name, LocalDate voteStartDate, LocalDate voteEndDate, int type, LocalDate regStartDate, LocalDate regEndDate) {
+    public Election(long name, LocalDateTime voteStartDate, LocalDateTime voteEndDate, int type, LocalDateTime regStartDate, LocalDateTime regEndDate) {
         this.name = name;
         this.voteStartDate = voteStartDate;
         this.voteEndDate = voteEndDate;
