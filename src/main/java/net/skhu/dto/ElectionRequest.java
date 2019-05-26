@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @Getter
 @NoArgsConstructor
 public class ElectionRequest {
-    private int generation;
+    private int name;
     private String voteStartDate;
     private String voteEndDate;
     private int type;
