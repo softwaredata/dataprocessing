@@ -7,7 +7,6 @@ import net.skhu.dto.ElectionRequest;
 import net.skhu.mapper.ElectionMapper;
 import org.springframework.stereotype.Service;
 
-import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -21,33 +20,48 @@ import java.util.List;
 public class ElectionService {
     private final ElectionMapper electionMapper;
 
+
     public List<Election> getNowElections() {
         final LocalDateTime now = LocalDateTime.now();
         return electionMapper.findElections(now);
     }
 
-//    public void saveElection(List<ElectionRequest> list) {
-//        for(int i=0; i<list.size(); i++) {
-//            ElectionRequest election = list.get(i);
-//            Election newElection = Election.builder()
-//                    .ganeration(election.getGeneration())
-//                    .regStartDate(election.getRegStartDate())
-//                    .regEndDate(election.getRegEndDate())
-//                    .type(election.getType())
-//                    .voteStartDate(election.getVoteStartDate())
-//                    .voteEndDate(election.getVoteEndDate())
-//                    .build();
-//
-//        }
-//    }
+    public void createElection(final ElectionRequest election) {
+        Election newElection = Election.builder()
+                .name(election.getName())
+                .regStartDate(LocalDateTime.parse(election.getRegStartDate()))
+                .regEndDate(LocalDateTime.parse(election.getRegEndDate()))
+                .type(election.getType())
+                .voteStartDate(LocalDateTime.parse(election.getVoteStartDate()))
+                .voteEndDate(LocalDateTime.parse(election.getVoteEndDate()))
+                .build();
 
-//    public void createElection(final ElectionRequest electionRequest) {
-//        final Election election = Election.builder()
-//                .voteStartDate(dateTime);
-//
-//                SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-//                LocalDateTime dateTime = LocalDateTime.parse(electionRequest.getVoteStartDate(), format);
-//    }
+        try {
+            electionMapper.create(newElection);
+        } catch(Exception e) {
+            log.error(e.getMessage());
+        }
+    }
+
+    public void updateElection(final ElectionRequest electionRequest) {
+        Election election = electionMapper.findByName(electionRequest.getName(), electionRequest.getType());
+        if(election == null) return;
+
+        election = Election.builder()
+                .name(electionRequest.getName())
+                .regStartDate(LocalDateTime.parse(electionRequest.getRegStartDate()))
+                .regEndDate(LocalDateTime.parse(electionRequest.getRegEndDate()))
+                .type(electionRequest.getType())
+                .voteStartDate(LocalDateTime.parse(electionRequest.getVoteStartDate()))
+                .voteEndDate(LocalDateTime.parse(electionRequest.getVoteEndDate()))
+                .build();
+
+        try {
+            electionMapper.update(election);
+        } catch(Exception e) {
+            log.error(e.getMessage());
+        }
+    }
 
 
 
