@@ -21,29 +21,26 @@ import java.util.List;
 public class ElectionService {
     private final ElectionMapper electionMapper;
 
-    public List<Election> getElection() {
+    public List<Election> getNowElections() {
         final LocalDateTime now = LocalDateTime.now();
-        List<Election> resultList = electionMapper.findElections(now);
-        return resultList;
+        return electionMapper.findElections(now);
     }
 
-//    public void setElection(List<ElectionRequest> list) {
-//        for(int i=0; i<electionList.size(); i++) {
-//            Election election = electionList.get(i);
-//            String name;
-//            if(election.getType() == 1) {
-//                name = electionList.get(i).getName() + "대 총학";
-//            } else if(election.getType() == 2) {
-//                name = election.getName() + "대 학부";
-//            } else {
-//                name = election.getName() + "대 전공";
-//            }
-//             Election newElection = election.builder()
-//                     .name(name)
+//    public void saveElection(List<ElectionRequest> list) {
+//        for(int i=0; i<list.size(); i++) {
+//            ElectionRequest election = list.get(i);
+//            Election newElection = Election.builder()
+//                    .ganeration(election.getGeneration())
+//                    .regStartDate(election.getRegStartDate())
+//                    .regEndDate(election.getRegEndDate())
+//                    .type(election.getType())
+//                    .voteStartDate(election.getVoteStartDate())
+//                    .voteEndDate(election.getVoteEndDate())
+//                    .build();
 //
 //        }
 //    }
-//
+
 //    public void createElection(final ElectionRequest electionRequest) {
 //        final Election election = Election.builder()
 //                .voteStartDate(dateTime);

@@ -2,7 +2,9 @@ package net.skhu.api;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 
@@ -17,7 +19,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class AdminController {
 
     @GetMapping("admin/electionManagement")
-    public String electionManagement() {
+    public String electionManagement(Model model) {
+
         return  "admin/electionManagement";
+    }
+
+    @PostMapping("admin/electionManagement")
+    public String electionManagement() {
+        return "admin/electionManagement";
     }
 }

@@ -27,42 +27,196 @@
 
     <div class="date-management">
         <h2><input type="text" class="generation" name="general"/>회 총학생회 대표 선거</h2>
-        <input type="text" class="datetimes" name="generalDateTime" />
+        <span>후보자 등록 기간</span>
+        <!--<input type="text" class="datetimes" name="generalDateTime" />-->
+        <div class="container">
+            <div class='col-md-5'>
+                <div class="form-group">
+                    <div class='input-group date start'>
+                        <input type='text' class="form-control"/>
+                        <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+                    </div>
+                </div>
+            </div>
+            <div class='col-md-5'>
+                <div class="form-group">
+                    <div class='input-group date end'>
+                        <input type='text' class="form-control"/>
+                        <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <span>투표 기간</span>
+       <!-- <input type="text" class="datetimes" name="generalDateTime" />-->
+        <div class="container">
+            <div class='col-md-5'>
+                <div class="form-group">
+                    <div class='input-group date start'>
+                        <input type='text' class="form-control" />
+                        <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+                    </div>
+                </div>
+            </div>
+            <div class='col-md-5'>
+                <div class="form-group">
+                    <div class='input-group date end'>
+                        <input type='text' class="form-control" />
+                        <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button>save</button>
     </div>
     <hr/>
     <div class="date-management">
         <h2><input type="text" class="generation" name="college"/>회 학부 대표 선거</h2>
-        <input type="text" class="datetimes" name="collegeDateTime"/>
+        <span>후보자 등록 기간</span>
+        <!--<input type="text" class="datetimes" name="generalDateTime" />-->
+        <div class="container">
+            <div class='col-md-5'>
+                <div class="form-group">
+                    <div class='input-group date start'>
+                        <input type='text' class="form-control" />
+                        <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+                    </div>
+                </div>
+            </div>
+            <div class='col-md-5'>
+                <div class="form-group">
+                    <div class='input-group date end'>
+                        <input type='text' class="form-control" />
+                        <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <span>투표 기간</span>
+        <!--<input type="text" class="datetimes" name="generalDateTime" />-->
+        <div class="container">
+            <div class='col-md-5'>
+                <div class="form-group">
+                    <div class='input-group date start'>
+                        <input type='text' class="form-control" />
+                        <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+                    </div>
+                </div>
+            </div>
+            <div class='col-md-5'>
+                <div class="form-group">
+                    <div class='input-group date end'>
+                        <input type='text' class="form-control" />
+                        <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button>save</button>
     </div>
     <hr/>
     <div class="date-management">
         <h2><input type="text" class="generation" name="major"/>회 전공 대표 선거</h2>
-        <input type="text" class="datetimes" name="majorDateTime"/>
+        <span>후보자 등록 기간</span>
+        <!--<input type="text" class="datetimes" name="generalDateTime" />-->
+        <div class="container">
+            <div class='col-md-5'>
+                <div class="form-group">
+                    <div class='input-group date start'>
+                        <input type='text' class="form-control" />
+                        <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+                    </div>
+                </div>
+            </div>
+            <div class='col-md-5'>
+                <div class="form-group">
+                    <div class='input-group date end'>
+                        <input type='text' class="form-control" />
+                        <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <span>투표 기간</span>
+        <!--<input type="text" class="datetimes" name="generalDateTime" />-->
+        <div class="container">
+            <div class='col-md-5'>
+                <div class="form-group">
+                    <div class='input-group date start'>
+                        <input type='text' class="form-control" />
+                        <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+                    </div>
+                </div>
+            </div>
+            <div class='col-md-5'>
+                <div class="form-group">
+                    <div class='input-group date end'>
+                        <input type='text' class="form-control" />
+                        <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button>save</button>
     </div>
-
-    <button>저장</button>
-
 
 </div>
 </body>
 <script>
-    $(function() {
-        $('.datetimes').daterangepicker({
-            autoUpdateInput: false,
-            timePicker: true,
-            locale: {
-                format: 'YYYY/MM/DD HH:mm',
-                cancelLabel: 'Clear'
-            }
-        });
+    // $(function() {
+    //     $('.datetimes').daterangepicker({
+    //         autoUpdateInput: false,
+    //         timePicker: true,
+    //         locale: {
+    //             format: 'YYYY/MM/DD HH:mm',
+    //             cancelLabel: 'Clear'
+    //         }
+    //     });
+    //
+    //     $('.datetimes').on('apply.daterangepicker', function(ev, picker) {
+    //         $(this).val(picker.startDate.format('YYYY/MM/DD HH:mm')
+    //             + ' - ' + picker.endDate.format('YYYY/MM/DD HH:mm'));
+    //     });
+    //
+    //     $('.datetimes').on('cancel.daterangepicker', function(ev, picker) {
+    //         $(this).val('');
+    //     });
+    // });
 
-        $('.datetimes').on('apply.daterangepicker', function(ev, picker) {
-            $(this).val(picker.startDate.format('YYYY/MM/DD HH:mm')
-                + ' - ' + picker.endDate.format('YYYY/MM/DD HH:mm'));
+    $(function () {
+        $('.start').datetimepicker();
+        $('.end').datetimepicker({
+            useCurrent: false //Important! See issue #1075
         });
-
-        $('.datetimes').on('cancel.daterangepicker', function(ev, picker) {
-            $(this).val('');
+        $(".start").on("dp.change", function (e) {
+            $('#datetimepicker7').data("DateTimePicker").minDate(e.date);
+        });
+        $(".end").on("dp.change", function (e) {
+            $('#datetimepicker6').data("DateTimePicker").maxDate(e.date);
         });
     });
 
