@@ -11,10 +11,38 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+    <%--<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>--%>
+    <%--<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>--%>
+    <%--<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>--%>
+    <%--<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />--%>
+        <%--<script type="text/javascript" src="/path/to/jquery.js"></script>--%>
+        <%--<script type="text/javascript" src="/path/to/moment.js"></script>--%>
+        <%--<script type="text/javascript" src="/path/to/bootstrap/js/transition.js"></script>--%>
+        <%--<script type="text/javascript" src="/path/to/bootstrap/js/collapse.js"></script>--%>
+        <%--<script type="text/javascript" src="/path/to/bootstrap/dist/bootstrap.min.js"></script>--%>
+        <%--<script type="text/javascript" src="/path/to/bootstrap-datetimepicker.min.js"></script>--%>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/locale/ko.js"></script>
+
+
+        <!-- 합쳐지고 최소화된 최신 CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+        <!-- 부가적인 테마 -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+
+        <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+
+        <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+
+
+
+        <link rel="stylesheet" type="text/css" href="../../../bootstrap/css/datepicker3.css" />
+        <script type="text/javascript" src="../../../bootstrap/js/bootstrap-datepicker.js"></script>
+        <script type="text/javascript" src="../../../bootstrap/js/bootstrap-datepicker.kr.js"></script>
+
     <link rel="stylesheet" href="../../../assets/css/main.css" />
     <link rel="stylesheet" type="text/css" href="../../../assets/css/electionManagement.css"/>
     <title>Title</title>

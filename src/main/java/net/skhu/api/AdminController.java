@@ -1,6 +1,8 @@
 package net.skhu.api;
 
+import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import net.skhu.service.ElectionService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,11 +17,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 
 @Slf4j
+@AllArgsConstructor
 @Controller
 public class AdminController {
+    final ElectionService electionService;
 
     @GetMapping("admin/electionManagement")
     public String electionManagement(Model model) {
+
 
         return  "admin/electionManagement";
     }
