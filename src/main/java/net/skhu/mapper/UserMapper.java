@@ -1,6 +1,7 @@
 package net.skhu.mapper;
 
 import net.skhu.domain.Member;
+
 import org.apache.ibatis.annotations.*;
 
 
@@ -24,4 +25,12 @@ public interface UserMapper {
 
     @Select("select count(*) from Member where studentIdx=#{studentIdx}")
     int findUser(int studentIdx);
+    
+    //개인정보 변경
+    @Select("SELECT * FROM Member WHERE studentIdx = #{id}")
+    Member findByStuId(@Param("id") int idx);
+    
+    @Update("update Member set name = #{name}, department = #{department}, password = #{password}, email = #{email}"
+    		+ "where studentIdx = #{studentIdx}")
+    void updateInfo(Member member);
 }
