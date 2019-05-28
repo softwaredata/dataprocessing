@@ -6,6 +6,7 @@ import net.skhu.domain.Election;
 import net.skhu.dto.ElectionRequest;
 import net.skhu.mapper.ElectionMapper;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -20,13 +21,14 @@ import java.util.List;
 public class ElectionService {
     private final ElectionMapper electionMapper;
 
-
+    @Transactional(readOnly = true)
     public List<Election> getNowElections() {
         final LocalDateTime now = LocalDateTime.now();
         return electionMapper.findElections(now);
     }
 
-    public void createElection(final ElectionRequest election) {
+    @Transactional
+    public void addElection(final ElectionRequest election) {
         Election newElection = Election.builder()
                 .name(election.getName())
                 .regStartDate(LocalDateTime.parse(election.getRegStartDate()))
@@ -43,7 +45,8 @@ public class ElectionService {
         }
     }
 
-    public void updateElection(final ElectionRequest electionRequest) {
+    @Transactional
+    public void setElection(final ElectionRequest electionRequest) {
         Election election = electionMapper.findByName(electionRequest.getName(), electionRequest.getType());
         if(election == null) return;
 
