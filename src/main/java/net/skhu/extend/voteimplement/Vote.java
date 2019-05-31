@@ -1,9 +1,7 @@
-package net.skhu.extend;
-
-import net.skhu.domain.Election;
+package net.skhu.extend.voteimplement;
 
 public interface Vote {
 
-    void chooseCandidate(Election election);
+    void chooseCandidate(int name);
 
 }

@@ -13,7 +13,7 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 @ExtendWith(SpringExtension.class)
 @SpringBootTest
 @Slf4j
-class StudentVoteServiceTest {
+class VoteServiceTest {
 
     @Mock
     ElectionMapper electionMapper;

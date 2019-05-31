@@ -10,7 +10,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 public class Election {
 
-    private String name;
+    private int name;
 
     private LocalDate voteStartDate;
 
@@ -29,7 +29,7 @@ public class Election {
     private int majorElectionTotalVote;
 
     @Builder
-    public Election(String name, LocalDate voteStartDate, LocalDate voteEndDate, int type, LocalDate regStartDate, LocalDate regEndDate, int collegeElectionTotalVote, int underGraduateElectionTotalVote, int majorElectionTotalVote) {
+    public Election(int name, LocalDate voteStartDate, LocalDate voteEndDate, int type, LocalDate regStartDate, LocalDate regEndDate, int collegeElectionTotalVote, int underGraduateElectionTotalVote, int majorElectionTotalVote) {
         this.name = name;
         this.voteStartDate = voteStartDate;
         this.voteEndDate = voteEndDate;
