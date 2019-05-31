@@ -26,7 +26,7 @@ class StudentVoteServiceTest {
                 .type(SelectAnElectionType.CHAIRPERSON_OF_THE_TOTAL_STUDENT.getType())
                 .build();
 
-
+        
     }
 
 }
