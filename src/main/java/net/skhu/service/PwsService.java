@@ -19,9 +19,10 @@ import java.io.PrintWriter;
 public class PwsService {
 
     private final PasswordEncoder passwordEncoder;
+
     private final UserMapper userMapper;
 
-    EmailService emailService;
+    private final EmailService emailService;
 
     public void find_psw(HttpServletResponse response,PwsReq pwsReq) throws Exception{
 
@@ -34,33 +35,32 @@ public class PwsService {
                 .build();
 
         // 아이디가 없으면
-        if(userMapper.findUser(member.getStudentIdx())==0) {
+        if(userMapper.findUser(member.getStudentIdx())== 0 ) {
             out.print("존재하지 않는 아이디 입니다.");
             out.close();
         }
         // 가입한 아이디에 이메일이 아니면
-        else if(userMapper.findUserMatchEmail(member) ==0) {
+        else if(userMapper.findUserMatchEmail(member) == 0 ) {
             out.print("가입한 아이디와 이메일이 일치하지않습니다.");
             out.close();
         }
         else{// 임시 비밀번호 생성
-            String pw = "";
+            StringBuilder pw = new StringBuilder();
             for (int i = 0; i < 12; i++) {
-                pw += (char) ((Math.random() * 26) + 97);
+                pw.append((char) ((Math.random() * 26) + 97));
             }
 
             //비밀번호인코딩
-            member.setPassword(passwordEncoder.encode(pw));
+            member.setPassword(passwordEncoder.encode(pw.toString()));
             //비밀번호 변경
             userMapper.updatePws(member);
 
             // 비밀번호 변경 메일 발송
-            send_email(member,pw);
+            send_email(member, pw.toString());
             out.print("입력하신 이메일로 임시 비밀번호를 발송하였습니다.");
             out.close();
         }
     }
-
 
     public void send_email(Member member, String pw) throws Exception {
 
