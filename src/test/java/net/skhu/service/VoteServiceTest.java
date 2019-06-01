@@ -19,14 +19,13 @@ class VoteServiceTest {
     ElectionMapper electionMapper;
 
     @Test
-    //TODO 1.디비에서 총 투표 가져오기  2.총투표 +1   3.두개 비교 하기
     void 학생이_총학선거_투표하기() {
         ElectionVoteDate electionVoteDate = ElectionVoteDate.builder()
-                .name("1대 총학")
+                .name(1)
                 .type(SelectAnElectionType.CHAIRPERSON_OF_THE_TOTAL_STUDENT.getType())
                 .build();
 
-        
+
     }
 
 }
