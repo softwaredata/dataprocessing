@@ -5,80 +5,63 @@
   Time: 오후 6:00
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap/dist/css/bootstrap.min.css"/>
-    <link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.css"/>
-    <script src="https://unpkg.com/vue"></script>
-    <script src="https://unpkg.com/babel-polyfill@latest/dist/polyfill.min.js"></script>
-    <script src="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.js"></script>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <title>성공회대학교 투표 시스템</title>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="resources/bootstrap/css/bootstrap.css" rel="stylesheet"
+	type="text/css" />
+<link rel="stylesheet" href="resources/bootstrap/css/login.css">
+<!-- jQuery (부트스트랩의 자바스크립트 플러그인을 위해 필요한) -->
+<script src="${R}https://code.jquery.com/jquery.js"></script>
+<!-- 모든 합쳐진 플러그인을 포함하거나 (아래) 필요한 각각의 파일들을 포함하세요 -->
+<script src="${R}resources/bootstrap/js/bootstrap.min.js"></script>
+<!-- Respond.js 으로 IE8 에서 반응형 기능을 활성화하세요 (https://github.com/scottjehl/Respond) -->
+<script src="${R}resources/bootstrap/js/respond.js"></script>
+<title>성공회대학교 투표 시스템</title>
 </head>
 <body>
-<form name="frm" action="login" method="post">
-    <div id="app">
-        <b-container>
-            <b-jumbotron header="SKHU VOTE">
-                <p class="lead">성공회대학교 투표 서비스</p>
-            </b-jumbotron>
+	<form name="frm" action="login" method="post">
 
-            <b-form-group horizontal :label-cols="3" description="학번을 입력하세요" label="ID(학번)">
-                <b-form-input v-model.trim="userId" name="id"></b-form-input>
-            </b-form-group>
-            <b-form-group horizontal :label-cols="3" description="비밀번호를 입력하세요." label="Password">
-                <input type="password" name="password" v-model.trim="password" class="form-control">
-            </b-form-group>
 
-            <b-alert variant="danger" :show="showAlert">{{ errMsg }}</b-alert>
-            <b-btn variant="primary" @click="jssubmit">Login</b-btn>
 
-            <div class="pull-right">
-                <br/>
-                <b-btn variant="outline-primary"  @click="singUp">회원가입</b-btn>
-                <b-btn variant="outline-primary" href="findPws" @click="findPws">비밀번호찾기</b-btn>
-                <br/>
-                <br/>
-                <br/>
-<%--                <b-btn variant="outline-primary" href="main" @click="main">메인페이지</b-btn>--%>
+			<div class="container">
+				<div class="info">
+					<h1>성공회대 투표 </br> 서비스</h1>
+				</div>
+			</div>
+			<div class="form">
+				<div class="thumbnail">
+					<img
+						src="images/vote.png" alt="" />
+				</div>
+				
+				<form class="login-form">
+					<input type="text" placeholder="username" /> 
+					<input type="password" placeholder="password" />
+					<button>login</button>
+					<p class="message">
+							<br /> <a href="signUp"><span>회원가입 </span></a> <a href="findPws"><span>비밀번호
+							찾기 </span></a></br> <a href="mypage"><span>회원정보 수정 </span></a>
+							</a> <a href="main"><span>메인페이지 </span></a>
+							 <br /> <br /> <br />
+					</p>
+				</form>
+			</div>
 
-            </div>
-        </b-container>
-    </div>
-</form>
 
-<script>
-    window.app = new Vue({
-        el: "#app",
-        data: {
-            userId: '',
-            password: '',
-            showAlert: false,
-            errMsg: ''
-        },
-        methods: {
-            jssubmit: function() {
-                if ( this.userId === '' ) {
-                    this.showAlert = true;
-                    this.errMsg = 'Please enter your ID';
-                    return;
-                }
-                if ( this.password === '' ) {
-                    this.showAlert = true;
-                    this.errMsg = 'Please enter the password';
-                    return;
-                }
-                this.showAlert = false;
-                document.frm.submit();
-            }
-        }
-    })
-</script>
+	</form>
+
+	<script>
+	$('.message a').click(function(){
+		   $('form').animate({height: "toggle", opacity: "toggle"}, "slow");
+		});
+	</script>
 
 </body>
 
