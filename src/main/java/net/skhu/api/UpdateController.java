@@ -19,13 +19,17 @@ import javax.servlet.http.HttpServletResponse;
 
 @Slf4j
 @Controller
-@AllArgsConstructor
 @RequestMapping("/")
 public class UpdateController {
 
-    private PwsService pwsService;
+    private final PwsService pwsService;
 
-    private MemberMapper userMapper;
+    private final MemberMapper userMapper;
+
+    public UpdateController(final PwsService pwsService, final MemberMapper memberMapper) {
+        this.pwsService = pwsService;
+        this.userMapper = memberMapper;
+    }
 
     @GetMapping("findPws")
     public String findPws(Model model,PwsReq pwsReq){

@@ -1,6 +1,7 @@
 package net.skhu.service;
 
 
+import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import net.skhu.domain.Member;
@@ -10,23 +11,37 @@ import net.skhu.mapper.MemberMapper;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import javax.mail.MessagingException;
 import javax.servlet.http.HttpServletResponse;
 import java.io.PrintWriter;
+import java.util.Optional;
 
 @Slf4j
 @Service
-@RequiredArgsConstructor
 public class PwsService {
-
     private final PasswordEncoder passwordEncoder;
     private final MemberMapper memberMapper;
 
-    EmailService emailService;
+    private final EmailService emailService;
+
+    public PwsService(final PasswordEncoder passwordEncoder,
+                      final MemberMapper memberMapper,
+                      final EmailService emailService) {
+        this.passwordEncoder = passwordEncoder;
+        this.memberMapper = memberMapper;
+        this.emailService = emailService;
+    }
 
     public void find_psw(HttpServletResponse response,PwsReq pwsReq) throws Exception{
 
         response.setContentType("text/html;charset=utf-8");
         PrintWriter out = response.getWriter();
+
+        if(pwsReq == null) {
+            out.print("입력");
+            out.close();
+            return;
+        }
 
         Member member= Member.builder()
                 .studentIdx(pwsReq.getId())
@@ -63,18 +78,24 @@ public class PwsService {
     }
 
 
-    public void send_email(Member member, String pw) throws Exception {
+    public void send_email(Member member, String pw) throws MessagingException {
 
-        String sender= "dont_reply";
-        String recipient= member.getEmail();
+        String sender = "dont_reply";
+        String recipient = member.getEmail();
         String subject = "SKHU VOTE(성공회대 투표 시스템) 임시 비밀번호 입니다. 재발신 하지 마세요!";
-        String content="";
+        String content = "";
 
         content += member.getStudentIdx() + "님의 임시 비밀번호 입니다. 비밀번호를 변경하여 사용하세요.";
-        content += "임시 비밀번호 : "+pw ;
+        content += "임시 비밀번호 : " + pw;
 
-        emailService.sendMail(new Email(sender, recipient, subject, content));
+        Email email = Email.builder()
+                .sender(sender)
+                .recipient(recipient)
+                .subject(subject)
+                .content(content)
+                .build();
 
+        emailService.sendMail(email);
     }
 
 }
