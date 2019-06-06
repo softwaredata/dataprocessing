@@ -8,6 +8,7 @@ import net.skhu.dto.PwsReq;
 import net.skhu.dto.SignUpRequest;
 import net.skhu.mapper.UserMapper;
 import net.skhu.service.PwsService;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,11 +22,11 @@ import javax.servlet.http.HttpServletResponse;
 @RequestMapping("/")
 public class UpdateController {
 
-    @Autowired
     private PwsService pwsService;
-    
-    @Autowired
-    UserMapper userMapper;
+
+    private UserMapper userMapper;
+
+    private static org.slf4j.Logger logger = LoggerFactory.getLogger(MainController.class);
 
     @GetMapping("findPws")
     public String findPws(Model model,PwsReq pwsReq){
