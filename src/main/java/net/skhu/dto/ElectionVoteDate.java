@@ -14,12 +14,12 @@ public class ElectionVoteDate {
 
     private LocalDate voteEndDate;
 
-    private String name;
+    private int name;
 
     private int type;
 
     @Builder
-    public ElectionVoteDate(LocalDate voteStartDate, LocalDate voteEndDate, String name, int type) {
+    public ElectionVoteDate(LocalDate voteStartDate, LocalDate voteEndDate, int name, int type) {
         this.voteStartDate = voteStartDate;
         this.voteEndDate = voteEndDate;
         this.name = name;

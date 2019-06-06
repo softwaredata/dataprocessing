@@ -15,7 +15,8 @@ public class CheckVoteDayPossibleService {
 
      public boolean isPossibleVoteDay(ElectionVoteDate electionVoteDate) {
         ElectionVoteDate compareVoteDate = getVoteDate(electionVoteDate);
-        return isCheckIntermediatePeriod(compareVoteDate) || isCheckStartDuration(compareVoteDate.getVoteStartDate()) || isCheckEndDuration(compareVoteDate.getVoteEndDate());
+        return isCheckIntermediatePeriod(compareVoteDate) || isCheckStartDuration(compareVoteDate.getVoteStartDate())
+                || isCheckEndDuration(compareVoteDate.getVoteEndDate());
     }
 
     private ElectionVoteDate getVoteDate(ElectionVoteDate electionVoteDate) {
@@ -27,10 +28,12 @@ public class CheckVoteDayPossibleService {
     }
 
     private boolean isCheckStartDuration(LocalDate startDate){
+
          return startDate.equals(LocalDate.now());
     }
 
     private boolean isCheckEndDuration(LocalDate endDate) {
+
          return endDate.equals(LocalDate.now());
     }
 
