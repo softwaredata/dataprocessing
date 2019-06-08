@@ -50,11 +50,11 @@
                     <!-- Post -->
                     <article class="box post">
                         <header>
-                            <h2><a href="#"><strong>${team.name} 후보</strong></a></h2>
+                            <h2><a href="#"><strong>${team.name} 팀</strong></a></h2>
                         </header>
                         <a href="#" class="image featured"><img src="images/pic05.jpg" alt="" /> </a>
 
-                        <p>1번후보 입니다</p>
+                        <p>${team.name} 팀 입니다</p>
                         <ul class="actions">
                             <li><a href="/teamDetail/${vote}/${team.idx}" class="button icon fa-file">더보기</a></li>
                             <li><a href="#" class="button icon fa-file">투표</a></li>

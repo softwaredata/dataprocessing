@@ -28,7 +28,7 @@
     <!-- Banner -->
         <section id="banner">
             <div class="container">
-                <p><strong>1번 후보</strong></p>
+                <p><strong>${teamDetail.name} 팀</strong></p>
             </div>
         </section>
 
@@ -42,8 +42,10 @@
                         <!-- Post -->
                         <article class="box post">
                             <header>
-                                <h2><a href="#">I don’t want to say <strong>it’s the aliens</strong> ...<br />
-                                    but it’s the aliens.</a></h2>
+                                <h2><a href="#">
+                                     <strong>it’s the aliens</strong>
+                                    </a>
+                                </h2>
                             </header>
                             <a href="#" class="image featured"><img src="images/pic04.jpg" alt="" /></a>
                             <h3>I mean isn't it possible?</h3>
@@ -76,8 +78,8 @@
                                     <!-- Excerpt -->
                                     <article class="box excerpt">
                                         <header>
-                                            <span class="date">July 30</span>
-                                            <h3><a href="#">Just another post</a></h3>
+                                            <span class="date">${teamDetail.candidate1_Idx} ${teamDetail.name1}</span>
+                                            <h3><a href="#"></a></h3>
                                         </header>
                                         <p>Lorem ipsum dolor odio facilisis convallis. Etiam non nunc vel est
                                             suscipit convallis non id orci lorem ipsum sed magna consequat feugiat lorem dolore.</p>
@@ -89,21 +91,8 @@
                                     <!-- Excerpt -->
                                     <article class="box excerpt">
                                         <header>
-                                            <span class="date">July 28</span>
+                                            <span class="date">${teamDetail.candidate2_Idx} ${teamDetail.name2}</span>
                                             <h3><a href="#">And another post</a></h3>
-                                        </header>
-                                        <p>Lorem ipsum dolor odio facilisis convallis. Etiam non nunc vel est
-                                            suscipit convallis non id orci lorem ipsum sed magna consequat feugiat lorem dolore.</p>
-                                    </article>
-
-                                </li>
-                                <li>
-
-                                    <!-- Excerpt -->
-                                    <article class="box excerpt">
-                                        <header>
-                                            <span class="date">July 24</span>
-                                            <h3><a href="#">One more post</a></h3>
                                         </header>
                                         <p>Lorem ipsum dolor odio facilisis convallis. Etiam non nunc vel est
                                             suscipit convallis non id orci lorem ipsum sed magna consequat feugiat lorem dolore.</p>
