@@ -43,62 +43,26 @@
     <section id="main">
         <div class="container">
             <div class="row">
-
+                <c:forEach items="${teamList}" var="team">
                 <!-- Content -->
                 <div id="content" class="col-8 col-12-medium">
 
                     <!-- Post -->
                     <article class="box post">
                         <header>
-                            <h2><a href="#"><strong>1번후보</strong></a></h2>
+                            <h2><a href="#"><strong>${team.name} 후보</strong></a></h2>
                         </header>
                         <a href="#" class="image featured"><img src="images/pic05.jpg" alt="" /> </a>
 
                         <p>1번후보 입니다</p>
                         <ul class="actions">
-                            <li><a href="/teamDetail/${vote}" class="button icon fa-file">더보기</a></li>
+                            <li><a href="/teamDetail/${vote}/${team.idx}" class="button icon fa-file">더보기</a></li>
                             <li><a href="#" class="button icon fa-file">투표</a></li>
                         </ul>
                     </article>
-
                 </div>
+                </c:forEach>
 
-                <!-- Content -->
-                <div id="content2" class="col-8 col-12-medium">
-
-                    <!-- Post -->
-                    <article class="box post">
-                        <header>
-                            <h2><a href="#"><strong>2번후보</strong></a></h2>
-                        </header>
-                        <a href="#" class="image featured"><img src="images/pic05.jpg" alt="" /></a>
-
-                        <p>2번후보 입니다</p>
-                        <ul class="actions">
-                            <li><a href="#" class="button icon fa-file">더보기</a></li>
-                            <li><a href="#" class="button icon fa-file">투표</a></li>
-                        </ul>
-                    </article>
-
-                </div>
-                <!-- Content -->
-                <div id="content3" class="col-8 col-12-medium">
-
-                    <!-- Post -->
-                    <article class="box post">
-                        <header>
-                            <h2><a href="#"><strong>3번후보</strong></a></h2>
-                        </header>
-                        <a href="#" class="image featured"><img src="images/pic05.jpg" alt="" /></a>
-
-                        <p>3번후보</p>
-                        <ul class="actions">
-                            <li><a href="#" class="button icon fa-file">더보기</a></li>
-                            <li><a href="#" class="button icon fa-file">투표</a></li>
-                        </ul>
-                    </article>
-
-                </div>
             </div>
         </div>
     </section>

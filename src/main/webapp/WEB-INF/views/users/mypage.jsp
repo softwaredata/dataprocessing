@@ -60,7 +60,7 @@
 					<!-- 나중에 못 바꾸게 하기~ -->
 					<div class='kickass_field'>
 						<input maxlength='30' required='required' type="text"
-							class="form-control onlyAlphabetAndNumber" id="id" readonly
+							class="form-control onlyAlphabetAndNumber" id="studentIdx" readonly
 							data-rule-required="true" value = "${member.studentIdx}">
 						<lable for="inputId"> 학번 </lable>
 					</div>

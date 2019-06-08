@@ -20,7 +20,7 @@ public interface MemberMapper {
     int findUserMatchEmail(Member user);
 
     //비밀번호 변경
-    @Update("update Member set password = #{password} where studentIdx =#{studentIdx}")
+    @Update("update Member set password = #{password} where studentIdx = #{studentIdx}")
     void updatePws(Member member);
 
     @Select("select count(*) from Member where studentIdx=#{studentIdx}")
