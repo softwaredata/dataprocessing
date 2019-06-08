@@ -31,6 +31,6 @@ public interface MemberMapper {
     Member findByStuId(int studentIdx);
     
     @Update("update Member set name = #{name}, department = #{department}, password = #{password}, email = #{email}"
-    		+ "where studentIdx = #{studentIdx}")
+    		+ " where studentIdx = #{studentIdx}")
     void updateInfo(Member member);
 }

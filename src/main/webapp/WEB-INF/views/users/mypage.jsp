@@ -52,8 +52,7 @@
 
 
 	<div id="container">
-		<form class="form-horizontal" role="form" method="post"
-			action="javascript:alert( 'success!' );">
+		<form class="form-horizontal" role="form" method="post">
 
 			<fieldset>
 				<div class="form-group" id="divId">
@@ -191,11 +190,11 @@
 			});
 
 			//------- 검사하여 상태를 class에 적용
-			$('#id').keyup(function(event) {
+			$('#studentIdx').keyup(function(event) {
 
 				var divId = $('#divId');
 
-				if ($('#id').val() == "") {
+				if ($('#studentIdx').val() == "") {
 					divId.removeClass("has-success");
 					divId.addClass("has-error");
 				} else {
@@ -271,7 +270,7 @@
 						var divPhoneNumber = $('#divPhoneNumber');
 
 						//아이디 검사
-						if ($('#id').val() == "") {
+						if ($('#studentIdx').val() == "") {
 							modalContents.text("아이디를 입력하여 주시기 바랍니다.");
 							modal.modal('show');
 
@@ -356,7 +355,7 @@
 						}
 
 
-		});
+		})});
 	</script>
 	<!--// 본문 들어가는 부분 -->
 	<hr />

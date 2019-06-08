@@ -60,7 +60,7 @@ public class UpdateController {
     @PostMapping("mypage")
     public String mypage(Model model,Member member){
 
-    	
+    	logger.info(member.getName());
     	memberMapper.updateInfo(member);
         model.addAttribute("member",member);
         return "redirect:/mypage";
