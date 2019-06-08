@@ -9,9 +9,11 @@ import lombok.NoArgsConstructor;
 public class Team {
     int idx;
     String name;
-    int candidate1Idx;
-    int candidate2Idx;
-    String text;;
+    String name1;
+    String name2;
+    int candidate1_Idx;
+    int candidate2_Idx;
+    String pledge;
     String reccoPhotoUrl;
     String electioneeringFileUrl;
     String teamPhotoUrl;
@@ -22,14 +24,14 @@ public class Team {
     int typeChk;
 
     @Builder
-    public Team(int idx,String name,int candidate1Idx, int candidate2Idx, String text, String reccoPhotoUrl,
-            String electioneeringFileUrl, String teamPhotoUrl, String oathPhotoUrl, int electionIdx,
+    public Team(int idx, String name, int candidate1_Idx, int candidate2_Idx, String pledge, String reccoPhotoUrl,
+                String electioneeringFileUrl, String teamPhotoUrl, String oathPhotoUrl, int electionIdx,
                 String candidate1CertiUrl, String candidate2CertiUrl, int typeChk){
 
         this.idx = idx;
-        this.candidate1Idx = candidate1Idx;
-        this.candidate2Idx = candidate2Idx;
-        this.text =text;
+        this.candidate1_Idx = candidate1_Idx;
+        this.candidate2_Idx = candidate2_Idx;
+        this.pledge =pledge;
         this. reccoPhotoUrl =reccoPhotoUrl;
         this.electioneeringFileUrl =electioneeringFileUrl;
         this.teamPhotoUrl =teamPhotoUrl;
