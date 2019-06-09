@@ -2,7 +2,6 @@ package net.skhu.mapper;
 
 import net.skhu.domain.Team;
 import org.apache.ibatis.annotations.*;
-import org.springframework.context.annotation.Bean;
 
 import java.util.List;
 
