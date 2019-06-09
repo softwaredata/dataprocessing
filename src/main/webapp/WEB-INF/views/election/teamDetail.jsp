@@ -43,12 +43,12 @@
                         <article class="box post">
                             <header>
                                 <h2><a href="#">
-                                     <strong>it’s the aliens</strong>
+                                     <strong>팀별 강조할 말 한문장</strong>
                                     </a>
                                 </h2>
                             </header>
-                            <a href="#" class="image featured"><img src="images/pic04.jpg" alt="" /></a>
-                            <h3>I mean isn't it possible?</h3>
+                            <a href="#" class="image featured"><img src="images/pic04.jpg" alt="" />후보팀 사진</a>
+                            <h3>공약</h3>
                             <p>Phasellus laoreet massa id justo mattis pharetra. Fusce suscipit
                                 ligula vel quam viverra sit amet mollis tortor congue. Sed quis mauris
                                 sit amet magna accumsan tristique. Curabitur leo nibh, rutrum eu malesuada
@@ -58,6 +58,13 @@
                                 justo mattis pharetra. Fusce suscipit ligula vel quam viverra sit amet
                                 mollis tortor congue. Sed quis mauris sit amet magna accumsan tristique.
                                 Curabitur leo nibh, rutrum eu malesuada in tristique.</p>
+
+                            <ul class="actions">
+                                <li><a href="#image_url" class="button icon fa-file" onclick="window.open(this.href,'팝업창','width=800,height=700');return false" >추천서</a></li>
+                                <li><a href="#image_url" class="button icon fa-file" onclick="window.open(this.href,'팝업창','width=800,height=700');return false">운동본부원 명단</a></li>
+                                <li><a href="#image_url" class="button icon fa-file" onclick="window.open(this.href,'팝업창','width=800,height=700');return false">선거 서약서</a></li>
+                            </ul>
+
                             <ul class="actions">
                                 <li><a href="/election/${vote}" class="button icon fa-file">투표창으로</a></li>
                             </ul>
@@ -78,11 +85,11 @@
                                     <!-- Excerpt -->
                                     <article class="box excerpt">
                                         <header>
-                                            <span class="date">${teamDetail.candidate1_Idx} ${teamDetail.name1}</span>
+                                            <span class="date">정후보: ${teamDetail.candidate1_Idx} ${teamDetail.name1}</span>
                                             <h3><a href="#"></a></h3>
                                         </header>
-                                        <p>Lorem ipsum dolor odio facilisis convallis. Etiam non nunc vel est
-                                            suscipit convallis non id orci lorem ipsum sed magna consequat feugiat lorem dolore.</p>
+                                        <a href="#" class="image featured"><img src="images/pic04.jpg" alt="" /> 정후보 사진</a>
+                                        <p> 정후보 간단한 소개? 넣을까 말까</p>
                                     </article>
 
                                 </li>
@@ -91,11 +98,11 @@
                                     <!-- Excerpt -->
                                     <article class="box excerpt">
                                         <header>
-                                            <span class="date">${teamDetail.candidate2_Idx} ${teamDetail.name2}</span>
-                                            <h3><a href="#">And another post</a></h3>
+                                            <span class="date">부후보: ${teamDetail.candidate2_Idx} ${teamDetail.name2}</span>
+
                                         </header>
-                                        <p>Lorem ipsum dolor odio facilisis convallis. Etiam non nunc vel est
-                                            suscipit convallis non id orci lorem ipsum sed magna consequat feugiat lorem dolore.</p>
+                                        <a href="#" class="image featured"><img src="images/pic04.jpg" alt="" /> 부후보 사진</a>
+                                        <p>부후보 간단한 소개? 넣을까 말까</p>
                                     </article>
 
                                 </li>
