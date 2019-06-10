@@ -15,13 +15,13 @@ public class VoteService {
     public void voteCandidate(ElectionVoteDate electionVoteDate) {
 
         if (isChairpersonTotalStudentVote(electionVoteDate.getType()))
-            electionMapper.insertChairpersonTotalStudentVote(electionVoteDate.getName());
+            electionMapper.insertChairpersonTotalStudentVote(electionVoteDate.getIdx());
 
         if (isFaciltyRepresentativeVote(electionVoteDate.getType()))
-            electionMapper.insertFaciltyRepresentativeVote(electionVoteDate.getName());
+            electionMapper.insertFaciltyRepresentativeVote(electionVoteDate.getIdx());
 
         if (isMajorRepresentativeVote(electionVoteDate.getType()))
-            electionMapper.insertMajorRepresentativeVote(electionVoteDate.getName());
+            electionMapper.insertMajorRepresentativeVote(electionVoteDate.getIdx());
     }
 
     private boolean isChairpersonTotalStudentVote(int type) {
