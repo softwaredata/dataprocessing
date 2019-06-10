@@ -85,7 +85,7 @@
                                     <!-- Excerpt -->
                                     <article class="box excerpt">
                                         <header>
-                                            <span class="date">정후보: ${teamDetail.candidate1_Idx} ${teamDetail.name1}</span>
+                                            <span class="date">정후보: ${teamDetail.candidate1idx} ${teamDetail.name1}</span>
                                             <h3><a href="#"></a></h3>
                                         </header>
                                         <a href="#" class="image featured"><img src="images/pic04.jpg" alt="" /> 정후보 사진</a>
@@ -98,7 +98,7 @@
                                     <!-- Excerpt -->
                                     <article class="box excerpt">
                                         <header>
-                                            <span class="date">부후보: ${teamDetail.candidate2_Idx} ${teamDetail.name2}</span>
+                                            <span class="date">부후보: ${teamDetail.candidate2idx} ${teamDetail.name2}</span>
 
                                         </header>
                                         <a href="#" class="image featured"><img src="images/pic04.jpg" alt="" /> 부후보 사진</a>
