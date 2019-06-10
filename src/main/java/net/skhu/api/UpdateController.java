@@ -47,7 +47,7 @@ public class UpdateController {
     
     //개인정보 수정 
     @GetMapping("mypage")
-    public String mypage(Model model,SignUpRequest mypage){
+    public String mypage(Model model){
 
     	
     	Member member = memberMapper.findByStuId(201632009);
@@ -60,7 +60,8 @@ public class UpdateController {
     @PostMapping("mypage")
     public String mypage(Model model,Member member){
 
-    	logger.info(member.getName());
+        logger.info(member.toString());
+
     	memberMapper.updateInfo(member);
         model.addAttribute("member",member);
         return "redirect:/mypage";
