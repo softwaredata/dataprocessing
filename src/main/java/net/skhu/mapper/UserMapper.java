@@ -14,10 +14,22 @@ public interface UserMapper {
             "values(#{name}, #{studentIdx}, #{department}, #{password}, #{email}, #{type})")
     void insertUsers(Member member);
 
-    @Select("select * from Member where studentIdx = #{studentIdx} and email = #{email}")
-    Member findUser(Member user);
+    //학번과 이메일이 일치하는 사람이 있는지 조회
+    @Select("select count(*) from Member where studentIdx = #{studentIdx} and email = #{email}")
+    int findUserMatchEmail(Member user);
 
-
-    @Update("update Member set password = #{password} where studentIdx ={studentIdx}")
+    //비밀번호 변경
+    @Update("update Member set password = #{password} where studentIdx =#{studentIdx}")
     void updatePws(Member member);
+
+    @Select("select count(*) from Member where studentIdx=#{studentIdx}")
+    int findUser(int studentIdx);
+    
+    //개인정보 변경
+    @Select("SELECT * FROM Member WHERE studentIdx = #{id}")
+    Member findByStuId(@Param("id") int idx);
+    
+    @Update("update Member set name = #{name}, department = #{department}, password = #{password}, email = #{email}"
+    		+ "where studentIdx = #{studentIdx}")
+    void updateInfo(Member member);
 }

@@ -1,14 +1,11 @@
 package net.skhu.domain;
 
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Getter
 @NoArgsConstructor
+@Setter
 public class Member {
-
-    private Long id;
 
     private String name;
 

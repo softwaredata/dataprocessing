@@ -29,7 +29,7 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 
         http.csrf().disable().authorizeRequests()
-                .antMatchers("/api/v1/**", "/login", "/", "/signUp", "/findPassword").permitAll()
+                .antMatchers("/api/v1/**","/home", "/login", "/","/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
         .formLogin()

@@ -27,6 +27,14 @@
 
     <dependencies>
 
+        <!-- add params -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-params</artifactId>
+            <version>5.4.0-M1</version>
+            <scope>test</scope>
+        </dependency>
+
         <!-- 개발용 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -155,12 +163,29 @@
             <version>${security.version}</version>
         </dependency>
 
+<<<<<<< HEAD
         <!-- spring security 확장 태그 라이브러리 -->
         <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-taglibs</artifactId>
             <version>${security.version}</version>
         </dependency>
+=======
+        <!-- java mail -->
+        <dependency>
+            <groupId>javax.mail</groupId>
+            <artifactId>mail</artifactId>
+            <version>1.4.7</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context-support</artifactId>
+            <version>3.1.1.RELEASE</version>
+        </dependency>
+
+
+>>>>>>> develop
 
         <!-- JWT -->
         <dependency>
@@ -177,6 +202,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
         </plugins>
+
     </build>
 
 </project>
