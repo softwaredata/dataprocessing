@@ -22,12 +22,15 @@ import java.util.Optional;
  */
 
 @Slf4j
-@AllArgsConstructor
 @Controller
 public class AdminController {
-    final ElectionService electionService;
+    private final ElectionService electionService;
 
-    @Secured("ROLE_ADMIN")
+    public AdminController(final ElectionService electionService) {
+        this.electionService = electionService;
+    }
+
+    //@Secured("ROLE_ADMIN")
     @GetMapping("admin/electionManagement")
     public String electionManagement(Model model) {
         final List<Election> list = electionService.getNowElections();
@@ -43,7 +46,7 @@ public class AdminController {
         return  "admin/electionManagement";
     }
 
-    @Secured("ROLE_ADMIN")
+    //@Secured("ROLE_ADMIN")
     @PostMapping("admin/electionManagement")
     public String electionManagement(@RequestBody(required = false) final Optional<ElectionRequest> electionRequest) {
         if(electionRequest.isPresent()) {

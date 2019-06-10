@@ -7,6 +7,8 @@
 --%>
 <%@ page contentType="text/html; charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:url var="R" value="/" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,36 +28,34 @@
 
 
         <!-- 합쳐지고 최소화된 최신 CSS -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 
         <!-- 부가적인 테마 -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
 
         <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+     <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
 
 
-        <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <link rel="stylesheet" type="text/css" href="${R}resources/bootstrap/css/datepicker3.css" />
+    <script type="text/javascript" src="${R}resources/bootstrap/js/bootstrap-datepicker.js"></script>
+    <script type="text/javascript" src="${R}resources/bootstrap/js/bootstrap-datepicker.kr.js"></script>
 
-
-
-        <link rel="stylesheet" type="text/css" href="../../../bootstrap/css/datepicker3.css" />
-        <script type="text/javascript" src="../../../bootstrap/js/bootstrap-datepicker.js"></script>
-        <script type="text/javascript" src="../../../bootstrap/js/bootstrap-datepicker.kr.js"></script>
-
-    <link rel="stylesheet" href="../../../assets/css/main.css" />
-    <link rel="stylesheet" type="text/css" href="../../../assets/css/electionManagement.css"/>
+    <link rel="stylesheet" type="text/css" href="${R}assets/css/main.css" />
+    <link rel="stylesheet" type="text/css" href="${R}resources/bootstrap/css/electionManagement.css"/>
     <title>Title</title>
 </head>
 <body>
 <!-- Header -->
 <%@include file="/WEB-INF/include/menu.jsp"%>
 
-<div class="container">
+<!--<div class="container">-->
 
     <div class="date-management">
         <h2><input type="text" class="generation" name="general"/>회 총학생회 대표 선거</h2>
-        <span>후보자 등록 기간</span>
+        <div class="variety"><span>후보자 등록 기간</span></div>
         <!--<input type="text" class="datetimes" name="generalDateTime" />-->
         <div class="container">
             <div class='col-md-5'>
@@ -79,7 +79,7 @@
                 </div>
             </div>
         </div>
-        <span>투표 기간</span>
+        <div class="variety"><span>투표 기간</span></div>
        <!-- <input type="text" class="datetimes" name="generalDateTime" />-->
         <div class="container">
             <div class='col-md-5'>
@@ -108,7 +108,7 @@
     <hr/>
     <div class="date-management">
         <h2><input type="text" class="generation" name="college"/>회 학부 대표 선거</h2>
-        <span>후보자 등록 기간</span>
+        <div class="variety"><span>후보자 등록 기간</span></div>
         <!--<input type="text" class="datetimes" name="generalDateTime" />-->
         <div class="container">
             <div class='col-md-5'>
@@ -132,7 +132,7 @@
                 </div>
             </div>
         </div>
-        <span>투표 기간</span>
+        <div class="variety"><span>투표 기간</span></div>
         <!--<input type="text" class="datetimes" name="generalDateTime" />-->
         <div class="container">
             <div class='col-md-5'>
@@ -161,7 +161,7 @@
     <hr/>
     <div class="date-management">
         <h2><input type="text" class="generation" name="major"/>회 전공 대표 선거</h2>
-        <span>후보자 등록 기간</span>
+        <div class="variety"><span>후보자 등록 기간</span></div>
         <!--<input type="text" class="datetimes" name="generalDateTime" />-->
         <div class="container">
             <div class='col-md-5'>
@@ -185,7 +185,7 @@
                 </div>
             </div>
         </div>
-        <span>투표 기간</span>
+        <div class="variety"><span>투표 기간</span></div>
         <!--<input type="text" class="datetimes" name="generalDateTime" />-->
         <div class="container">
             <div class='col-md-5'>
@@ -212,7 +212,7 @@
         <button>save</button>
     </div>
 
-</div>
+<!--</div>-->
 </body>
 <script>
     // $(function() {

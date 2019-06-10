@@ -14,18 +14,18 @@ import java.util.List;
 @Mapper
 public interface ElectionMapper {
     @Select("SELECT name, vote_start_date, vote_end_date, type, reg_start_date, reg_end_date " +
-            "FROM election WHERE vote_end_date >= #{now}")
+            "FROM Election WHERE vote_end_date >= #{now}")
     List<Election> findElections(@Param("now")final LocalDateTime dateTime);
 
     @Select("SELECT name, vote_start_date, vote_end_date, type, reg_start_date, reg_end_date " +
-            "FROM election WHERE name = #{name} AND type = #{type}")
+            "FROM Election WHERE name = #{name} AND type = #{type}")
     Election findByName(@Param("name") final int name, @Param("type") final int type);
 
-    @Insert("INSERT INTO election(name, vote_start_date, vote_end_date, type, reg_start_date, reg_end_date) " +
+    @Insert("INSERT INTO Election(name, vote_start_date, vote_end_date, type, reg_start_date, reg_end_date) " +
             "VALUES(#{name}, #{voteStartDate}, #{voteEndDate}, #{type}, #{regDateDate}, #{redEndDate})")
     void create(final Election election);
 
-    @Update("UPDATE election SET name = #{name}, vote_start_date = #{voteStartDate}, vote_end_date = #{voteEndDate}" +
+    @Update("UPDATE Election SET name = #{name}, vote_start_date = #{voteStartDate}, vote_end_date = #{voteEndDate}" +
             "type = #{type}, reg_start_date = #{regStartDate}, reg_end_date = #{regEndDate}" +
             "WHERE idx = #{idx}")
     void update(final Election election);

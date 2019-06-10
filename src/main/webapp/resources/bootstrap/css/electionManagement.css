@@ -10,10 +10,22 @@ body {
 	text-align: center;
 }
 
-.container {
-	padding: 0 0 3.0em 0;
+.variety {
+	padding-left: 5%;
+	padding-bottom: 0.5%;
+	text-align: left;
 }
 
+.container {
+	padding: 0 0 3.0em 0;
+	text-align: center;
+	/**width: 100%;**/
+}
+
+.col-md-5 {
+	display: inline-block;
+	width: 45%;
+}
 
 h2 {
 	margin: 0 0 0.8em 0;
