@@ -1,6 +1,6 @@
 package net.skhu.config.jwt.provider;
 
-import lombok.AllArgsConstructor;
+
 import lombok.extern.slf4j.Slf4j;
 import net.skhu.config.jwt.JwtDecoder;
 import net.skhu.config.jwt.token.JwtPreProcessingToken;
@@ -14,11 +14,14 @@ import org.springframework.stereotype.Component;
  */
 
 @Slf4j
-@AllArgsConstructor
 @Component
 public class JwtProvider implements AuthenticationProvider {
 
     private final JwtDecoder jwtDecoder;
+
+    public JwtProvider(JwtDecoder jwtDecoder) {
+        this.jwtDecoder = jwtDecoder;
+    }
 
     @Override
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {
