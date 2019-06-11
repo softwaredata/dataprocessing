@@ -19,6 +19,18 @@ public class Member {
 
     private Integer type;
 
+    @Override
+    public String toString() {
+        return "Member{" +
+                "name='" + name + '\'' +
+                ", studentIdx=" + studentIdx +
+                ", department='" + department + '\'' +
+                ", password='" + password + '\'' +
+                ", email='" + email + '\'' +
+                ", type=" + type +
+                '}';
+    }
+
     @Builder
     public Member(String name, Integer studentIdx, String department, String password, String email, int type) {
         this.name = name;

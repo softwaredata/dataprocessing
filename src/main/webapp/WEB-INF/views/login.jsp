@@ -50,6 +50,7 @@
 							찾기 </span></a></br> <a href="mypage"><span>회원정보 수정 </span></a>
 							</a> <a href="main"><span>메인페이지 </span></a>
 							 <br /> <br /> <br />
+						<a href="creCandidate"><span>입후보 등록 </span></a>
 					</p>
 				</form>
 			</div>
