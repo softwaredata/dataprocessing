@@ -72,7 +72,7 @@ public class UpdateController {
 
     	memberMapper.updateInfo(member);
         redirectAttributes.addAttribute("member",member);
-        return "mypage";
+        return "redirect:users/mypage";
     }
     
 

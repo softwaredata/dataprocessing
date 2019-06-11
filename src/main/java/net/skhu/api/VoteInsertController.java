@@ -30,14 +30,6 @@ public class VoteInsertController {
         return new ResponseEntity<>(member, HttpStatus.OK);
     }
 
-    //입후보 등록
-    @GetMapping("creCandidate")
-    public String createCandidate(Model model ){
-
-
-        return "users/creCandidate";
-    }
-
 
 
 
