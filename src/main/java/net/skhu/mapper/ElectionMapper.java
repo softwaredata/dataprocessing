@@ -14,8 +14,8 @@ import java.util.List;
 @Mapper
 public interface ElectionMapper {
     @Select("SELECT name, vote_start_date, vote_end_date, type, reg_start_date, reg_end_date " +
-            "FROM Election WHERE vote_end_date >= #{now}")
-    List<Election> findElections(@Param("now")final LocalDateTime dateTime);
+            "FROM Election")
+    List<Election> findElections();
 
     @Select("SELECT name, vote_start_date, vote_end_date, type, reg_start_date, reg_end_date " +
             "FROM Election WHERE name = #{name} AND type = #{type}")

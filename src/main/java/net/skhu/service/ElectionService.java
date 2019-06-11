@@ -23,8 +23,7 @@ public class ElectionService {
 
     @Transactional(readOnly = true)
     public List<Election> getNowElections() {
-        final LocalDateTime now = LocalDateTime.now();
-        return electionMapper.findElections(now);
+        return electionMapper.findElections();
     }
 
     @Transactional
@@ -47,8 +46,11 @@ public class ElectionService {
 
     @Transactional
     public void setElection(final ElectionRequest electionRequest) {
+        log.error("service");
         Election election = electionMapper.findByName(electionRequest.getName(), electionRequest.getType());
         if(election == null) return;
+        log.error(election.toString());
+        log.error("election is not null");
 
         election = Election.builder()
                 .name(electionRequest.getName())
@@ -59,8 +61,11 @@ public class ElectionService {
                 .voteEndDate(LocalDateTime.parse(electionRequest.getVoteEndDate()))
                 .build();
 
+        log.error("election", election);
+
         try {
             electionMapper.update(election);
+            log.error("election Update success", election);
         } catch(Exception e) {
             log.error(e.getMessage());
         }

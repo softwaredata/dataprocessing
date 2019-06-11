@@ -34,13 +34,18 @@ public class AdminController {
     @GetMapping("admin/electionManagement")
     public String electionManagement(Model model) {
         final List<Election> list = electionService.getNowElections();
-        StringBuilder sb = new StringBuilder();
 
+        String type = "";
         for(Election election : list) {
-            sb.append("election")
-                    .append(election.getType());
-
-            model.addAttribute(sb.toString(), election);
+            if(election.getType() == 1) {
+                type = "general";
+            } else if(election.getType() == 2) {
+                type = "department";
+            } else if(election.getType() == 3) {
+                type = "major";
+            }
+            model.addAttribute(type, election);
+//            log.error(election.toString());
         }
 
         return  "admin/electionManagement";
@@ -48,11 +53,19 @@ public class AdminController {
 
     //@Secured("ROLE_ADMIN")
     @PostMapping("admin/electionManagement")
-    public String electionManagement(@RequestBody(required = false) final Optional<ElectionRequest> electionRequest) {
+    public String electionManagement(final Optional<ElectionRequest> electionRequest) {
+        log.error("enter the method");
         if(electionRequest.isPresent()) {
+            log.error("electionRequest is Present!!", electionRequest);
+            log.error(electionRequest.get().getRegStartDate());
+            log.error(electionRequest.get().getRegEndDate());
+            log.error(electionRequest.get().getVoteStartDate());
+            log.error(electionRequest.get().getVoteEndDate());
+
             final ElectionRequest election = electionRequest.get();
+            log.error("여기까지");
             electionService.setElection(election);
         }
-        return "admin/electionManagement";
+        return "redirect:/main";
     }
 }
