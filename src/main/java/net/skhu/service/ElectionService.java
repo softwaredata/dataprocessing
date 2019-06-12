@@ -39,7 +39,13 @@ public class ElectionService {
     }
 
     public String electionCheck(Model model,int type, HttpServletResponse response) throws IOException{
-        ElectionVoteDate electionVoteDate =electionMapper.findByVoteDate1(type);
+//        ElectionVoteDate electionVoteDate =electionMapper.findByVoteDate1(type);
+        ElectionVoteDate electionVoteDate=ElectionVoteDate.builder()
+                .type(type)
+                .build();
+
+        response.setContentType("text/html;charset=utf-8");
+        PrintWriter out = response.getWriter();
 
         if(isPossibleVote(electionVoteDate)){
             List<Team> teamList = teamMapper.findTeams(type);
@@ -47,11 +53,10 @@ public class ElectionService {
             return "election/election1";
         }
         else {
-            response.setContentType("text/html;charset=utf-8");
-            PrintWriter out = response.getWriter();
-            out.print("선거가 개설되지 않았습니다");
-            out.close();
-            return "main/main";
+            model.addAttribute("error",-1);
+            model.addAttribute("msg", "not open election");
+
+            return "redirect:/main";
         }
     }
 
