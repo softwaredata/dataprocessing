@@ -7,15 +7,8 @@ import net.skhu.service.CheckVoteDayPossibleService;
 import net.skhu.service.ElectionService;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-
-import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.List;
 
 @Slf4j
 @Controller
@@ -44,21 +37,7 @@ public class MainController {
         return "main/main";
     }
 
-    @GetMapping("election/{vote}")
-    public String election(Model model, @PathVariable("vote") int vote, HttpServletResponse response) throws IOException {
-        model.addAttribute("vote",vote);
-        return electionService.electionCheck(model,vote,response);
 
-    }
-
-    @GetMapping("teamDetail/{vote}/{teamNum}")
-    public String teamDetail(Model model, @PathVariable("vote") int vote,@PathVariable("teamNum") int teamNum){
-        Team teamDetail =teamMapper.findTeamOfDetail(teamNum);
-
-        model.addAttribute("teamDetail",teamDetail);
-        model.addAttribute("vote",vote);
-        return "election/teamDetail";
-    }
 
 
 }
