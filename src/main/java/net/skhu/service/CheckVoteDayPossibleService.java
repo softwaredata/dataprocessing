@@ -1,8 +1,10 @@
 package net.skhu.service;
 
 import lombok.RequiredArgsConstructor;
+import net.skhu.api.ElectionController;
 import net.skhu.dto.ElectionVoteDate;
 import net.skhu.mapper.ElectionMapper;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -10,7 +12,6 @@ import java.time.LocalDate;
 @Service
 @RequiredArgsConstructor
 public class CheckVoteDayPossibleService {
-
     private final ElectionMapper electionMapper;
 
      public boolean isPossibleVoteDay(ElectionVoteDate electionVoteDate) {

@@ -28,10 +28,10 @@
     <section id="banner">
         <div class="container">
             <c:if test="${vote==1}">
-                <p><strong>총 학생회장 선거</strong></p>
+                <p><strong>${election.name}대 총 학생회장 선거</strong></p>
             </c:if>
             <c:if test="${vote==2}">
-                <p><strong>학부대표 선거</strong></p>
+                <p><strong>${election.name}대 학부대표 선거</strong></p>
             </c:if>
             <c:if test="${vote==3}">
                 <p><strong>전공대표 선거</strong></p>
@@ -57,8 +57,13 @@
                         <p>${team.name} 팀 입니다</p>
                         <ul class="actions">
                             <li><a href="/teamDetail/${vote}/${team.idx}" class="button icon fa-file">더보기</a></li>
-                            <li><a href="#" class="button icon fa-file">투표</a></li>
+<%--                            <li><a href="" class="button icon fa-file">투표</a></li>--%>
                         </ul>
+                        <form action="/goForVote" method="post">
+                            <input type="hidden" name="studentidx" value="201432005">
+                            <input type="hidden" name="electionidx" value="${election.idx}">
+                            <button name="submit" class="button icon fa-file">투표</button>
+                        </form>
                     </article>
                 </div>
                 </c:forEach>
