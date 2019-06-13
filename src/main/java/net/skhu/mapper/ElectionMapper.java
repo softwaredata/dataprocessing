@@ -9,11 +9,11 @@ import java.util.List;
 @Mapper
 public interface ElectionMapper {
 
-    @Select("select * from Election where name = #{name} and type = #{type}")
-    ElectionVoteDate findByVoteDate(ElectionVoteDate electionVoteDate);
+//    @Select("select * from Election where name = #{name} and type = #{type}")
+//    ElectionVoteDate findByVoteDate(ElectionVoteDate electionVoteDate);
 
     @Select("select * from Election where type = #{type}")
-    ElectionVoteDate findByVoteDate1(int type);
+    ElectionVoteDate findByVoteDate(int type);
 
 
 }

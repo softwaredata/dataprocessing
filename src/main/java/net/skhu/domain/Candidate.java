@@ -1,3 +1,6 @@
+/*
+minsub
+ */
 package net.skhu.domain;
 
 import lombok.Builder;

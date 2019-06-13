@@ -19,12 +19,8 @@ public class CheckVoteDayPossibleService {
                 || isCheckEndDuration(compareVoteDate.getVoteEndDate());
     }
 
-//    private ElectionVoteDate getVoteDate(ElectionVoteDate electionVoteDate) {
-//         return electionMapper.findByVoteDate(electionVoteDate);
-//    }
-
     private ElectionVoteDate getVoteDate(ElectionVoteDate electionVoteDate) {
-        return electionMapper.findByVoteDate1(electionVoteDate.getType());
+        return electionMapper.findByVoteDate(electionVoteDate.getType());
     }
 
     private boolean isCheckIntermediatePeriod(ElectionVoteDate electionVoteDate) {

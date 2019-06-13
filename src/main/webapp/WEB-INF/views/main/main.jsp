@@ -23,13 +23,6 @@
     <!-- Header -->
     <%@include file="/WEB-INF/include/menu.jsp"%>
 
-    <c:if test="${error == -1}">
-    <script type="text/javascript" >
-        var message = "${msg}";
-        alert(message);
-    </script>
-    </c:if>
-
     <!-- Features -->
     <section id="features">
         <div class="container">
