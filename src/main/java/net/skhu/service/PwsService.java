@@ -1,7 +1,6 @@
 package net.skhu.service;
 
 
-import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import net.skhu.domain.Member;
 import net.skhu.dto.PwsReq;
@@ -10,18 +9,24 @@ import net.skhu.mapper.MemberMapper;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import javax.mail.MessagingException;
 import javax.servlet.http.HttpServletResponse;
 import java.io.PrintWriter;
 
 @Slf4j
 @Service
-@RequiredArgsConstructor
 public class PwsService {
 
     private final PasswordEncoder passwordEncoder;
     private final MemberMapper memberMapper;
 
     EmailService emailService;
+
+    public PwsService(PasswordEncoder passwordEncoder, MemberMapper memberMapper,EmailService emailService) {
+        this.passwordEncoder = passwordEncoder;
+        this.memberMapper = memberMapper;
+        this.emailService =emailService;
+    }
 
     public void find_psw(HttpServletResponse response,PwsReq pwsReq) throws Exception{
 
@@ -33,8 +38,16 @@ public class PwsService {
                 .email(pwsReq.getEmail())
                 .build();
 
+        if(pwsReq.getId() == null) {
+            out.print("아이디를 입력하세요");
+            out.close();
+        }
+        else if(pwsReq.getEmail()==null) {
+            out.print("이메일을 입력하세요");
+            out.close();
+        }
         // 아이디가 없으면
-        if(memberMapper.findUser(member.getStudentIdx())==0) {
+        else if(memberMapper.findUser(member.getStudentIdx())==0) {
             out.print("존재하지 않는 아이디 입니다.");
             out.close();
         }
@@ -62,7 +75,7 @@ public class PwsService {
     }
 
 
-    public void send_email(Member member, String pw) throws Exception {
+    public void send_email(Member member, String pw) throws MessagingException {
 
         String sender= "dont_reply";
         String recipient= member.getEmail();
@@ -72,7 +85,14 @@ public class PwsService {
         content += member.getStudentIdx() + "님의 임시 비밀번호 입니다. 비밀번호를 변경하여 사용하세요.";
         content += "임시 비밀번호 : "+pw ;
 
-        emailService.sendMail(new Email(sender, recipient, subject, content));
+        Email email = Email.builder()
+                .sender(sender)
+                .recipient(recipient)
+                .subject(subject)
+                .content(content)
+                .build();
+
+        emailService.sendMail(email);
 
     }
 
