@@ -17,7 +17,7 @@ public interface UserToElectionMapper {
             "where student_idx = #{studentidx} and election_idx = #{electionidx}")
     int findMemberPossibleVote(UserToElection userToElection);
 
-    @Insert("insert into User_to_election (student_idx,election_idx) values (#{studentidx},#{electionidx})")
+    @Insert("insert into User_to_election (student_idx,election_idx,team_idx,abandonment) values (#{studentidx},#{electionidx},#{teamidx},#{abandonment})")
     void goToVote(UserToElection userToElection);
 
 }

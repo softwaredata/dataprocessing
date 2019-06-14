@@ -66,7 +66,7 @@
                             </ul>
 
                             <ul class="actions">
-                                <li><a href="/election/${vote}" class="button icon fa-file">투표창으로</a></li>
+                                <li><a href="/election/${electionType}" class="button icon fa-file">투표창으로</a></li>
                             </ul>
                         </article>
 

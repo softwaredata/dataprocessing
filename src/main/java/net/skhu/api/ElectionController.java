@@ -4,7 +4,6 @@ minsub
 package net.skhu.api;
 
 import lombok.extern.slf4j.Slf4j;
-import net.skhu.domain.Election;
 import net.skhu.domain.Team;
 import net.skhu.domain.UserToElection;
 import net.skhu.mapper.TeamMapper;
@@ -38,30 +37,34 @@ public class ElectionController {
         this.checkVoteDayPossibleService = checkVoteDayPossibleService;
     }
 
-    @GetMapping("election/{vote}")
-    public String election(Model model, @PathVariable("vote") int vote, HttpServletResponse response) throws IOException {
-        model.addAttribute("vote",vote);
-        boolean electionCheck= electionService.electionCheck(model,vote,response);
+    @GetMapping("election/{electionType}")
+    public String election(Model model, @PathVariable("electionType") int electionType, HttpServletResponse response) throws IOException {
+        model.addAttribute("electionType",electionType);
+        boolean electionCheck= electionService.electionCheck(model,electionType,response);
         if(electionCheck == true)
             return "election/election1";
         else
             return "main/main";
     }
 
-    @GetMapping("teamDetail/{vote}/{teamNum}")
-    public String teamDetail(Model model,UserToElection userToElection, @PathVariable("vote") int vote,@PathVariable("teamNum") int teamNum){
+    @GetMapping("teamDetail/{electionType}/{teamNum}")
+    public String teamDetail(Model model,UserToElection userToElection, @PathVariable("electionType") int electionType,
+                             @PathVariable("teamNum") int teamNum){
         Team teamDetail =teamMapper.findTeamOfDetail(teamNum);
 
         model.addAttribute("teamDetail",teamDetail);
-        model.addAttribute("vote",vote);
+        model.addAttribute("vote",electionType);
         return "election/teamDetail";
     }
 
     @PostMapping("goForVote")
-    public void memberToVote(@Param("studentidx") int studentidx,@Param("electionidx") int electionidx, HttpServletResponse response) throws IOException {
+    public void memberToVote(@Param("studentidx") int studentidx, @Param("electionidx") int electionidx,
+                             @Param("teamidx") Integer teamidx,@Param("abandonment") int abandonment, HttpServletResponse response) throws IOException {
         UserToElection userToElection=UserToElection.builder()
                 .studentidx(studentidx)
                 .electionidx(electionidx)
+                .teamidx(teamidx)
+                .abandonment(abandonment)
                 .build();
         electionService.studentGoVote(userToElection,response);
 

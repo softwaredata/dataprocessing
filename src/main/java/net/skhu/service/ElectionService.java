@@ -45,18 +45,18 @@ public class ElectionService {
 
     }
 
-    public boolean electionCheck(Model model,int type, HttpServletResponse response) throws IOException{
+    public boolean electionCheck(Model model,int electionType, HttpServletResponse response) throws IOException{
         ElectionVoteDate electionVoteDate=ElectionVoteDate.builder()
-                .type(type)
+                .type(electionType)
                 .build();
 
         response.setContentType("text/html;charset=utf-8");
         PrintWriter out = response.getWriter();
 
         if(isPossibleVote(electionVoteDate)){
-            List<Team> teamList = teamMapper.findTeams(type);
-            model.addAttribute("teamList", teamList);
             model.addAttribute("election",electionMapper.findByVoteDate(electionVoteDate.getType()));
+            List<Team> teamList = teamMapper.findTeams(electionType);
+            model.addAttribute("teamList", teamList);
             return true;
         }
         else {
@@ -67,12 +67,8 @@ public class ElectionService {
     }
 
     public void studentGoVote(UserToElection userToElection,HttpServletResponse response) throws IOException {
-        logger.info("studentGoVote: "+userToElection.getStudentidx()+ " "+userToElection.getElectionidx() );
-
-        userToElection=UserToElection.builder()
-                .studentidx(userToElection.getStudentidx())
-                .electionidx(userToElection.getElectionidx())
-                .build();
+        logger.info("studentGoVote: "+userToElection.getStudentidx()+ " "+userToElection.getElectionidx() +
+                " "+userToElection.getTeamidx()+" "+userToElection.getAbandonment());
 
         response.setContentType("text/html;charset=utf-8");
         PrintWriter out = response.getWriter();
@@ -84,14 +80,17 @@ public class ElectionService {
         }
         else if( userToElectionMapper.findMemberPossibleVote(userToElection) == 0){
             userToElectionMapper.goToVote(userToElection);
-            out.println("<script>alert('소중한 한표 감사합니다'); history.go(-1);</script>");
+            if(userToElection.getAbandonment() == 1)
+                out.println("<script>alert('기권 하셨습니다.'); history.go(-1);</script>");
+            else
+                out.println("<script>alert('소중한 한표 감사합니다'); history.go(-1);</script>");
             out.flush();
 
         }
-
-
     }
 
+    public void endElection(){
 
+    }
 
 }

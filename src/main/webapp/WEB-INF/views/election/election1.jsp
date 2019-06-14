@@ -17,6 +17,31 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="${R}assets/css/main.css" />
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+
+
+    <script type="text/javascript">
+
+        function voteCheck() {
+            if (confirm('이 후보를 투표하시겠습니까?') == true) {
+                return true//확인
+            }
+            else{   //취소
+                return false;
+            }
+        }
+
+        function abandonmentCheck() {
+            if (confirm('정말 기권하시겠습니까') == true) {
+                return true//확인
+            }
+            else{   //취소
+
+                return false;
+            }
+        }
+    </script>
+
 </head>
 <body class="homepage is-preload">
 <div id="page-wrapper">
@@ -27,13 +52,13 @@
     <!-- Banner -->
     <section id="banner">
         <div class="container">
-            <c:if test="${vote==1}">
+            <c:if test="${electionType==1}">
                 <p><strong>${election.name}대 총 학생회장 선거</strong></p>
             </c:if>
-            <c:if test="${vote==2}">
+            <c:if test="${electionType==2}">
                 <p><strong>${election.name}대 학부대표 선거</strong></p>
             </c:if>
-            <c:if test="${vote==3}">
+            <c:if test="${electionType==3}">
                 <p><strong>전공대표 선거</strong></p>
             </c:if>
         </div>
@@ -41,7 +66,7 @@
 
     <!-- Main -->
     <section id="main">
-        <div class="container">
+        <div class="container" style="margin-left: 20%;margin-right: auto;">
             <div class="row">
                 <c:forEach items="${teamList}" var="team">
                 <!-- Content -->
@@ -56,18 +81,31 @@
 
                         <p>${team.name} 팀 입니다</p>
                         <ul class="actions">
-                            <li><a href="/teamDetail/${vote}/${team.idx}" class="button icon fa-file">더보기</a></li>
-<%--                            <li><a href="" class="button icon fa-file">투표</a></li>--%>
+                            <li><a href="/teamDetail/${electionType}/${team.idx}" class="button icon fa-vcard" >더보기</a></li>
+                            <li>
+                                <form action="/goForVote" name="vote" method="post" >
+                                    <input type="hidden" name="studentidx" value="201432005">
+                                    <input type="hidden" name="electionidx" value="${election.idx}">
+                                    <input type="hidden"  name="teamidx" value="${team.idx}">
+                                    <input type="hidden"  name="abandonment" value="0">
+                                    <button type="button"  onclick="voteCheck()==true?submit():false" class="button icon fa-file">투표</button>
+                                </form>
+                            </li>
                         </ul>
-                        <form action="/goForVote" method="post">
-                            <input type="hidden" name="studentidx" value="201432005">
-                            <input type="hidden" name="electionidx" value="${election.idx}">
-                            <button name="submit" class="button icon fa-file">투표</button>
-                        </form>
                     </article>
                 </div>
                 </c:forEach>
 
+            </div>
+            <br/><br/><br/><br/>
+            <div id="goAbandonment" style="margin-left: 55%">
+                <form action="/goForVote" name="abandonment" method="post" >
+                    <input type="hidden"  name="studentidx" value="201432005">
+                    <input type="hidden"  name="electionidx" value="${election.idx}">
+                    <input type="hidden"  name="teamidx">
+                    <input type="hidden"  name="abandonment" value="1">
+                    <button type="button" onclick="abandonmentCheck()==true?submit():false" class="button icon fa-balance-scale">기권</button>
+                </form>
             </div>
         </div>
     </section>
