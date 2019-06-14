@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @Slf4j
@@ -38,8 +39,13 @@ public class UpdateController {
     }
 
     @PostMapping("find_pws")
-    public void updatePws(PwsReq pwsReq, HttpServletResponse response) throws Exception{
-
+    @ResponseBody
+    public void updatePws(HttpServletRequest request, HttpServletResponse response) throws Exception{
+        PwsReq pwsReq =PwsReq.builder()
+                .id(Integer.parseInt(request.getParameter("id")))
+                .email(request.getParameter("email"))
+                .build();
+        logger.info(pwsReq.toString());
         pwsService.find_psw(response,pwsReq);
 
     }
