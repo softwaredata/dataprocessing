@@ -10,7 +10,7 @@ public class FaciltyRepresentativeVote implements Vote {
 
     @Override
     public void chooseCandidate(int name) {
-        electionMapper.insertFaciltyRepresentativeVote(name);
+        electionMapper.insertFacilityRepresentativeVote(name);
     }
 
 }

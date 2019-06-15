@@ -27,9 +27,6 @@
 </head>
 <body>
 	<form name="frm" action="login" method="post">
-
-
-
 			<div class="container">
 				<div class="info">
 					<h1>성공회대 투표 </br> 서비스</h1>

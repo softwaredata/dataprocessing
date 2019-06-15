@@ -17,22 +17,24 @@ public class VoteService {
         if (isChairpersonTotalStudentVote(electionVoteDate.getType()))
             electionMapper.insertChairpersonTotalStudentVote(electionVoteDate.getIdx());
 
-        if (isFaciltyRepresentativeVote(electionVoteDate.getType()))
-            electionMapper.insertFaciltyRepresentativeVote(electionVoteDate.getIdx());
+        if (isFacilityRepresentativeVote(electionVoteDate.getType()))
+            electionMapper.insertFacilityRepresentativeVote(electionVoteDate.getIdx());
 
         if (isMajorRepresentativeVote(electionVoteDate.getType()))
             electionMapper.insertMajorRepresentativeVote(electionVoteDate.getIdx());
+
     }
 
     private boolean isChairpersonTotalStudentVote(int type) {
         return type == SelectAnElectionType.CHAIRPERSON_OF_THE_TOTAL_STUDENT.getType();
     }
 
-    private boolean isFaciltyRepresentativeVote(int type) {
+    private boolean isFacilityRepresentativeVote(int type) {
         return type == SelectAnElectionType.FACULTY_REPRESENTATIVE.getType();
     }
 
     private boolean isMajorRepresentativeVote(int type) {
         return type == SelectAnElectionType.MAJOR_REPRESENTATIVE.getType();
     }
+
 }

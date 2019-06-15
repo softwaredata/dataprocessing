@@ -7,6 +7,8 @@ import net.skhu.mapper.ElectionMapper;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.chrono.ChronoLocalDateTime;
 
 @Service
 @RequiredArgsConstructor
@@ -24,14 +26,14 @@ public class CheckVoteDayPossibleService {
     }
 
     private boolean isCheckIntermediatePeriod(Election electionVoteDate) {
-         return (electionVoteDate.getVoteEndDate().isAfter(LocalDate.now()) && electionVoteDate.getVoteStartDate().isBefore(LocalDate.now()));
+         return (electionVoteDate.getVoteEndDate().isAfter(ChronoLocalDateTime.from(LocalDate.now())) && electionVoteDate.getVoteStartDate().isBefore(ChronoLocalDateTime.from(LocalDate.now())));
     }
 
-    private boolean isCheckStartDuration(LocalDate startDate){
+    private boolean isCheckStartDuration(LocalDateTime startDate){
          return startDate.equals(LocalDate.now());
     }
 
-    private boolean isCheckEndDuration(LocalDate endDate) {
+    private boolean isCheckEndDuration(LocalDateTime endDate) {
          return endDate.equals(LocalDate.now());
     }
 
