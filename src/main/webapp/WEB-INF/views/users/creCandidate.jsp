@@ -5,7 +5,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Write something else you want</title>
+    <title>입후보 등록</title>
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
@@ -24,44 +24,74 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="assets/css/main.css" />
+    <style type="text/css">
+    body{
+    background-color:white;
+    }
+    </style>
+
 </head>
 <body>
 <div class="container">
     <%@include file="/WEB-INF/include/header.jsp"%>
     <table class="table table-bordered">
         <thead>
-        <h2> 입후보 등록 </h2>
+        <h2 style="margin-bottom: 0px"> 입후보 등록 </h2>
         </thead>
+
         <tbody>
         <form action="write_ok.jsp" method="post" encType="multiplart/form-data">
-           <table border="1">
+
             <tr>
-                <th>회장 후보 학번 </th>
-                <td><input type="text" name="subject" class="form-control"/></td>
-                <th>부회장 후보 학번</th>
-                <td><input type="text" name="subject" class="form-control"/></td>
+                <th>정후보 학번 </th>
+                <td><input type="text" id = "candidate1_idx" name="subject" class="form-control"/></td>
+                <th>부후보 학번</th>
+                <td><input type="text" id = "candidate2_idx" name="subject" class="form-control"/></td>
+            </tr>
+            <tr>
+                <th>팀이름</th>
+                <td colspan="4"><input type="text" placeholder="팀이름을 입력하세요 " id="name" name="name" class="form-control"/></td>
             </tr>
 
 
 
             <tr>
-                <th>내용: </th>
-                <td><textarea colspan="20" rows="10" placeholder="내용을 입력하세요. " name="content" class="form-control"></textarea></td>
+                <th>공약: </th>
+                <td colspan = '4'><textarea colspan="20" rows="15" id = "pledge" placeholder="내용을 입력하세요. " name="content" class="form-control"></textarea></td>
+            </tr>
+
+            <tr>
+                <th>추천서: </th>
+                <td><input type="file" placeholder="파일을 선택하세요. " name="recco_photo_url" id= "recco_photo_url" class="form-control"/></td>
+                <th>선거 운동 본부원 명단: </th>
+                <td><input type="file" placeholder="파일을 선택하세요. " name="electioneering_file_url" id= "electioneering_file_url" class="form-control"/></td>
+            </tr>
+
+            <tr>
+                <th>팀 사진: </th>
+                <td><input type="file" placeholder="파일을 선택하세요. " name="team_photo_url" id="team_photo_url" class="form-control"/></td>
+                <th>선거 서약서 사진: </th>
+                <td><input type="file" placeholder="파일을 선택하세요. " name="oath_photo_url" id="oath_photo_url" class="form-control"/></td>
+
             </tr>
             <tr>
-                <th>첨부파일: </th>
-                <td><input type="text" placeholder="파일을 선택하세요. " name="filename" class="form-control"/></td>
+                <th>정후보 재학증명서: </th>
+                <td><input type="file" placeholder="파일을 선택하세요. " name="candidate1_certi_url" id="candidate1_certi_url" class="form-control"/></td>
+                <th>부후보 재학증명서: </th>
+                <td><input type="file" placeholder="파일을 선택하세요. " name="candidate2_certi_url" id="candidate2_certi_url" class="form-control"/></td>
+
+            <br>
+
             </tr>
            </table>
                 <td colspan="2">
-                    <input type="button"  value="등록" onclick="sendData()" class="pull-right"/>
-                    <input type="button" value="reset" class="pull-left"/>
-                    <input type="button" value="글 목록으로... " class="pull-right" onclick="javascript:location.href='list.jsp'"/>
+                    <input type="button"  value="등록" onclick="sendData()" class="pull-right" style="margin-bottom: 30px"/>
                     <!-- <a class="btn btn-default" onclick="sendData()"> 등록 </a>
                     <a class="btn btn-default" type="reset"> reset </a>
                     <a class="btn btn-default" onclick="javascript:location.href='list.jsp'">글 목록으로...</a> -->
                 </td>
             </tr>
+
         </form>
         </tbody>
     </table>

@@ -10,7 +10,7 @@
 <c:url var="R" value="/" />
 
 <section id="header">
-    <div class="container">
+    <div class="container" style="padding: 70px">
 
         <!-- Logo -->
 
