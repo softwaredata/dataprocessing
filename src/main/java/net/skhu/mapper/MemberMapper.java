@@ -6,7 +6,7 @@ import org.apache.ibatis.annotations.*;
 
 
 @Mapper
-public interface UserMapper {
+public interface MemberMapper {
 
     @Select("SELECT * FROM users WHERE idx = {id}")
     Member findById(@Param("id") int idx);
@@ -20,17 +20,17 @@ public interface UserMapper {
     int findUserMatchEmail(Member user);
 
     //비밀번호 변경
-    @Update("update Member set password = #{password} where studentIdx =#{studentIdx}")
+    @Update("update Member set password = #{password} where studentIdx = #{studentIdx}")
     void updatePws(Member member);
 
     @Select("select count(*) from Member where studentIdx=#{studentIdx}")
     int findUser(int studentIdx);
     
     //개인정보 변경
-    @Select("SELECT * FROM Member WHERE studentIdx = #{id}")
-    Member findByStuId(@Param("id") int idx);
+    @Select("SELECT * FROM Member WHERE studentIdx = #{studentIdx}")
+    Member findByStuId(int studentIdx);
     
     @Update("update Member set name = #{name}, department = #{department}, password = #{password}, email = #{email}"
-    		+ "where studentIdx = #{studentIdx}")
+    		+ " where studentIdx = #{studentIdx}")
     void updateInfo(Member member);
 }

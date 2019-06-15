@@ -18,24 +18,9 @@
     <link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap/dist/css/bootstrap.min.css"/>
     <link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.css"/>
 
-    <script src="http://code.jquery.com/jquery-latest.js"></script>
-    <script>
-        $(function(){
-            $("#findBtn").click(function(){
-                $.ajax({
-                    url : "find_pws",
-                    type : "POST",
-                    data : {
-                        id : $("#id").val(),
-                        email : $("#email").val()
-                    },
-                    success : function(result) {
-                        alert(result);
-                    },
-                })
-            });
-        })
-    </script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+
     <title>비밀번호 찾기</title>
 </head>
 <body>
@@ -50,7 +35,7 @@
                 </p>
                 <p>
                     <label>Email</label>
-                    <input class="w3-input" type="text" id="email" name="email" required>
+                    <input class="w3-input" type="email" id="email" name="email" required>
                 </p>
                 <p class="w3-center">
                     <button type="button" id=findBtn class="btn btn-primary">비밀번호찾기</button>
@@ -60,5 +45,22 @@
             </div>
     </div>
 </div>
+<script>
+    $(function(){
+        $("#findBtn").click(function(){
+            $.ajax({
+                url : "find_pws",
+                type : "POST",
+                data : {
+                    id : $("#id").val(),
+                    email : $("#email").val()
+                },
+                success : function(result) {
+                    alert(result);
+                },
+            })
+        });
+    })
+</script>
 </body>
 </html>
