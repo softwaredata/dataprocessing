@@ -4,16 +4,18 @@ package net.skhu.api;
 import lombok.extern.slf4j.Slf4j;
 import net.skhu.domain.Member;
 import net.skhu.dto.PwsReq;
+import org.springframework.security.crypto.password.PasswordEncoder;
+
 import net.skhu.mapper.MemberMapper;
 import net.skhu.service.PwsService;
 import org.slf4j.LoggerFactory;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @Slf4j
@@ -24,7 +26,6 @@ public class UpdateController {
     private final PwsService pwsService;
 
     private final MemberMapper memberMapper;
-
     private final PasswordEncoder passwordEncoder;
 
     private static org.slf4j.Logger logger = LoggerFactory.getLogger(UpdateController.class);
@@ -35,6 +36,7 @@ public class UpdateController {
         this.passwordEncoder = passwordEncoder;
     }
 
+
     @GetMapping("findPws")
     public String findPws(Model model,PwsReq pwsReq){
 
@@ -43,15 +45,21 @@ public class UpdateController {
     }
 
     @PostMapping("find_pws")
-    public void updatePws(PwsReq pwsReq, HttpServletResponse response) throws Exception{
-
+    @ResponseBody
+    public void updatePws(HttpServletRequest request, HttpServletResponse response) throws Exception{
+        PwsReq pwsReq =PwsReq.builder()
+                .id(Integer.parseInt(request.getParameter("id")))
+                .email(request.getParameter("email"))
+                .build();
+        logger.info(pwsReq.toString());
         pwsService.find_psw(response,pwsReq);
 
     }
     
     
     //개인정보 수정 
-    @RequestMapping(value = "/mypage" ,  method = RequestMethod.GET)
+
+    @GetMapping("mypage")
     public String mypage(Model model){
 
     	
@@ -60,6 +68,7 @@ public class UpdateController {
     	
         return "users/mypage";
     }
+
 
     @Transactional
     @RequestMapping(value = "/mypage" ,  method = RequestMethod.POST)
@@ -73,6 +82,7 @@ public class UpdateController {
     	memberMapper.updateInfo(member);
         redirectAttributes.addAttribute("member",member);
         return "redirect:users/mypage";
+
     }
     
 

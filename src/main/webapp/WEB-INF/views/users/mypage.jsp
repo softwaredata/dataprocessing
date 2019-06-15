@@ -62,6 +62,7 @@
 						   class="form-control onlyAlphabetAndNumber" id="studentIdx" name="studentIdx" readonly
 						   data-rule-required="true" value = "${member.studentIdx}">
 					<lable for="inputId"> 학번 </lable>
+
 				</div>
 			</div>
 
@@ -148,6 +149,7 @@
 
 			<div class="form-group">
 				<div class='kickass_field'>
+
 
 					<button type="submit" class="btn btn-default">수정 완료</button>
 				</div>
@@ -355,9 +357,7 @@
 </script>
 <!--// 본문 들어가는 부분 -->
 <hr />
-<!-- 푸터 들어가는 부분 -->
 
-<!--// 푸터 들어가는 부분 -->
 
 </body>
 </html>

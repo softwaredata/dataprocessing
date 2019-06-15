@@ -34,7 +34,7 @@
 
                     <!-- Feature -->
                     <section>
-                        <a href="#" class="image featured"><img src="images/pic01.jpg" alt="" /></a>
+                        <a href="election/1" class="image featured"><img src="images/pic01.jpg" alt="" /></a>
                         <header>
                             <h3>총학생회</h3>
                         </header>
@@ -46,7 +46,7 @@
 
                     <!-- Feature -->
                     <section>
-                        <a href="#" class="image featured"><img src="images/pic02.jpg" alt="" /></a>
+                        <a href="election/2" class="image featured"><img src="images/pic02.jpg" alt="" /></a>
                         <header>
                             <h3>학부대표</h3>
                         </header>
@@ -58,7 +58,7 @@
 
                     <!-- Feature -->
                     <section>
-                        <a href="#" class="image featured"><img src="images/pic03.jpg" alt="" /></a>
+                        <a href="election/3" class="image featured"><img src="images/pic03.jpg" alt="" /></a>
                         <header>
                             <h3>전공대표</h3>
                         </header>
