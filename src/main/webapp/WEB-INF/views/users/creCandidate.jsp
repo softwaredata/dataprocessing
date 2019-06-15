@@ -85,7 +85,7 @@
             </tr>
            </table>
                 <td colspan="2">
-                    <input type="button"  value="등록" onclick="sendData()" class="pull-right" style="margin-bottom: 30px"/>
+                    <input type="submit"  value="등록" onclick="sendData()" class="pull-right" style="margin-bottom: 30px"/>
                     <!-- <a class="btn btn-default" onclick="sendData()"> 등록 </a>
                     <a class="btn btn-default" type="reset"> reset </a>
                     <a class="btn btn-default" onclick="javascript:location.href='list.jsp'">글 목록으로...</a> -->
