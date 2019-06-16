@@ -10,7 +10,7 @@
     <c:url var="R" value="/" />
 
     <section id="header">
-    <div class="container">
+    <div class="container" style="padding-top: 200px;padding-bottom: 80px;">
 
     <!-- Logo -->
     <h1 id="logo"><a href="main">SKHU VOTE</a></h1>
