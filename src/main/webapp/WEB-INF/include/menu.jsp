@@ -13,13 +13,13 @@
     <div class="container" style="padding-top: 200px;padding-bottom: 80px;">
 
     <!-- Logo -->
-    <h1 id="logo"><a href="main">SKHU VOTE</a></h1>
+    <h1 id="logo"><a href="/main">SKHU VOTE</a></h1>
     <p>성공회대학교 투표 시스템</p>
 
     <!-- Nav -->
     <nav id="nav">
     <ul>
-        <li><a class="icon fa-home" href="main"><span>HOME</span></a></li>
+        <li><a class="icon fa-home" href="/main"><span>HOME</span></a></li>
         <li>
             <a href="#" class="icon fa-bar-chart-o"><span>Dropdown</span></a>
             <ul>
@@ -38,7 +38,7 @@
         </li>
         <li><a class="icon fa-cog" href="#"><span>menu1</span></a></li>
         <li><a class="icon fa-retweet" href="#"><span>menu2</span></a></li>
-        <li><a class="icon fa-sitemap" href=".#"><span>login/logout?</span></a></li>
+        <li><a class="icon fa-sitemap" href="/login"><span>login/logout?</span></a></li>
     </ul>
     </nav>
 
