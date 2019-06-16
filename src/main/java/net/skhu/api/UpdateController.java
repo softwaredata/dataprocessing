@@ -1,16 +1,14 @@
 package net.skhu.api;
 
 
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import net.skhu.domain.Member;
 import net.skhu.dto.PwsReq;
-import org.springframework.security.crypto.password.PasswordEncoder;
-
 import net.skhu.mapper.MemberMapper;
 import net.skhu.service.PwsService;
-import org.slf4j.LoggerFactory;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -26,16 +24,14 @@ public class UpdateController {
     private final PwsService pwsService;
 
     private final MemberMapper memberMapper;
-    private final PasswordEncoder passwordEncoder;
 
-    private static org.slf4j.Logger logger = LoggerFactory.getLogger(UpdateController.class);
+    private final PasswordEncoder passwordEncoder;
 
     public UpdateController(final PwsService pwsService, final MemberMapper memberMapper, PasswordEncoder passwordEncoder) {
         this.pwsService = pwsService;
         this.memberMapper = memberMapper;
         this.passwordEncoder = passwordEncoder;
     }
-
 
     @GetMapping("findPws")
     public String findPws(Model model,PwsReq pwsReq){
@@ -51,7 +47,7 @@ public class UpdateController {
                 .id(Integer.parseInt(request.getParameter("id")))
                 .email(request.getParameter("email"))
                 .build();
-        logger.info(pwsReq.toString());
+        log.info(pwsReq.toString());
         pwsService.find_psw(response,pwsReq);
 
     }
@@ -62,7 +58,7 @@ public class UpdateController {
     @GetMapping("mypage")
     public String mypage(Model model){
 
-    	
+        log.info("ㅋㅋㅋ");
     	Member member = memberMapper.findByStuId(201632009);
         model.addAttribute("member",member);
     	
@@ -70,18 +66,19 @@ public class UpdateController {
     }
 
 
-    @Transactional
     @RequestMapping(value = "/mypage" ,  method = RequestMethod.POST)
 
-    public String updateMypage(Member member,  RedirectAttributes redirectAttributes){
+    public String updateMypage(Member member,  RedirectAttributes redirectAttributes, Model model){
 
-        logger.info(member.toString());
+        log.info(member.toString());
 
         member.setPassword(passwordEncoder.encode(member.getPassword()));
 
     	memberMapper.updateInfo(member);
-        redirectAttributes.addAttribute("member",member);
-        return "redirect:users/mypage";
+        //redirectAttributes.addAttribute("member",member);
+        log.info(member.toString());
+        model.addAttribute("member", member);
+        return "redirect:/mypage";
 
     }
     
