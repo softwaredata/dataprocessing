@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.*;
 @RequiredArgsConstructor
 @RequestMapping("/")
 public class LoginController {
+
     private final LoginService loginService;
 
     @PostMapping("")

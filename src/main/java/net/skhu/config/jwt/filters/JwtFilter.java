@@ -1,9 +1,9 @@
 package net.skhu.config.jwt.filters;
 
 import com.auth0.jwt.exceptions.JWTVerificationException;
-import lombok.Value;
 import lombok.extern.slf4j.Slf4j;
 import net.skhu.config.jwt.token.JwtPreProcessingToken;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.context.SecurityContext;
@@ -21,6 +21,7 @@ import java.io.IOException;
 /**
  * Created by bomi on 2019-05-14.
  */
+
 @Slf4j
 public class JwtFilter extends AbstractAuthenticationProcessingFilter {
     //public JwtFilter(RequestMatcher matcher, JwtAuthenticationFailureHandler ) {};

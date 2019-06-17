@@ -1,13 +1,13 @@
 package net.skhu.api;
 
 
-import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import net.skhu.domain.Member;
 import net.skhu.dto.PwsReq;
 import net.skhu.dto.SignUpRequest;
 import net.skhu.mapper.MemberMapper;
 import net.skhu.service.PwsService;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,13 +18,20 @@ import javax.servlet.http.HttpServletResponse;
 
 @Slf4j
 @Controller
-@RequiredArgsConstructor
 @RequestMapping("/")
 public class UpdateController {
 
     private final PwsService pwsService;
 
-    private final MemberMapper userMapper;
+    private final MemberMapper memberMapper;
+
+    private final PasswordEncoder passwordEncoder;
+
+    public UpdateController(final PwsService pwsService, final MemberMapper memberMapper, PasswordEncoder passwordEncoder) {
+        this.pwsService = pwsService;
+        this.memberMapper = memberMapper;
+        this.passwordEncoder = passwordEncoder;
+    }
 
     @GetMapping("findPws")
     public String findPws(Model model,PwsReq pwsReq){
@@ -46,7 +53,7 @@ public class UpdateController {
     public String mypage(Model model,SignUpRequest mypage){
 
 
-    	Member member = userMapper.findByStuId(201632009);
+    	Member member = memberMapper.findByStuId(201632009);
         model.addAttribute("member",member);
 
         return "users/mypage";
@@ -56,7 +63,7 @@ public class UpdateController {
     public String mypage(Model model,Member member){
 
 
-    	userMapper.updateInfo(member);
+    	 memberMapper.updateInfo(member);
         model.addAttribute("member",member);
         return "redirect:/mypage";
     }
