@@ -24,6 +24,7 @@
 <!-- Respond.js 으로 IE8 에서 반응형 기능을 활성화하세요 (https://github.com/scottjehl/Respond) -->
 <script src="${R}resources/bootstrap/js/respond.js"></script>
 <title>성공회대학교 투표 시스템</title>
+
 </head>
 <body>
 	<form name="frm" action="login" method="post">

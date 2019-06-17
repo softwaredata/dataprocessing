@@ -40,11 +40,8 @@ public class UpdateController {
 
     @PostMapping("find_pws")
     @ResponseBody
-    public void updatePws(HttpServletRequest request, HttpServletResponse response) throws Exception{
-        PwsReq pwsReq =PwsReq.builder()
-                .id(Integer.parseInt(request.getParameter("id")))
-                .email(request.getParameter("email"))
-                .build();
+    public void updatePws(@RequestBody PwsReq pwsReq, HttpServletResponse response) throws Exception{
+
         logger.info(pwsReq.toString());
         pwsService.find_psw(response,pwsReq);
 

@@ -20,9 +20,9 @@ public class PwsService {
     private final PasswordEncoder passwordEncoder;
     private final MemberMapper memberMapper;
 
-    EmailService emailService;
+    private final EmailService emailService;
 
-    public PwsService(PasswordEncoder passwordEncoder, MemberMapper memberMapper,EmailService emailService) {
+    public PwsService(final PasswordEncoder passwordEncoder,final MemberMapper memberMapper,final EmailService emailService) {
         this.passwordEncoder = passwordEncoder;
         this.memberMapper = memberMapper;
         this.emailService =emailService;
@@ -42,7 +42,7 @@ public class PwsService {
             out.print("아이디를 입력하세요");
             out.close();
         }
-        else if(pwsReq.getEmail()==null) {
+        else if(pwsReq.getEmail()==null || pwsReq.getEmail()=="") {
             out.print("이메일을 입력하세요");
             out.close();
         }
