@@ -48,9 +48,9 @@
                 <td>${ selectCandidates.pledge }</td>
 
                 <td>
-                <button type="submit" class="btn btn-primary">
-                    <span class="glyphicon glyphicon-ok"></span> 저장
-                </button>
+                <a href="update?idx=${ selectCandidates.idx }" class="btn btn-primary" data-confirm-update>
+                    <i class="glyphicon glyphicon-ok"></i> 승인
+                </a>
                 </td>
 
                 <td>

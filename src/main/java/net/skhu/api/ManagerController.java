@@ -30,6 +30,13 @@ public class ManagerController {
         return "";
     }
 
+
+    @GetMapping("/update")
+    public String updateTeam(@RequestParam("idx") int idx, Member member){
+        teamsMapper.updateTeams(idx);
+        return "redirect:list";
+    }
+
     @GetMapping("/delete")
     public String deleteTeam(@RequestParam("idx") int idx, Member member) {
         teamsMapper.deleteTeams(idx);

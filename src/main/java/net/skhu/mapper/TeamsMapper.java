@@ -4,6 +4,7 @@ import net.skhu.domain.Teams;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import java.util.List;
 
@@ -16,4 +17,7 @@ public interface TeamsMapper {
 
     @Delete("delete from Teams where idx = #{idx}")
     void deleteTeams(int idx);
+
+    @Update("update Teams set type_chk = 1 where idx = #{idx}")
+    void updateTeams(int idx);
 }
