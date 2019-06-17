@@ -41,7 +41,7 @@
         </thead>
         <tbody>
         <c:forEach var="selectCandidates" items="${ selectCandidate }">
-            <tr data-url="edit?id=${ selectCandidates.idx }">
+            <tr>
                 <td>${ selectCandidates.name }</td>
                 <td>${ selectCandidates.candidate1Idx }</td>
                 <td>${ selectCandidates.candidate2Idx }</td>
@@ -49,11 +49,12 @@
 
                 <td>
                 <button type="submit" class="btn btn-primary">
-                    <span class="glyphicon glyphicon-ok"></span> 저장</button>
+                    <span class="glyphicon glyphicon-ok"></span> 저장
+                </button>
                 </td>
 
                 <td>
-                 <a href="delete?id=${ student.id }" class="btn btn-danger" data-confirm-delete>
+                 <a href="delete?idx=${ selectCandidates.idx }" class="btn btn-danger" data-confirm-delete>
                     <i class="glyphicon glyphicon-remove"></i> 삭제
                  </a>
                 </td>
