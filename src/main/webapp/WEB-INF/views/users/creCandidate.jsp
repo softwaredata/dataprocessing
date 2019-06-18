@@ -25,31 +25,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="assets/css/main.css" />
     <style type="text/css">
-    body{
-    background-color:white;
-    }
+        @import url(http://fonts.googleapis.com/earlyaccess/hanna.css);
+        @import url(http://fonts.googleapis.com/earlyaccess/jejugothic.css);
+        body{
+            background-color:white;
+        }
+
+        h2{
+            font-family:'Jeju Gothic', serif;
+        }
     </style>
 
 </head>
 <body>
 <div class="container">
-    <%@include file="/WEB-INF/include/header.jsp"%>
+    <%@include file="/WEB-INF/include/menu.jsp"%>
     <table class="table table-bordered">
         <thead>
-        <h2 style="margin-bottom: 0px"> 입후보 등록 </h2>
+        <h2 style="margin-bottom: 0px" > 입후보 등록 </h2>
         </thead>
 
         <tbody>
         <form action="write_ok.jsp" method="post" encType="multiplart/form-data">
 
             <tr>
-                <th>정후보 학번 </th>
+                <th>정후보 학번: </th>
                 <td><input type="text" id = "candidate1_idx" name="subject" class="form-control"/></td>
-                <th>부후보 학번</th>
+                <th>부후보 학번: </th>
                 <td><input type="text" id = "candidate2_idx" name="subject" class="form-control"/></td>
             </tr>
             <tr>
-                <th>팀이름</th>
+                <th>팀이름: </th>
                 <td colspan="4"><input type="text" placeholder="팀이름을 입력하세요 " id="name" name="name" class="form-control"/></td>
             </tr>
 
@@ -57,7 +63,7 @@
 
             <tr>
                 <th>공약: </th>
-                <td colspan = '4'><textarea colspan="20" rows="15" id = "pledge" placeholder="내용을 입력하세요. " name="content" class="form-control"></textarea></td>
+                <td colspan = '4'><input type="file" placeholder="파일을 선택하세요." id = "pledge" placeholder="내용을 입력하세요. " name="pledge" class="form-control"/></td>
             </tr>
 
             <tr>
