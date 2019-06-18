@@ -5,8 +5,7 @@
   Time: 오후 6:00
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java"
-         pageEncoding="UTF-8"%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,6 +16,7 @@
     <link href="resources/bootstrap/css/bootstrap.css" rel="stylesheet"
           type="text/css" />
     <link rel="stylesheet" href="resources/bootstrap/css/login.css">
+    <%--script--%>
     <!-- jQuery (부트스트랩의 자바스크립트 플러그인을 위해 필요한) -->
     <script src="${R}https://code.jquery.com/jquery.js"></script>
     <!-- 모든 합쳐진 플러그인을 포함하거나 (아래) 필요한 각각의 파일들을 포함하세요 -->
@@ -44,7 +44,8 @@
             <input class="w3-input" type="email" id="email" name="email" required>
         </p>
         <button type="button" id=findBtn class="btn btn-primary">비밀번호찾기</button>
-        <a href="login" class="btn btn-">로그인으로</a>
+        <br/><br />
+        <a href="/login" class="btn badge-light">로그인으로</a>
         <br /> <br /> <br />
         </p>
     </div>
@@ -68,6 +69,7 @@
         });
     })
 </script>
+
 
 </body>
 
