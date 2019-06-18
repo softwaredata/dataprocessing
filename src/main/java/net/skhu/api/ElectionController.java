@@ -37,18 +37,18 @@ public class ElectionController {
         this.checkVoteDayPossibleService = checkVoteDayPossibleService;
     }
 
-    @GetMapping("election/{electionType}")
+    @GetMapping("realVote/{electionType}")
     public String election(Model model, @PathVariable("electionType") int electionType, HttpServletResponse response) throws IOException {
         model.addAttribute("electionType",electionType);
         boolean electionCheck= electionService.electionCheck(model,electionType,response);
         if(electionCheck == true)
-            return "election/election1";
+            return "election/realVote";
         else
             return "main/main";
     }
 
     @GetMapping("teamDetail/{electionType}/{teamNum}")
-    public String teamDetail(Model model,UserToElection userToElection, @PathVariable("electionType") int electionType,
+    public String teamDetail(Model model, @PathVariable("electionType") int electionType,
                              @PathVariable("teamNum") int teamNum){
         Team teamDetail =teamMapper.findTeamOfDetail(teamNum);
 
@@ -58,14 +58,9 @@ public class ElectionController {
     }
 
     @PostMapping("goForVote")
-    public void memberToVote(@Param("studentidx") int studentidx, @Param("electionidx") int electionidx,
-                             @Param("teamidx") Integer teamidx,@Param("abandonment") int abandonment, HttpServletResponse response) throws IOException {
-        UserToElection userToElection=UserToElection.builder()
-                .studentidx(studentidx)
-                .electionidx(electionidx)
-                .teamidx(teamidx)
-                .abandonment(abandonment)
-                .build();
+    public void memberToVote(@RequestBody UserToElection userToElection, HttpServletResponse response) throws IOException {
+
+        log.info(userToElection.toString());
         electionService.studentGoVote(userToElection,response);
 
     }

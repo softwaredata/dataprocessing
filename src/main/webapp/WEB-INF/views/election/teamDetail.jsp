@@ -49,24 +49,13 @@
                             </header>
                             <a href="#" class="image featured"><img src="images/pic04.jpg" alt="" />후보팀 사진</a>
                             <h3>공약</h3>
-                            <p>Phasellus laoreet massa id justo mattis pharetra. Fusce suscipit
-                                ligula vel quam viverra sit amet mollis tortor congue. Sed quis mauris
-                                sit amet magna accumsan tristique. Curabitur leo nibh, rutrum eu malesuada
-                                in, tristique at erat lorem ipsum dolor sit amet lorem ipsum sed consequat
-                                magna tempus veroeros lorem sed tempus aliquam lorem ipsum veroeros
-                                consequat magna tempus lorem ipsum consequat Phasellus laoreet massa id
-                                justo mattis pharetra. Fusce suscipit ligula vel quam viverra sit amet
-                                mollis tortor congue. Sed quis mauris sit amet magna accumsan tristique.
-                                Curabitur leo nibh, rutrum eu malesuada in tristique.</p>
+                            <p>
+                                <a href="#" class="image featured"><img src="images/pic04.jpg" alt="" />공약 이미지파일</a>
+
+                            </p>
 
                             <ul class="actions">
-                                <li><a href="#image_url" class="button icon fa-file" onclick="window.open(this.href,'팝업창','width=800,height=700');return false" >추천서</a></li>
-                                <li><a href="#image_url" class="button icon fa-file" onclick="window.open(this.href,'팝업창','width=800,height=700');return false">운동본부원 명단</a></li>
-                                <li><a href="#image_url" class="button icon fa-file" onclick="window.open(this.href,'팝업창','width=800,height=700');return false">선거 서약서</a></li>
-                            </ul>
-
-                            <ul class="actions">
-                                <li><a href="/election/${electionType}" class="button icon fa-file">투표창으로</a></li>
+                                <li><a href="/realVote/${electionType}" class="button icon fa-file">투표창으로</a></li>
                             </ul>
                         </article>
 
@@ -118,78 +107,7 @@
         </section>
 
     <!-- Footer -->
-    <section id="footer">
-        <div class="container">
-            <header>
-                <h2><strong>MyPage</strong></h2>
-            </header>
-            <div class="row">
-                <div class="col-6 col-12-medium">
-                    <section>
-                        <form method="post" action="#">
-                            <div class="row gtr-50">
-                                <div class="col-6 col-12-small">
-                                    <input name="name" placeholder="Name" type="text" />
-                                </div>
-                                <div class="col-6 col-12-small">
-                                    <input name="email" placeholder="test@mail_name.com" type="text" vlaue=""/>
-                                </div>
-                                <div class="col-12">
-                                    <textarea name="message" placeholder="시스템에 대한 건의 사항 있으면 메일로 보내주세요"></textarea>
-                                </div>
-                                <div class="col-12">
-                                    <br/>
-                                    <a href="#" class="form-button-submit button icon fa-envelope">Send Message</a>
-                                </div>
-                            </div>
-                        </form>
-                    </section>
-                </div>
-                <div class="col-6 col-12-medium">
-                    <section>
-                        <p>투표를 하기전에 내 정보가 정확한지 확인해 주세요!</p>
-                        <div class="row">
-                            <div class="col-6 col-12-small">
-                                <ul class="icons">
-                                    <li class="icon fa-home">
-                                        이름 : 홍길동<br />
-                                    </li>
-                                    <li class="icon fa-twitter">
-                                        <a href="#">학과 : ------------ </a>
-                                    </li>
-                                    <li class="icon fa-phone">
-                                        전화번호 : 010-0000-0000
-                                    </li>
-
-                                </ul>
-                            </div>
-                            <div class="col-6 col-12-small">
-                                <ul class="icons">
-
-                                    <li class="icon fa-dribbble">
-                                        <a href="#">학번 : 20-------</a>
-                                    </li>
-
-                                    <li class="icon fa-envelope">
-                                        <a href="#">이메일 : <br/> MyEmail@ email.com</a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="col-12">
-                                <a href="#" class="form-button-submit button ">내 정보수정하러가기</a>
-                            </div>
-                        </div>
-                    </section>
-                </div>
-            </div>
-        </div>
-        <div id="copyright" class="container">
-            <ul class="links">
-                <li>&copy; pepero</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-            </ul>
-        </div>
-    </section>
-
+    <%@include file="/WEB-INF/include/footer.jsp"%>
 </div>
 
 <!-- Scripts -->

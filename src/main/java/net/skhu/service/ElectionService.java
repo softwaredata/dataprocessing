@@ -67,23 +67,22 @@ public class ElectionService {
     }
 
     public void studentGoVote(UserToElection userToElection,HttpServletResponse response) throws IOException {
-        logger.info("studentGoVote: "+userToElection.getStudentidx()+ " "+userToElection.getElectionidx() +
-                " "+userToElection.getTeamidx()+" "+userToElection.getAbandonment());
-
         response.setContentType("text/html;charset=utf-8");
         PrintWriter out = response.getWriter();
 
         if(userToElectionMapper.findMemberPossibleVote(userToElection) > 0){
-            out.println("<script>alert('이미 투표 하셨습니다'); history.go(-1);</script>");
+            out.println("이미 투표 하셨습니다");
             out.flush();
 
         }
         else if( userToElectionMapper.findMemberPossibleVote(userToElection) == 0){
             userToElectionMapper.goToVote(userToElection);
-            if(userToElection.getAbandonment() == 1)
-                out.println("<script>alert('기권 하셨습니다.'); history.go(-1);</script>");
-            else
-                out.println("<script>alert('소중한 한표 감사합니다'); history.go(-1);</script>");
+            if(userToElection.getAbandonment() == 1) {
+                out.println("기권 하셨습니다");
+            }
+            else{
+                out.println("소중한 한표 감사합니다");
+            }
             out.flush();
 
         }

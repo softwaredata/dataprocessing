@@ -147,8 +147,19 @@
 			</div>
 
 
-			<div class="form-group">
-				<div class='kickass_field'>
+
+				<div class="form-group">
+					<div class='kickass_field'>
+
+						<button type="submit" class="btn btn-default">정보 수정</button>
+						<br /><br />
+						<a href="/main" class="btn badge-light">메인으로</a>
+					</div>
+				</div>
+			</fieldset>
+		</form>
+	</div>
+
 
 
 					<button type="submit" class="btn btn-default">수정 완료</button>

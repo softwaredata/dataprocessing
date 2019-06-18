@@ -22,4 +22,14 @@ public class UserToElection {
         this.teamidx = teamidx;
         this.abandonment =abandonment;
     }
+
+    @Override
+    public String toString() {
+        return "UserToElection{" +
+                "studentidx=" + studentidx +
+                ", electionidx=" + electionidx +
+                ", teamidx=" + teamidx +
+                ", abandonment=" + abandonment +
+                '}';
+    }
 }
