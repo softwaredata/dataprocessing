@@ -1,5 +1,6 @@
 package net.skhu.config.security;
 
+import lombok.Getter;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
@@ -9,6 +10,7 @@ import java.util.*;
 /**
  * Created by bomi on 2019-05-14.
  */
+@Getter
 public class MemberContext extends User {
     public MemberContext(String username, String password, Collection<? extends GrantedAuthority> authorities) {
         super(username, password, authorities);
