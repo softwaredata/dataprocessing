@@ -109,7 +109,7 @@
             $.ajax({
                 url : "register",
                 type : "POST",
-                contentType: 'application/json',
+                contentType: "application/json",
                 data : JSON.stringify({
                     name : $("#name").val(),
                     candidate1idx : $("#candidate1idx").val(),
@@ -119,9 +119,10 @@
                     electioneeringFileUrl : $("#electioneeringFileUrl").val(),
                     teamPhotoUrl : $("#teamPhotoUrl").val(),
                     oathPhotoUrl : $("#oathPhotoUrl").val(),
-
-
                 }),
+                success : function(result) {
+                    alert(result);
+                },
             })
         });
     })
