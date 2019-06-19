@@ -1,6 +1,7 @@
 package net.skhu.service;
 
 
+import lombok.extern.slf4j.Slf4j;
 import net.skhu.email.Email;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
@@ -11,10 +12,16 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import java.util.Date;
 
+@Slf4j
 @Service
 public class EmailService {
 
-    private JavaMailSender javaMailSender;
+    private final JavaMailSender javaMailSender;
+
+    public EmailService(final JavaMailSender javaMailSender) {
+        this.javaMailSender = javaMailSender;
+    }
+
 
     public void sendMail(Email email) throws MessagingException {
         MimeMessage message = javaMailSender.createMimeMessage();
