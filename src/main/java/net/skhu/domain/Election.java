@@ -4,40 +4,34 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 @Getter
 @NoArgsConstructor
 public class Election {
+    private int idx;
 
-    private long name;
+    private int name;
 
-    private LocalDateTime voteStartDate;
+    private LocalDate voteStartDate;
 
-    private LocalDateTime voteEndDate;
+    private LocalDate voteEndDate;
 
     private int type;
 
-    private LocalDateTime regStartDate;
+    private LocalDate regStartDate;
 
-    private LocalDateTime regEndDate;
-
-    private int collegeElectionTotalVote;
-
-    private int underGraduateElectionTotalVote;
-
-    private int majorElectionTotalVote;
+    private LocalDate regEndDate;
 
     @Builder
-    public Election(long name, LocalDateTime voteStartDate, LocalDateTime voteEndDate, int type, LocalDateTime regStartDate, LocalDateTime regEndDate, int collegeElectionTotalVote, int underGraduateElectionTotalVote, int majorElectionTotalVote) {
+    public Election(int idx,int name, LocalDate voteStartDate, LocalDate voteEndDate, int type, LocalDate regStartDate, LocalDate regEndDate) {
+        this.idx=idx;
         this.name = name;
         this.voteStartDate = voteStartDate;
         this.voteEndDate = voteEndDate;
         this.type = type;
         this.regStartDate = regStartDate;
         this.regEndDate = regEndDate;
-        this.collegeElectionTotalVote = collegeElectionTotalVote;
-        this.underGraduateElectionTotalVote = underGraduateElectionTotalVote;
-        this.majorElectionTotalVote = majorElectionTotalVote;
     }
+
 }

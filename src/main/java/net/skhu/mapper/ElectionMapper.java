@@ -3,7 +3,9 @@ package net.skhu.mapper;
 import net.skhu.domain.Election;
 import net.skhu.dto.ElectionVoteDate;
 import org.apache.ibatis.annotations.*;
+import org.springframework.web.bind.annotation.PostMapping;
 
+import javax.annotation.PostConstruct;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -30,8 +32,6 @@ public interface ElectionMapper {
             "WHERE idx = #{idx}")
     void update(final Election election);
 
-    @Select("select * from Election where name = #{name} and type = #{type}")
-    Election findByVoteDate(ElectionVoteDate electionVoteDate);
 
     @Insert("update Election set college_election_total_vote = college_election_total_vote+1\n" +
             "where idx = #{idx}")
@@ -40,6 +40,13 @@ public interface ElectionMapper {
     @Insert("update Election set undergraduate_election_total_vote = undergraduate_election_total_vote+1\n" +
             "where idx = #{idx}")
     void insertFacilityRepresentativeVote(int idx);
+
+//    @Select("select * from Election where name = #{name} and type = #{type}")
+//    ElectionVoteDate findByVoteDate(ElectionVoteDate electionVoteDate);
+
+    @Select("select * from Election where type = #{type}")
+    ElectionVoteDate findByVoteDate(int type);
+
 
     @Insert("update Election set major_election_total_vote = major_election_total_vote+1\n" +
             "where idx = #{idx}")

@@ -19,21 +19,28 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="${R}res/common.js"></script>
     <link rel="stylesheet" href="${R}res/common.css">
+    <link rel="stylesheet" href="${R}res/table.css">
 </head>
 <body>
 
 <!-- Header -->
 <%@include file="/WEB-INF/include/menu.jsp"%>
 
+<section id="banner">
+    <div class="container">
+        <p><strong>입후보 등록 현황</strong></p>
+    </div>
+</section>
+
 <div class="container">
     <h3>후보자 승인 신청 목록</h3>
 
-    <table class="table table-bordered mt5">
-        <thead>
+    <table class="responsive-table">
+        <thead class="table-header">
           <tr>
               <th>팀 이름</th>
-              <th>후보자 학번1</th>
-              <th>후보자 학번2</th>
+              <th>정후보</th>
+              <th>부후보</th>
               <th>공약</th>
               <th>승인</th>
               <th>거절</th>
@@ -41,11 +48,11 @@
         </thead>
         <tbody>
         <c:forEach var="selectCandidates" items="${ selectCandidate }">
-            <tr>
-                <td>${ selectCandidates.name }</td>
-                <td>${ selectCandidates.candidate1Idx }</td>
-                <td>${ selectCandidates.candidate2Idx }</td>
-                <td>${ selectCandidates.pledge }</td>
+            <tr class="table-row">
+                <td class="col col-1">${ selectCandidates.name }</td>
+                <td class="col col-2">${ selectCandidates.candidate1Idx }</td>
+                <td class="col col-3">${ selectCandidates.candidate2Idx }</td>
+                <td class="col col-4">${ selectCandidates.pledge }</td>
 
                 <td>
                 <a href="update?idx=${ selectCandidates.idx }" class="btn btn-primary" data-confirm-update>

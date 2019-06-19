@@ -6,6 +6,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
  * Created by bomi on 2019-05-14.
  */
 public class JwtPreProcessingToken extends UsernamePasswordAuthenticationToken {
+
     private JwtPreProcessingToken(Object principal, Object credentials) {
         super(principal, credentials);
     }
