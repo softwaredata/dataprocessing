@@ -16,7 +16,8 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="${R}assets/css/main.css" />
-    <link rel="stylesheet" href="${R}resources/candidate.css" />
+    <link rel="stylesheet" href="${R}resources/table.css" />
+
 </head>
 <body class="homepage is-preload">
 <div id="page-wrapper">
@@ -29,7 +30,7 @@
     <!-- Banner -->
     <section id="banner">
         <div class="container">
-            <p><strong>입후보등록 신청 확인</strong></p>
+            <p><strong>입후보등록 신청 현황</strong></p>
         </div>
     </section>
 
@@ -47,35 +48,33 @@
                     <div class="container">
                         <ul class="responsive-table">
                             <li class="table-header">
-                                <div class="col col-1">Job Id</div>
-                                <div class="col col-2">Customer Name</div>
-                                <div class="col col-3">Amount Due</div>
-                                <div class="col col-4">Payment Status</div>
+                                <div class="col col-3">팀 이름</div>
+                                <div class="col col-3">정 후보</div>
+                                <div class="col col-3">부 후보</div>
+                                <div class="col col-4">승인 상태</div>
                             </li>
                             <li class="table-row">
-                                <div class="col col-1" data-label="Job Id">42235</div>
-                                <div class="col col-2" data-label="Customer Name">John Doe</div>
-                                <div class="col col-3" data-label="Amount">$350</div>
-                                <div class="col col-4" data-label="Payment Status">Pending</div>
+                                <c:if test="${team !=null}">
+                                    <div class="col col-3" data-label="teamName">${team.name}</div>
+                                    <div class="col col-3" data-label="candidate1">${team.candidate1idx}</div>
+                                    <div class="col col-3" data-label="candidate2">${team.candidate2idx}</div>
+                                    <div class="col col-4" data-label="type_chk">
+                                        <c:if test="${team.typeChk==0}">
+                                            <span style="color: #6610f2"> 대기</span>
+                                        </c:if>
+                                        <c:if test="${team.typeChk==1}">
+                                            <span style="color: #34ce57;">승인</span>
+                                        </c:if>
+                                        <c:if test="${team.typeChk==2}">
+                                            <span style="color: #CD3C3C;">반려</span>
+                                        </c:if>
+                                    </div>
+                                </c:if>
+                                <c:if test="${team ==null}">
+                                     <span style="margin: auto">후보 신청 내역이 없습니다</span>
+                                </c:if>
                             </li>
-                            <li class="table-row">
-                                <div class="col col-1" data-label="Job Id">42442</div>
-                                <div class="col col-2" data-label="Customer Name">Jennifer Smith</div>
-                                <div class="col col-3" data-label="Amount">$220</div>
-                                <div class="col col-4" data-label="Payment Status">Pending</div>
-                            </li>
-                            <li class="table-row">
-                                <div class="col col-1" data-label="Job Id">42257</div>
-                                <div class="col col-2" data-label="Customer Name">John Smith</div>
-                                <div class="col col-3" data-label="Amount">$341</div>
-                                <div class="col col-4" data-label="Payment Status">Pending</div>
-                            </li>
-                            <li class="table-row">
-                                <div class="col col-1" data-label="Job Id">42311</div>
-                                <div class="col col-2" data-label="Customer Name">John Carpenter</div>
-                                <div class="col col-3" data-label="Amount">$115</div>
-                                <div class="col col-4" data-label="Payment Status">Pending</div>
-                            </li>
+
                         </ul>
                     </div>
 
