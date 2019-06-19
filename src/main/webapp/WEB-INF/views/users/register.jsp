@@ -46,13 +46,13 @@
         </thead>
 
         <tbody>
-        <form action="write_ok.jsp" method="post" encType="multiplart/form-data">
+        <form  method="post" encType="multiplart/form-data">
 
             <tr>
                 <th>정후보 학번: </th>
-                <td><input type="text" id = "candidate1_idx" name="subject" class="form-control"/></td>
+                <td><input type="text" id = "candidate1idx" name="candidate1idx" class="form-control"/></td>
                 <th>부후보 학번: </th>
-                <td><input type="text" id = "candidate2_idx" name="subject" class="form-control"/></td>
+                <td><input type="text" id = "candidate2idx" name="candidate2idx" class="form-control"/></td>
             </tr>
             <tr>
                 <th>팀이름: </th>
@@ -68,30 +68,30 @@
 
             <tr>
                 <th>추천서: </th>
-                <td><input type="file" placeholder="파일을 선택하세요. " name="recco_photo_url" id= "recco_photo_url" class="form-control"/></td>
+                <td><input type="file" placeholder="파일을 선택하세요. " name="reccoPhotoUrl" id= "reccoPhotoUrl" class="form-control"/></td>
                 <th>선거 운동 본부원 명단: </th>
-                <td><input type="file" placeholder="파일을 선택하세요. " name="electioneering_file_url" id= "electioneering_file_url" class="form-control"/></td>
+                <td><input type="file" placeholder="파일을 선택하세요. " name="electioneeringFileUrl" id= "electioneeringFileUrl" class="form-control"/></td>
             </tr>
 
             <tr>
                 <th>팀 사진: </th>
-                <td><input type="file" placeholder="파일을 선택하세요. " name="team_photo_url" id="team_photo_url" class="form-control"/></td>
+                <td><input type="file" placeholder="파일을 선택하세요. " name="teamPhotoUrl" id="teamPhotoUrl" class="form-control"/></td>
                 <th>선거 서약서 사진: </th>
-                <td><input type="file" placeholder="파일을 선택하세요. " name="oath_photo_url" id="oath_photo_url" class="form-control"/></td>
+                <td><input type="file" placeholder="파일을 선택하세요. " name="oathPhotoUrl" id="oathPhotoUrl" class="form-control"/></td>
 
             </tr>
             <tr>
                 <th>정후보 재학증명서: </th>
-                <td><input type="file" placeholder="파일을 선택하세요. " name="candidate1_certi_url" id="candidate1_certi_url" class="form-control"/></td>
+                <td><input type="file" placeholder="파일을 선택하세요. " name="candidate1CertiUrl" id="candidate1CertiUrl" class="form-control"/></td>
                 <th>부후보 재학증명서: </th>
-                <td><input type="file" placeholder="파일을 선택하세요. " name="candidate2_certi_url" id="candidate2_certi_url" class="form-control"/></td>
+                <td><input type="file" placeholder="파일을 선택하세요. " name="candidate2CertiUrl" id="candidate2CertiUrl" class="form-control"/></td>
 
             <br>
 
             </tr>
            </table>
                 <td colspan="2">
-                    <input type="submit"  value="등록" onclick="sendData()" class="pull-right" style="margin-bottom: 30px"/>
+                    <input type="submit"  value="등록" id ="createRegister" onclick="sendData()" class="pull-right" style="margin-bottom: 30px"/>
                     <!-- <a class="btn btn-default" onclick="sendData()"> 등록 </a>
                     <a class="btn btn-default" type="reset"> reset </a>
                     <a class="btn btn-default" onclick="javascript:location.href='list.jsp'">글 목록으로...</a> -->
@@ -102,5 +102,29 @@
         </tbody>
     </table>
 </div>
+<script >
+
+    $(function(){
+        $("#createRegister").click(function(){
+            $.ajax({
+                url : "register",
+                type : "POST",
+                contentType: 'application/json',
+                data : JSON.stringify({
+                    name : $("#name").val(),
+                    candidate1idx : $("#candidate1idx").val(),
+                    candidate2idx : $("#candidate2idx").val(),
+                    pledge : $("#pledge").val(),
+                    reccoPhotoUrl : $("#reccoPhotoUrl").val(),
+                    electioneeringFileUrl : $("#electioneeringFileUrl").val(),
+                    teamPhotoUrl : $("#teamPhotoUrl").val(),
+                    oathPhotoUrl : $("#oathPhotoUrl").val(),
+
+
+                }),
+            })
+        });
+    })
+</script>
 </body>
 </html>

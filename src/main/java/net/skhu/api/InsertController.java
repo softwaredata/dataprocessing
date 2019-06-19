@@ -2,62 +2,42 @@ package net.skhu.api;
 
 
 import lombok.extern.slf4j.Slf4j;
-import net.skhu.domain.Member;
+import net.skhu.domain.Team;
 import net.skhu.dto.PwsReq;
-import net.skhu.mapper.MemberMapper;
-import net.skhu.service.PwsService;
+import org.apache.ibatis.annotations.Insert;
 import org.slf4j.LoggerFactory;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.Locale;
 
 @Slf4j
 @Controller
 @RequestMapping("/")
 public class InsertController {
 
+    private static org.slf4j.Logger logger = LoggerFactory.getLogger(InsertController.class);
+
 
     //입후보 등록
-    @GetMapping("creCandidate")
+    @GetMapping("register")
     public String createCandidate(Model model ){
 
 
 
 
-        return "users/creCandidate";
+        return "users/register";
     }
-//
-//    @PostMapping("/creCandidate")
-//    private String boardInsertProc(HttpServletRequest request, @RequestPart MultipartFile files) throws Exception{
-//
-//
-//        String sourceFileName = files.getOriginalFilename();
-//        String sourceFileNameExtension = FilenameUtils.getExtension(sourceFileName).toLowerCase();
-//        File destinationFile;
-//        String destinationFileName;
-//        String fileUrl = "C:\\github\\vote\\src\\main\\webapp\\upload";
-//
-//
-//        do {
-//            destinationFileName = RandomStringUtils.randomAlphanumeric(32) + "." + sourceFileNameExtension;
-//            destinationFile = new File(fileUrl + destinationFileName);
-//        } while (destinationFile.exists());
-//
-//        destinationFile.getParentFile().mkdirs();
-//        files.transferTo(destinationFile);
-//
-//        return "redirect:/list";
-//    }
-//
-//
-//
-//
+
+    @PostMapping("register")
+    public String createRegister(@RequestBody Team team, HttpServletResponse response) throws Exception{
+        logger.info(team.toString());
+        
+
+        return "redirect:/main";
+
+    }
+
+
 }

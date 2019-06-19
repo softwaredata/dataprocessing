@@ -33,6 +33,8 @@ public class Team {
 
         this.idx = idx;
         this.candidate1idx = candidate1idx;
+
+
         this.candidate2idx = candidate2idx;
         this.pledge =pledge;
         this. reccoPhotoUrl =reccoPhotoUrl;
@@ -45,7 +47,16 @@ public class Team {
         this.typeChk = typeChk;
     }
 
-
+    @Override
+    public String toString() {
+        return "Team{" +
+                "name=" + name +
+                ", candidate1idx='" + candidate1idx +
+                ", candidate2idx='"+ candidate2idx+
+                ", pledge='"+ pledge+
+                '\'' +
+                '}';
+    }
 
 
 }
