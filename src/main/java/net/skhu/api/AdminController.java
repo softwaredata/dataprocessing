@@ -12,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 import java.util.Optional;
@@ -53,19 +54,14 @@ public class AdminController {
 
     //@Secured("ROLE_ADMIN")
     @PostMapping("admin/electionManagement")
-    public String electionManagement(final Optional<ElectionRequest> electionRequest) {
+    public String electionManagement(@RequestBody final ElectionRequest electionRequest) {
         log.error("enter the method");
-        if(electionRequest.isPresent()) {
-            log.error("electionRequest is Present!!", electionRequest);
-            log.error(electionRequest.get().getRegStartDate());
-            log.error(electionRequest.get().getRegEndDate());
-            log.error(electionRequest.get().getVoteStartDate());
-            log.error(electionRequest.get().getVoteEndDate());
+        System.out.println(electionRequest.getName());
 
-            final ElectionRequest election = electionRequest.get();
-            log.error("여기까지");
-            electionService.setElection(election);
-        }
+
+        log.error("여기까지");
+        //electionService.setElection(election);
+
         return "redirect:/main";
     }
 }

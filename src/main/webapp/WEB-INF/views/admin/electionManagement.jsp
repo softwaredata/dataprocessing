@@ -127,7 +127,7 @@
                 </div>
             </div>
         </div>
-        <button id="one" onclick='click(1)'>save</button>
+        <button onclick='click(this)'>save</button>
     </div>
     <hr/>
     <div class="date-management" id="department">
@@ -180,7 +180,7 @@
                 </div>
             </div>
         </div>
-        <button id="two" onclick='click(2)'>save</button>
+        <button onclick='click(this)'>save</button>
     </div>
 <hr/>
 <div class="date-management" id="major">
@@ -233,7 +233,7 @@
                 </div>
             </div>
         </div>
-        <button id="three" value="major" onclick='click(this.id)'>save</button>
+        <button onclick='click(this)'>save</button>
     </div>
 
 </body>

@@ -151,53 +151,60 @@ $(document).ready(function(){
         $('#datepicker11').data("DateTimePicker").maxDate(e.date);
     });
 });
-
-
+var click = true;
 $('button').on('click', function(node) {
-    console.log('들어옴');
-    var button = node.target;
-    var div = button.parentNode;
-    console.log(button);
-    console.log(div);
+    if(click) {
+        click = !click;
 
-    var type = div.id;
-    var generation = div.getElementsByClassName('generation').value;
-    var children = div.getElementsByClassName('form-control');
-    var voteStart = children[0].getAttribute('value');
-    var voteEnd = children[1].getAttribute('value');
-    var regStart = children[2].getAttribute('value');
-    var regEnd = children[3].getAttribute('value');
+        setTimeout(function () {
+            click = true;
+        }, 1000);
 
-    console.log('type ' + type);
-    console.log('generation ' + generation);
-    console.log('children ' + children);
-    console.log('voteStart ' + voteStart);
-    console.log('voteEnd ' + voteEnd);
-    console.log('regStart ' + regStart);
-    console.log('regEnd ' + regEnd);
+        console.log('들어옴');
+        var button = node.target;
+        var div = button.parentNode;
+        console.log(button);
+        console.log(div);
 
-    if(type === 'general') {
-        type = 1;
-    } else if(type === 'department') {
-        type = 2;
-    } else if(type === 'major') {
-        type = 3;
-    }
+        var type = div.id;
+        var generation = div.getElementsByClassName('generation').value;
+        var children = div.getElementsByClassName('form-control');
+        var voteStart = children[0].getAttribute('value');
+        var voteEnd = children[1].getAttribute('value');
+        var regStart = children[2].getAttribute('value');
+        var regEnd = children[3].getAttribute('value');
 
-    $.ajax({
-        url : "electionManagement",
-        type : "POST",
-        contentType: 'application/json',
-        data : {
-            name : generation,
-            voteStartDate : voteStart,
-            voteEndDate : voteEnd,
-            type : type,
-            regStartDate : regStart,
-            regEndDate : regEnd
-        },
-        success : function() {
-            alert("저장되었습니다.");
+        console.log('type ' + type);
+        console.log('generation ' + generation);
+        console.log('children ' + children);
+        console.log('voteStart ' + voteStart);
+        console.log('voteEnd ' + voteEnd);
+        console.log('regStart ' + regStart);
+        console.log('regEnd ' + regEnd);
+
+        if (type === 'general') {
+            type = 1;
+        } else if (type === 'department') {
+            type = 2;
+        } else if (type === 'major') {
+            type = 3;
         }
-    });
+
+        $.ajax({
+            url: "electionManagement",
+            type: "POST",
+            contentType: 'application/json',
+            data: {
+                name: generation,
+                voteStartDate: voteStart,
+                voteEndDate: voteEnd,
+                type: type,
+                regStartDate: regStart,
+                regEndDate: regEnd
+            },
+            success: function () {
+                alert("저장되었습니다.");
+            }
+        });
+    }
 });

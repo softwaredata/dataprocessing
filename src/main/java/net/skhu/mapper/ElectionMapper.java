@@ -18,8 +18,8 @@ public interface ElectionMapper {
     List<Election> findElections();
 
     @Select("SELECT name, vote_start_date, vote_end_date, type, reg_start_date, reg_end_date " +
-            "FROM Election WHERE name = #{name} AND type = #{type}")
-    Election findByName(@Param("name") final int name, @Param("type") final int type);
+            "FROM Election WHERE type = #{type}")
+    Election findByName(@Param("type") final int type);
 
     @Insert("INSERT INTO Election(name, vote_start_date, vote_end_date, type, reg_start_date, reg_end_date) " +
             "VALUES(#{name}, #{voteStartDate}, #{voteEndDate}, #{type}, #{regDateDate}, #{redEndDate})")

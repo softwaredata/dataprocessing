@@ -7,6 +7,7 @@ import net.skhu.dto.ElectionRequest;
 import net.skhu.mapper.ElectionMapper;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -47,7 +48,7 @@ public class ElectionService {
     @Transactional
     public void setElection(final ElectionRequest electionRequest) {
         log.error("service");
-        Election election = electionMapper.findByName(electionRequest.getName(), electionRequest.getType());
+        Election election = electionMapper.findByName(electionRequest.getType());
         if(election == null) return;
         log.error(election.toString());
         log.error("election is not null");
