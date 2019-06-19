@@ -4,6 +4,7 @@ minsub
 package net.skhu.api;
 
 import lombok.extern.slf4j.Slf4j;
+import net.skhu.aws.AmazonS3Util;
 import net.skhu.domain.Team;
 import net.skhu.domain.UserToElection;
 import net.skhu.mapper.TeamMapper;
@@ -54,6 +55,8 @@ public class ElectionController {
 
         model.addAttribute("teamDetail",teamDetail);
         model.addAttribute("vote",electionType);
+        String teamImage = "";
+        model.addAttribute("teamImage",teamImage);
         return "election/teamDetail";
     }
 
