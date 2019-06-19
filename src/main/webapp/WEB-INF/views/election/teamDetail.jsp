@@ -51,7 +51,7 @@
                             <a href="#" class="image featured"><img src="${teamImage}" alt=""/></a>
                             <h3>공약</h3>
                             <p>
-                                <a href="#" class="image featured"><img src="images/pic04.jpg" alt="" />공약 이미지파일</a>
+                                <a href="#" class="image featured"><img src="${teamDetail.pledge}" alt="" />공약 이미지파일</a>
 
                             </p>
 
@@ -78,7 +78,7 @@
                                             <span class="date">정후보: ${teamDetail.candidate1idx} ${teamDetail.name1}</span>
                                             <h3><a href="#"></a></h3>
                                         </header>
-                                        <a href="#" class="image featured"><img src="images/pic04.jpg" alt="" /> 정후보 사진</a>
+                                        <a href="#" class="image featured"><img src="${teamDetail.candidate1CertiUrl}" alt="" /> 정후보 사진</a>
                                         <p> 정후보 간단한 소개? 넣을까 말까</p>
                                     </article>
 
@@ -91,7 +91,7 @@
                                             <span class="date">부후보: ${teamDetail.candidate2idx} ${teamDetail.name2}</span>
 
                                         </header>
-                                        <a href="#" class="image featured"><img src="images/pic04.jpg" alt="" /> 부후보 사진</a>
+                                        <a href="#" class="image featured"><img src="${teamDetail.candidate2CertiUrl}" alt="" /> 부후보 사진</a>
                                         <p>부후보 간단한 소개? 넣을까 말까</p>
                                     </article>
 
