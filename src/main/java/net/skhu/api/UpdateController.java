@@ -46,9 +46,9 @@ public class UpdateController {
         pwsService.find_psw(response,pwsReq);
 
     }
-    
-    
-    //개인정보 수정 
+
+
+    //개인정보 수정
     @GetMapping("mypage")
     public String mypage(Model model){
 
