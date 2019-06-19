@@ -6,7 +6,7 @@ import lombok.extern.slf4j.Slf4j;
 import net.skhu.domain.Member;
 import net.skhu.dto.PwsReq;
 import net.skhu.dto.SignUpRequest;
-import net.skhu.mapper.UserMapper;
+import net.skhu.mapper.MemberMapper;
 import net.skhu.service.PwsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -25,7 +25,7 @@ public class UpdateController {
     private PwsService pwsService;
     
     @Autowired
-    UserMapper userMapper;
+    MemberMapper memberMapper;
 
     @GetMapping("findPws")
     public String findPws(Model model,PwsReq pwsReq){
@@ -47,7 +47,7 @@ public class UpdateController {
     public String mypage(Model model,SignUpRequest mypage){
 
     	
-    	Member member = userMapper.findByStuId(201632009);
+    	Member member = memberMapper.findByStuId(201632009);
         model.addAttribute("member",member);
     	
         return "users/mypage";
@@ -57,7 +57,7 @@ public class UpdateController {
     public String mypage(Model model,Member member){
 
     	
-    	userMapper.updateInfo(member);
+    	memberMapper.updateInfo(member);
         model.addAttribute("member",member);
         return "redirect:/mypage";
     }
