@@ -20,4 +20,7 @@ public interface TeamMapper {
             "on t.candidate2_idx =m2.studentIdx\n" +
             "where t.idx = #{teamNum}")
     Team findTeamOfDetail(int teamNum);
+
+    @Select("select * from Teams where candidate1_idx = #{candidateIdx} or candidate2_idx =#{candidateIdx}")
+    Team findTeamMatchId(int candidateIdx);
 }
