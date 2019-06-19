@@ -42,8 +42,11 @@ public class ElectionController {
     public String election(Model model, @PathVariable("electionType") int electionType, HttpServletResponse response) throws IOException {
         model.addAttribute("electionType",electionType);
         boolean electionCheck= electionService.electionCheck(model,electionType,response);
-        if(electionCheck == true)
+        if(electionCheck == true) {
+            String teamImage = "https://project-skhuvote.s3.ap-northeast-2.amazonaws.com/operating-systems-process-1.png";
+            model.addAttribute("teamImage", teamImage);
             return "election/realVote";
+        }
         else
             return "main/main";
     }
@@ -55,8 +58,6 @@ public class ElectionController {
 
         model.addAttribute("teamDetail",teamDetail);
         model.addAttribute("vote",electionType);
-        String teamImage = "";
-        model.addAttribute("teamImage",teamImage);
         return "election/teamDetail";
     }
 
