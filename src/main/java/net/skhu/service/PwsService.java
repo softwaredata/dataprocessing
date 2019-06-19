@@ -6,7 +6,7 @@ import lombok.extern.slf4j.Slf4j;
 import net.skhu.domain.Member;
 import net.skhu.dto.PwsReq;
 import net.skhu.email.Email;
-import net.skhu.mapper.UserMapper;
+import net.skhu.mapper.MemberMapper;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -19,7 +19,7 @@ import java.io.PrintWriter;
 public class PwsService {
 
     private final PasswordEncoder passwordEncoder;
-    private final UserMapper userMapper;
+    private final MemberMapper memberMapper;
 
     EmailService emailService;
 
@@ -34,12 +34,12 @@ public class PwsService {
                 .build();
 
         // 아이디가 없으면
-        if(userMapper.findUser(member.getStudentIdx())==0) {
+        if(memberMapper.findUser(member.getStudentIdx())==0) {
             out.print("존재하지 않는 아이디 입니다.");
             out.close();
         }
         // 가입한 아이디에 이메일이 아니면
-        else if(userMapper.findUserMatchEmail(member) ==0) {
+        else if(memberMapper.findUserMatchEmail(member) ==0) {
             out.print("가입한 아이디와 이메일이 일치하지않습니다.");
             out.close();
         }
@@ -52,7 +52,7 @@ public class PwsService {
             //비밀번호인코딩
             member.setPassword(passwordEncoder.encode(pw));
             //비밀번호 변경
-            userMapper.updatePws(member);
+            memberMapper.updatePws(member);
 
             // 비밀번호 변경 메일 발송
             send_email(member,pw);
