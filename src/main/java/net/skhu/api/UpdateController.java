@@ -54,7 +54,6 @@ public class UpdateController {
 
     	
     	Member member = memberMapper.findByStuId(201632009);
-
         model.addAttribute("member",member);
     	
         return "users/mypage";
@@ -62,9 +61,7 @@ public class UpdateController {
     
     @PostMapping("mypage")
     public String mypage(Model model,Member member){
-
         logger.info(member.toString());
-
     	memberMapper.updateInfo(member);
         model.addAttribute("member",member);
         return "redirect:/mypage";

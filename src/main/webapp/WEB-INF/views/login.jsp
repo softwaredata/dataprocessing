@@ -34,7 +34,6 @@
 	<form name="frm" action="login" method="post">
 
 
-
 			<div class="container">
 				<div class="info">
 					<h1>성공회대학교 </br> 투표 서비스</h1>
