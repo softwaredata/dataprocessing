@@ -9,17 +9,19 @@ import java.time.LocalDate;
 @Getter
 @NoArgsConstructor
 public class ElectionVoteDate {
+    private int idx;
 
     private LocalDate voteStartDate;
 
     private LocalDate voteEndDate;
 
-    private String name;
+    private int name;
 
     private int type;
 
     @Builder
-    public ElectionVoteDate(LocalDate voteStartDate, LocalDate voteEndDate, String name, int type) {
+    public ElectionVoteDate(int idx,LocalDate voteStartDate, LocalDate voteEndDate, int name, int type) {
+        this.idx =idx;
         this.voteStartDate = voteStartDate;
         this.voteEndDate = voteEndDate;
         this.name = name;
