@@ -36,11 +36,11 @@
 <%--                </li>--%>
 <%--            </ul>--%>
 <%--        </li>--%>
-        <li><a class="icon fa-cog" href="#"><span>MYPAGE</span></a></li>
-        <li><a class="icon fa-retweet" href="#"><span>입후보등록</span></a></li>
-        <li><a class="icon fa-retweet" href="/candidateCheck"><span>입후보신청현황</span></a></li>
-        <li><a class="icon fa-retweet" href="#"><span>입후보관리</span></a></li>
-        <li><a class="icon fa-sitemap" href="/login"><span>logout</span></a></li>
+        <li><a class="icon fa-cog" href="/mypage"><span>MYPAGE</span></a></li>
+        <li><a class="icon fa-vcard" href="#"><span>입후보등록</span></a></li>
+        <li><a class="icon fa-align-justify" href="/candidateCheck"><span>입후보신청현황</span></a></li>
+        <li><a class="icon fa-address-card" href="#"><span>입후보관리</span></a></li>
+        <li><a class="icon fa-angle-down" href="/login"><span>logout</span></a></li>
     </ul>
     </nav>
 
