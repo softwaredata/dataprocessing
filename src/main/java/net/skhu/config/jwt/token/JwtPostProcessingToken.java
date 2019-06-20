@@ -12,8 +12,8 @@ import java.util.Collection;
 public class JwtPostProcessingToken extends UsernamePasswordAuthenticationToken {
 
     public static JwtPostProcessingToken getJwtPostProcessingToken(MemberContext memberContext) {
-        return new JwtPostProcessingToken(memberContext.getMember().getName()
-                , memberContext.getMember().getPassword()
+        return new JwtPostProcessingToken(memberContext.getUsername()
+                , memberContext.getPassword()
                 , memberContext.getAuthorities());
     }
 

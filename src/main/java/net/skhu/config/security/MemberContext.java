@@ -1,6 +1,7 @@
 package net.skhu.config.security;
 
 import net.skhu.domain.Member;
+import lombok.Getter;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
@@ -10,6 +11,7 @@ import java.util.*;
 /**
  * Created by bomi on 2019-05-14.
  */
+@Getter
 public class MemberContext extends User {
 
     private Member member;
