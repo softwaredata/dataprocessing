@@ -37,7 +37,7 @@
 <%--            </ul>--%>
 <%--        </li>--%>
         <li><a class="icon fa-cog" href="#"><span>MYPAGE</span></a></li>
-        <li><a class="icon fa-retweet" href="#"><span>입후보등록</span></a></li>
+        <li><a class="icon fa-retweet" href="/candiRegister"><span>입후보등록</span></a></li>
         <li><a class="icon fa-retweet" href="/candidateCheck"><span>입후보신청현황</span></a></li>
         <li><a class="icon fa-retweet" href="#"><span>입후보관리</span></a></li>
         <li><a class="icon fa-sitemap" href="/login"><span>logout</span></a></li>

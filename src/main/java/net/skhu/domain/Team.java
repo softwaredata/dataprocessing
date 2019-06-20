@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @Getter
 @NoArgsConstructor
 public class Team {
-    int idx;
+    Integer idx;
     String name;
     String name1;
     String name2;
@@ -46,6 +46,24 @@ public class Team {
     }
 
 
-
-
+    @Override
+    public String toString() {
+        return "Team{" +
+                "idx=" + idx +
+                ", name='" + name + '\'' +
+                ", name1='" + name1 + '\'' +
+                ", name2='" + name2 + '\'' +
+                ", candidate1idx=" + candidate1idx +
+                ", candidate2idx=" + candidate2idx +
+                ", pledge='" + pledge + '\'' +
+                ", reccoPhotoUrl='" + reccoPhotoUrl + '\'' +
+                ", electioneeringFileUrl='" + electioneeringFileUrl + '\'' +
+                ", teamPhotoUrl='" + teamPhotoUrl + '\'' +
+                ", oathPhotoUrl='" + oathPhotoUrl + '\'' +
+                ", electionIdx=" + electionIdx +
+                ", candidate1CertiUrl='" + candidate1CertiUrl + '\'' +
+                ", candidate2CertiUrl='" + candidate2CertiUrl + '\'' +
+                ", typeChk=" + typeChk +
+                '}';
+    }
 }

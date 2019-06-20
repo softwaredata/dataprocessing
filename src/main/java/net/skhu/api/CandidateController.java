@@ -7,7 +7,13 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
+
+import javax.servlet.http.HttpServletRequest;
 
 @Slf4j
 @Controller
@@ -27,4 +33,21 @@ public class CandidateController {
         model.addAttribute("team",team);
         return "candidate/candidateCheck";
     }
+
+    @GetMapping("candiRegister")
+    public String candidateRegit(){
+
+        return "candidate/candidateRegister";
+    }
+
+    @PostMapping("register")
+    public String teamRegist(Team team,HttpServletRequest request){
+
+        Team team1 =Team.builder()
+                .pledge(request.getParameter("pledge"))
+                .build();
+        logger.info(team1.toString());
+        return "redirect:/candiRegister";
+    }
+
 }
