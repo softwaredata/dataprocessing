@@ -25,15 +25,17 @@ public class Team {
     String candidate1CertiUrl;
     String candidate2CertiUrl;
     int typeChk;
+    String candidate1PhotoUrl;
+    String candidate2PhotoUrl;
 
     @Builder
     public Team(int idx, String name, int candidate1idx, int candidate2idx, String pledge, String reccoPhotoUrl,
                 String electioneeringFileUrl, String teamPhotoUrl, String oathPhotoUrl, int electionIdx,
-                String candidate1CertiUrl, String candidate2CertiUrl, int typeChk){
+                String candidate1CertiUrl, String candidate2CertiUrl, int typeChk) {
 
         this.idx = idx;
         this.candidate1idx = candidate1idx;
-
+        this.name = name;
 
         this.candidate2idx = candidate2idx;
         this.pledge =pledge;
@@ -45,6 +47,7 @@ public class Team {
         this.candidate1CertiUrl =candidate1CertiUrl;
         this.candidate2CertiUrl =candidate2CertiUrl;
         this.typeChk = typeChk;
+
     }
 
     @Override
