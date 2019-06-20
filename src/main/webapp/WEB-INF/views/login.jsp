@@ -31,7 +31,7 @@
 
 </head>
 <body>
-	<form name="frm" action="login" method="post">
+	<form name="frm" action="/login-processing" method="post">
 
 
 			<div class="container">
@@ -46,8 +46,8 @@
 				</div>
 				
 				<form class="login-form">
-					<input type="text" placeholder="username" /> 
-					<input type="password" placeholder="password" />
+					<input type="text" placeholder="userId" name="id"/>
+					<input type="password" placeholder="password" name="password" />
 					<button>login</button>
 					<p class="message">
 						<br />
