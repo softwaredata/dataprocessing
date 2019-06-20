@@ -6,6 +6,7 @@ package net.skhu.domain;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.springframework.web.multipart.MultipartFile;
 
 @Getter
 @NoArgsConstructor
@@ -26,6 +27,15 @@ public class Team {
     String candidate2CertiUrl;
     int typeChk;
 
+    MultipartFile pledgePhoto;
+    MultipartFile reccoPhoto;
+    MultipartFile electioneeringFilePhoto;
+    MultipartFile teamPhoto;
+    MultipartFile oathPhoto;
+    MultipartFile candidate1CertiPhoto;
+    MultipartFile candidate2CertiPhoto;
+
+
     @Builder
     public Team(int idx, String name, int candidate1idx, int candidate2idx, String pledge, String reccoPhotoUrl,
                 String electioneeringFileUrl, String teamPhotoUrl, String oathPhotoUrl, int electionIdx,
@@ -43,6 +53,7 @@ public class Team {
         this.candidate1CertiUrl =candidate1CertiUrl;
         this.candidate2CertiUrl =candidate2CertiUrl;
         this.typeChk = typeChk;
+
     }
 
 
