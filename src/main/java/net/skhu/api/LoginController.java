@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import net.skhu.domain.Member;
 import net.skhu.dto.LoginRequest;
+import net.skhu.exception.LoginException;
 import net.skhu.mapper.MemberMapper;
 import net.skhu.service.LoginService;
 
@@ -15,6 +16,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.io.PrintWriter;
 
 /**
  * Created by bomi on 2019-05-03.
@@ -41,13 +45,15 @@ public class LoginController {
 //}
 
     @PostMapping("login-processing")
-    public String loginProcessing(LoginRequest loginRequest, Model model) {
-        System.out.println(loginRequest.getIdx());
-        System.out.println(loginRequest.getPassword());
-        Member member = memberMapper.findByIdAndPassword(loginRequest.getIdx(), loginRequest.getPassword());
-        if(member == null) return "redirect:login-error";
+    public String loginProcessing(@RequestParam("id")String id, @RequestParam("password")String pw, Model model, HttpServletResponse response) throws IOException {
+        System.out.println(id);
+        System.out.println(pw);
+        LoginRequest loginRequest = new LoginRequest(id, pw);
+
+        Member member = loginService.login(loginRequest, response);
         model.addAttribute("member", member);
-        return "redirect:main";
+
+        return "main/main";
     }
 
 

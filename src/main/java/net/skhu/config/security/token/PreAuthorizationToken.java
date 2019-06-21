@@ -15,6 +15,6 @@ public class PreAuthorizationToken extends UsernamePasswordAuthenticationToken {
     }
 
     public PreAuthorizationToken(LoginRequest loginRequest) {
-        super(loginRequest.getIdx(), loginRequest.getPassword());
+        super(loginRequest.getId(), loginRequest.getPassword());
     }
 }

@@ -26,7 +26,7 @@ public class MemberContext extends User {
     }
 
     public static MemberContext getMemberContext(Member member, int roles) {
-        return new MemberContext(member, member.getName(), member.getPassword(), parseAuthorities(roles));
+        return new MemberContext(member, String.valueOf(member.getStudentIdx()), member.getPassword(), parseAuthorities(roles));
     }
 
     private static List<SimpleGrantedAuthority> parseAuthorities(int roles) {

@@ -8,6 +8,7 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter;
 import org.springframework.security.web.authentication.AuthenticationFailureHandler;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
+import org.springframework.util.StringUtils;
 
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
@@ -35,8 +36,11 @@ public class LoginRequestFilter extends AbstractAuthenticationProcessingFilter {
 
     @Override
     public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException, IOException, ServletException {
-        LoginRequest loginRequest = new ObjectMapper().readValue(request.getReader(), LoginRequest.class);
-        PreAuthorizationToken token = new PreAuthorizationToken(loginRequest);
+        //LoginRequest loginRequest = new ObjectMapper().readValue(request.getReader(), LoginRequest.class);
+        String id = request.getParameter("id");
+        String pw = request.getParameter("password");
+
+        PreAuthorizationToken token = new PreAuthorizationToken(new LoginRequest(id, pw));
         return super.getAuthenticationManager().authenticate(token);
     }
 

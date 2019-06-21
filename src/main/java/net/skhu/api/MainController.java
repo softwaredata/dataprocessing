@@ -31,7 +31,6 @@ public class MainController {
         this.checkVoteDayPossibleService = checkVoteDayPossibleService;
     }
 
-    @Auth
     @GetMapping("main")
     public String main(){
 

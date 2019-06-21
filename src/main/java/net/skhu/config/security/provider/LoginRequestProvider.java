@@ -24,7 +24,7 @@ import java.util.OptionalInt;
  */
 
 @Slf4j
-@Component
+//@Component
 public class LoginRequestProvider implements AuthenticationProvider {
 
     private final MemberMapper memberMapper;
@@ -32,12 +32,14 @@ public class LoginRequestProvider implements AuthenticationProvider {
     private final PasswordEncoder passwordEncoder;
 
     public LoginRequestProvider(final MemberMapper memberMapper, final PasswordEncoder passwordEncoder) {
+        log.info("provider 생성");
         this.memberMapper = memberMapper;
         this.passwordEncoder = passwordEncoder;
     }
 
     @Override
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {
+        log.info("provider");
         PreAuthorizationToken preAuthorizationToken = (PreAuthorizationToken)authentication;
 
         Optional<String> username = Optional.ofNullable((String)preAuthorizationToken.getPrincipal());
@@ -45,8 +47,6 @@ public class LoginRequestProvider implements AuthenticationProvider {
 
         log.info(username.get());
         log.info(password.get());
-
-        log.info(passwordEncoder.encode("1234"));
 
         if(!username.isPresent()) {
             throw new LoginException("존재하지 않는 사용자입니다");
@@ -61,6 +61,9 @@ public class LoginRequestProvider implements AuthenticationProvider {
         if(!member.isPresent()) {
             throw new LoginException("존재하지 않는 사용자 입니다");
         }
+
+        log.error(password.get());
+        log.error(member.get().getPassword());
 
         if(passwordEncoder.matches(password.get(), member.get().getPassword())) {
             int type = member.get().getType();

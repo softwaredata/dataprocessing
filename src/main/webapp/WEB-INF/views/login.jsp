@@ -46,8 +46,8 @@
 				</div>
 				
 				<form class="login-form">
-					<input type="text" placeholder="userId" name="id"/>
-					<input type="password" placeholder="password" name="password" />
+					<input type="text" placeholder="userId" name="id" id="id"/>
+					<input type="password" placeholder="password" name="password" id="pw"/>
 					<button>login</button>
 					<p class="message">
 						<br />
@@ -68,6 +68,25 @@
 	$('.message a').click(function(){
 		   $('form').animate({height: "toggle", opacity: "toggle"}, "slow");
 		});
+	</script>
+
+	<script>
+        $(function(){
+            $("button").click(function(){
+                $.ajax({
+                    url : "login-processing",
+                    type : "POST",
+                    contentType : "application/json",
+                    data : JSON.stringify({
+                        id : $("#id").val(),
+                        email : $("#pw").val()
+                    }),
+                    success : function(result) {
+                        alert(result);
+                    },
+                })
+            });
+        })
 	</script>
 
 </body>

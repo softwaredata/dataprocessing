@@ -9,12 +9,14 @@ import net.skhu.dto.LoginRequest;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.web.DefaultRedirectStrategy;
 import org.springframework.security.web.RedirectStrategy;
+import org.springframework.security.web.WebAttributes;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.stereotype.Component;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 /**
@@ -22,31 +24,41 @@ import java.io.IOException;
  */
 
 @Slf4j
-@Component
+//@Component
 public class LoginAuthenticationSuccessHandler implements AuthenticationSuccessHandler {
 
-    private final JwtFactory jwtFactory;
+    //private final JwtFactory jwtFactory;
 
     //private final ObjectMapper objectMapper;
 
     private RedirectStrategy redirectStrategy = new DefaultRedirectStrategy();
 
     public LoginAuthenticationSuccessHandler(final JwtFactory jwtFactory, final ObjectMapper objectMapper) {
-        this.jwtFactory = jwtFactory;
+        //this.jwtFactory = jwtFactory;
         //this.objectMapper = objectMapper;
     }
 
     @Override
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
-        log.info("come");
+        log.info("successHandler");
 
         PostAuthorizationToken token = (PostAuthorizationToken)authentication;
         log.info(token.toString());
         MemberContext memberContext = (MemberContext)token.getPrincipal();
         log.info(memberContext.getUsername());
         log.info(memberContext.getPassword());
-        String tokenString = jwtFactory.create(memberContext);
-        log.info(tokenString);
+
+        clearAuthenticationAttributes(request);
+
+        //response.sendRedirect("main");
+
         redirectStrategy.sendRedirect(request, response, "/main");
     }
+
+    protected void clearAuthenticationAttributes(HttpServletRequest request) {
+        HttpSession session = request.getSession(false);
+        if(session == null) return;
+        session.removeAttribute(WebAttributes.AUTHENTICATION_EXCEPTION);
+    }
+
 }

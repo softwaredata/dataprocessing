@@ -10,6 +10,10 @@ import net.skhu.mapper.MemberMapper;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.io.PrintWriter;
+
 /**
  * Created by bomi on 2019-05-03.
  */
@@ -25,17 +29,36 @@ public class LoginService {
         this.passwordEncoder = passwordEncoder;
     }
 
-    public TokenRes login(final LoginRequest loginRequest) {
+    public Member login(final LoginRequest loginRequest, HttpServletResponse response) throws IOException {
         if(loginRequest == null) throw new LoginException("no");
-        final Member member = memberMapper.findByIdAndPassword(loginRequest.getIdx(),
-                passwordEncoder.encode(loginRequest.getPassword()));
 
-        if(member == null) {
-            throw new LoginException("일치하는 유저 없음");
+        //String password = passwordEncoder.encode(loginRequest.getPassword());
+        //log.error(loginRequest.getPassword());
+        //log.error(passwordEncoder.encode(loginRequest.getPassword()));
+//        final Member member = memberMapper.findByIdAndPassword(studentIdx,
+//                passwordEncoder.encode(loginRequest.getPassword()));
+
+        try {
+            int studentIdx = Integer.parseInt(loginRequest.getId());
+            Member member = memberMapper.findByIdAndPassword(studentIdx, loginRequest.getPassword());
+
+            if(member == null) {
+                throw new LoginException("아이디 혹은 비밀번호를 확인해주세요");
+            }
+            return member;
+        } catch(NumberFormatException e) {
+            response.setContentType("text/html;charset=utf-8");
+            PrintWriter out = response.getWriter();
+            out.println("<script>alert('ID가 올바른 형식이 아닙니다'); history.go(-1);</script>");
+            out.flush();
+        } catch(LoginException e) {
+            response.setContentType("text/html;charset=utf-8");
+            PrintWriter out = response.getWriter();
+            out.println("<script>alert('아이디 혹은 비밀번호를 확인해주세요'); history.go(-1);</script>");
+            out.flush();
         }
 
-        final TokenRes token = new TokenRes(JwtFactory.create(member));
+        return null;
 
-        return token;
     }
 }

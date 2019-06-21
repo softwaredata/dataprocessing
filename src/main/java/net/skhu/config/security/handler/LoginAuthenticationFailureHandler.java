@@ -17,7 +17,7 @@ import java.io.IOException;
  * Created by bomi on 2019-06-10.
  */
 
-@Component
+//@Component
 public class LoginAuthenticationFailureHandler implements AuthenticationFailureHandler {
 
     private final MemberMapper memberMapper;
