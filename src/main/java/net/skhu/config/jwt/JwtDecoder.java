@@ -27,7 +27,8 @@ public class JwtDecoder {
         DecodedJWT decodedJWT = isValidToken(token).orElseThrow(() -> new JwtException("변조된 토큰입니다"));
 
         String username = decodedJWT.getClaim("USERNAME").asString();
-        String role = decodedJWT.getClaim("USER_ROLE").asString();
+        String r = decodedJWT.getClaim("USER_ROLE").asString();
+        int role = Integer.parseInt(r);
 
         return new MemberContext(username, "empty", role);
     }
