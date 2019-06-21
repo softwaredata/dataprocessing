@@ -22,6 +22,7 @@
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <security.version>5.0.6.RELEASE</security.version>
     </properties>
 
     <dependencies>
@@ -147,19 +148,26 @@
         <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-web</artifactId>
-            <version>5.0.6.RELEASE</version>
+            <version>${security.version}</version>
         </dependency>
 
         <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-core</artifactId>
-            <version>5.0.6.RELEASE</version>
+            <version>${security.version}</version>
         </dependency>
 
         <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-config</artifactId>
-            <version>5.0.6.RELEASE</version>
+            <version>${security.version}</version>
+        </dependency>
+
+        <!-- spring security 확장 태그 라이브러리 -->
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-taglibs</artifactId>
+            <version>${security.version}</version>
         </dependency>
 
         <!-- java mail -->
@@ -206,8 +214,18 @@
             <version>4.5.2</version>
             <scope>runtime</scope>
         </dependency>
+        <dependency>
+            <groupId>com.amazonaws</groupId>
+            <artifactId>aws-java-sdk</artifactId>
+            <version>1.11.106</version>
+        </dependency>
 
-
+        <!-- JWT -->
+        <dependency>
+            <groupId>com.auth0</groupId>
+            <artifactId>java-jwt</artifactId>
+            <version>3.3.0</version>
+        </dependency>
     </dependencies>
 
     <build>

@@ -64,7 +64,6 @@ public class UpdateController {
         return "users/mypage";
     }
 
-
     @RequestMapping(value = "/mypage" ,  method = RequestMethod.POST)
 
     public String updateMypage(Member member,  RedirectAttributes redirectAttributes, Model model){
@@ -72,9 +71,7 @@ public class UpdateController {
         log.info(member.toString());
 
         member.setPassword(passwordEncoder.encode(member.getPassword()));
-
     	memberMapper.updateInfo(member);
-        //redirectAttributes.addAttribute("member",member);
         log.info(member.toString());
         model.addAttribute("member", member);
         return "redirect:/mypage";
