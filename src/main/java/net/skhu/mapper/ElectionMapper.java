@@ -3,13 +3,7 @@ package net.skhu.mapper;
 import net.skhu.domain.Election;
 import net.skhu.dto.ElectionVoteDate;
 import org.apache.ibatis.annotations.*;
-
-import java.time.LocalDateTime;
 import java.util.List;
-
-/**
- * Created by bomi on 2019-05-15.
- */
 
 @Mapper
 public interface ElectionMapper {
@@ -30,7 +24,11 @@ public interface ElectionMapper {
             "WHERE idx = #{idx}")
     void update(final Election election);
 
-    @Select("select * from Election where name = #{name} and type = #{type}")
-    ElectionVoteDate findByVoteDate(ElectionVoteDate electionVoteDate);
+//    @Select("select * from Election where name = #{name} and type = #{type}")
+//    ElectionVoteDate findByVoteDate(ElectionVoteDate electionVoteDate);
+
+    @Select("select * from Election where type = #{type}")
+    ElectionVoteDate findByVoteDate(int type);
+
 
 }

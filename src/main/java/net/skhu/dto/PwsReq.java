@@ -3,12 +3,24 @@ package net.skhu.dto;
 
 import lombok.*;
 
-@Data
+@Getter
 @NoArgsConstructor
-@AllArgsConstructor
 public class PwsReq {
 
-    private int id; //아이디(학번)
+    private Integer id; //아이디(학번)
     private String email;
 
+    @Builder
+    public PwsReq(Integer id, String email) {
+        this.id = id;
+        this.email = email;
+    }
+
+    @Override
+    public String toString() {
+        return "PwsReq{" +
+                "id=" + id +
+                ", email='" + email + '\'' +
+                '}';
+    }
 }

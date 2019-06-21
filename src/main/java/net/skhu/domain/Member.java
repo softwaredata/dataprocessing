@@ -28,4 +28,15 @@ public class Member {
         this.type = type;
     }
 
+    @Override
+    public String toString() {
+        return "Member{" +
+                "name='" + name + '\'' +
+                ", studentIdx=" + studentIdx +
+                ", department='" + department + '\'' +
+                ", password='" + password + '\'' +
+                ", email='" + email + '\'' +
+                ", type=" + type +
+                '}';
+    }
 }

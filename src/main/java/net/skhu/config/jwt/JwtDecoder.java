@@ -5,6 +5,8 @@ import com.auth0.jwt.JWTVerifier;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.interfaces.DecodedJWT;
 import lombok.extern.slf4j.Slf4j;
+import net.skhu.config.security.MemberContext;
+import net.skhu.exception.JwtException;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
@@ -21,7 +23,15 @@ public class JwtDecoder {
     @Value("${JWT.SECRET}")
     private static String SECRET;
 
-    // TODO-decode 메소드 생성
+    public MemberContext decode(String token) {
+        DecodedJWT decodedJWT = isValidToken(token).orElseThrow(() -> new JwtException("변조된 토큰입니다"));
+
+        String username = decodedJWT.getClaim("USERNAME").asString();
+        String r = decodedJWT.getClaim("USER_ROLE").asString();
+        int role = Integer.parseInt(r);
+
+        return new MemberContext(username, "empty", role);
+    }
 
     private Optional<DecodedJWT> isValidToken(String token) {
         DecodedJWT decodedJWT = null;

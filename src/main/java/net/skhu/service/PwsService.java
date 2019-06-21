@@ -1,8 +1,6 @@
 package net.skhu.service;
 
 
-import lombok.AllArgsConstructor;
-import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import net.skhu.domain.Member;
 import net.skhu.dto.PwsReq;
@@ -24,12 +22,10 @@ public class PwsService {
 
     private final EmailService emailService;
 
-    public PwsService(final PasswordEncoder passwordEncoder,
-                      final MemberMapper memberMapper,
-                      final EmailService emailService) {
+    public PwsService(final PasswordEncoder passwordEncoder,final MemberMapper memberMapper,final EmailService emailService) {
         this.passwordEncoder = passwordEncoder;
         this.memberMapper = memberMapper;
-        this.emailService = emailService;
+        this.emailService =emailService;
     }
 
     public void find_psw(HttpServletResponse response,PwsReq pwsReq) throws Exception{
@@ -37,20 +33,22 @@ public class PwsService {
         response.setContentType("text/html;charset=utf-8");
         PrintWriter out = response.getWriter();
 
-        if(pwsReq == null) {
-            out.print("입력");
-            out.close();
-            return;
-        }
-
         Member member= Member.builder()
                 .studentIdx(pwsReq.getId())
                 .email(pwsReq.getEmail())
                 .build();
 
+        if(pwsReq.getId() == null) {
+            out.print("아이디를 입력하세요");
+            out.close();
+        }
+        else if(pwsReq.getEmail()==null || pwsReq.getEmail()=="") {
+            out.print("이메일을 입력하세요");
+            out.close();
+        }
         // 아이디가 없으면
 
-        if(memberMapper.findUser(member.getStudentIdx())==0) {
+        else if(memberMapper.findUser(member.getStudentIdx())==0) {
             out.print("존재하지 않는 아이디 입니다.");
             out.close();
         }
@@ -94,6 +92,8 @@ public class PwsService {
                 .subject(subject)
                 .content(content)
                 .build();
+
+        emailService.sendMail(email);
 
         emailService.sendMail(email);
     }

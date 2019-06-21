@@ -1,15 +1,15 @@
 package net.skhu.mapper;
 
 import net.skhu.domain.Member;
-
+import net.skhu.dto.LoginRequest;
 import org.apache.ibatis.annotations.*;
 
 
 @Mapper
 public interface MemberMapper {
 
-    @Select("SELECT * FROM member WHERE idx = {id}")
-    Member findById(@Param("id") int idx);
+    @Select("SELECT * FROM Member WHERE studentIdx = #{id} AND password = #{password}")
+    Member findByIdAndPassword(@Param("id") final int id, @Param("password") final String passwd);
 
     @Insert("insert into Member(name, studentIdx, department, password, email, type)" +
             "values(#{name}, #{studentIdx}, #{department}, #{password}, #{email}, #{type})")
@@ -20,17 +20,17 @@ public interface MemberMapper {
     int findUserMatchEmail(Member user);
 
     //비밀번호 변경
-    @Update("update Member set password = #{password} where studentIdx =#{studentIdx}")
+    @Update("update Member set password = #{password} where studentIdx = #{studentIdx}")
     void updatePws(Member member);
 
     @Select("select count(*) from Member where studentIdx=#{studentIdx}")
     int findUser(int studentIdx);
     
     //개인정보 변경
-    @Select("SELECT * FROM Member WHERE studentIdx = #{id}")
-    Member findByStuId(@Param("id") int idx);
+    @Select("SELECT * FROM Member WHERE studentIdx = #{studentIdx}")
+    Member findByStuId(int studentIdx);
     
     @Update("update Member set name = #{name}, department = #{department}, password = #{password}, email = #{email}"
-    		+ "where studentIdx = #{studentIdx}")
+    		+ " where studentIdx = #{studentIdx}")
     void updateInfo(Member member);
 }

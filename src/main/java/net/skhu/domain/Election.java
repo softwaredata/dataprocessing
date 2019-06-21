@@ -9,8 +9,9 @@ import java.time.LocalDateTime;
 @Getter
 @NoArgsConstructor
 public class Election {
+    private int idx;
 
-    private long name;
+    private int name;
 
     private LocalDateTime voteStartDate;
 
@@ -23,7 +24,8 @@ public class Election {
     private LocalDateTime regEndDate;
 
     @Builder
-    public Election(long name, LocalDateTime voteStartDate, LocalDateTime voteEndDate, int type, LocalDateTime regStartDate, LocalDateTime regEndDate) {
+    public Election(int idx,int name, LocalDateTime voteStartDate, LocalDateTime voteEndDate, int type, LocalDateTime regStartDate, LocalDateTime regEndDate) {
+        this.idx=idx;
         this.name = name;
         this.voteStartDate = voteStartDate;
         this.voteEndDate = voteEndDate;
