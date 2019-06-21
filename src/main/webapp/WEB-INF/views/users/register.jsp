@@ -40,6 +40,9 @@
         h2{
             font-family:'Jeju Gothic', serif;
         }
+
+        .layer { display: none; }
+        .layer1 { display: none; }
     </style>
 
 </head>
@@ -60,8 +63,8 @@
                     <form action="/register" name="cadiRegister" method="post" enctype="multipart/form-data">
                         <tr>
                             <th>선거 종류 선택 </th>
-                            <td colspan="4">
-                                <select class="form-control" id="electionIdx" name="electionIdx" style="width:25%">
+                            <td >
+                                <select class="form-control" id="electionIdx" name="electionIdx" style="width:100%">
                                     <option value="1"
                                             <c:if test="${electionIdx == 1}">selected</c:if>>총학생회
                                     </option>
@@ -72,6 +75,64 @@
                                             <c:if test="${electionIdx == 1}">selected</c:if>>전공대표
                                     </option>
                                 </select>
+
+                            </td>
+
+
+                            <th>
+                                <div class="layer">
+                                    학부를 선택해주세요
+
+                                </div>
+
+                                <div class="layer1">
+                                    학과를 선택해주세요
+                                </div>
+                            </th>
+
+
+                            <td>
+                                <div class="layer">
+
+                                    <select class="form-control" id="department1" name="department1" style="width:100%">
+                                        <option value="0">학부를 선택해 주세요</option>
+
+                                        <option value="인문융합자율학부">인문융합 자율학부</option>
+
+                                        <option value="사회융합자율학부">사회융합 자율학부</option>
+
+                                        <option value="미디어컨텐츠융합자율학부">미디어컨텐츠융합 자율학부</option>
+
+                                        <option value="IT융합자율학부">IT융합 자율학부</option>
+
+                                    </select>
+
+                                </div>
+
+                                <div class="layer1">
+
+                                    <select class="form-control" id="department2" name="department2" style="width:100%">
+                                        <option value="0">학부를 선택해 주세요</option>
+                                        <option value="신학과">신학과</option>
+                                        <option value="영어학과">영어학과</option>
+                                        <option value="일어일본학과">일어일본학과</option>
+                                        <option value="중어중국학과">중어중국학과</option>
+                                        <option value="사회복지학과">사회복지학과</option>
+                                        <option value="사회과학부">사회과학부</option>
+                                        <option value="신문방송학과">신문방송학과</option>
+                                        <option value="경영학부">경영학부</option>
+                                        <option value="디지털컨텐츠학과">디지털컨텐츠학과</option>
+                                        <option value="컴퓨터공학과">컴퓨터공학과</option>
+                                        <option value="소프트웨어공학과">소프트웨어공학과</option>
+                                        <option value="정보통신학과">정보통신학과</option>
+                                        <option value="글로컬IT학과">글로컬IT학과</option>
+
+
+
+                                    </select>
+
+
+                                </div>
                             </td>
                         </tr>
                         <tr>
@@ -130,6 +191,26 @@
 </div>
 <script>
 
+
+    jQuery('#electionIdx').change(function() {
+        var state = jQuery('#electionIdx option:selected').val();
+        if ( state == '2' ) {
+            jQuery('.layer').show();
+        } else {
+            jQuery('.layer').hide();
+        }
+    });
+
+
+    jQuery('#electionIdx').change(function() {
+        var state = jQuery('#electionIdx option:selected').val();
+        if ( state == '3' ) {
+            jQuery('.layer1').show();
+        } else {
+            jQuery('.layer1').hide();
+        }
+    });
+
     function candiRegister(form){
         if(confirm('선거 후보 등록을 하시겠습니까?') ==true){
             form.submit();
@@ -156,6 +237,8 @@
                     oathPhotoUrl : $("#oathPhotoUrl").val(),
                     candidate1CertiUrl : $("#candidate1CertiUrl").val(),
                     candidate2CertiUrl : $("#candidate2CertiUrl").val()
+
+
                 }),
             })
         });

@@ -51,7 +51,6 @@ public class InsertController {
         AmazonS3Util.uploadFile( team.getName()+"_정후보_재학증명서", team.getCandidate1CertiUrl());
         AmazonS3Util.uploadFile( team.getName()+"_부후보_재학증명서", team.getCandidate2CertiUrl());
 
-        //team객체가 아니라 candidate 객체로 받거나  param으로 받아야 함
         AmazonS3Util.uploadFile( team.getName()+"_정후보_프로필사진", team.getCandidate1PhotoUrl());
         AmazonS3Util.uploadFile( team.getName()+"_부후보_프로필사진", team.getCandidate2PhotoUrl());
 
@@ -82,6 +81,7 @@ public class InsertController {
                 .candidate2CertiUrl(AmazonS3Util.getFileURL(team.getName()+"_정후보_재학증명서"))
                 .typeChk(0)
                 .electionIdx(team.getElectionIdx())
+                .department(team.getDepartment())
                 .build();
 
         teamMapper.insertTeam(insertTeam);
