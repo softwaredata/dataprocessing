@@ -159,6 +159,9 @@
 			</fieldset>
 		</form>
 	</div>
+
+
+
 					<button type="submit" class="btn btn-default">수정 완료</button>
 				</div>
 			</div>
@@ -359,13 +362,13 @@
                     divEmail.removeClass("has-error");
                     divEmail.addClass("has-success");
                 }
-		})});
-	</script>
-	<!--// 본문 들어가는 부분 -->
-	<hr />
-	<!-- 푸터 들어가는 부분 -->
 
-	<!--// 푸터 들어가는 부분 -->
+
+            })});
+</script>
+<!--// 본문 들어가는 부분 -->
+<hr />
+
 
 </body>
 </html>
