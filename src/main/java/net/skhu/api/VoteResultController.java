@@ -19,6 +19,7 @@ public class VoteResultController {
 
         model.addAttribute("abandonment", electionResultMapper.findByElectionAbandonment(userToElection));
         model.addAttribute("vote", electionResultMapper.findByElectionVote(userToElection));
+        model.addAttribute("image",electionResultMapper.findByCandidateImages(10));
 
         return "vote/voteResult";
     }

@@ -1,5 +1,6 @@
 package net.skhu.mapper;
 
+import net.skhu.domain.Teams;
 import net.skhu.domain.UserToElection;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
@@ -19,4 +20,8 @@ public interface ElectionResultMapper {
 
     @Select("select count(*) 총투표수 from User_to_election where election_idx = 4 and abandonment = 0")
     int findByElectionVote(UserToElection userToElection);
+
+    @Select("select * from Teams where idx = 10")
+    Teams findByCandidateImages(int idx);
+
 }

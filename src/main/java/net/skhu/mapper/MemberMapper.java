@@ -1,7 +1,6 @@
 package net.skhu.mapper;
 
 import net.skhu.domain.Member;
-import net.skhu.dto.LoginRequest;
 import org.apache.ibatis.annotations.*;
 
 
@@ -32,6 +31,8 @@ public interface MemberMapper {
     int findUser(int studentIdx);
     
     //개인정보 변경
+
+
     @Select("SELECT * FROM Member WHERE studentIdx = #{studentIdx}")
     Member findByStuId(int studentIdx);
     

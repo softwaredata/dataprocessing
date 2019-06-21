@@ -38,8 +38,9 @@ public class ElectionController {
     public String election(Model model, @PathVariable("electionType") int electionType, HttpServletResponse response) throws IOException {
         model.addAttribute("electionType",electionType);
         boolean electionCheck= electionService.electionCheck(model,electionType,response);
-        if(electionCheck)
+        if(electionCheck){
             return "election/realVote";
+        }
         else
             return "main/main";
     }

@@ -39,22 +39,63 @@
 </section>
 
 <div class="container">
+    
+    <%--<div class="c100 p${abandonment} big  " style="float: right;" >--%>
+        <%--<span>기권 ${abandonment}명</span>--%>
+        <%--<div class="slice">--%>
+            <%--<div class="bar"></div>--%>
+            <%--<div class="fill"></div>--%>
+        <%--</div>--%>
+    <%--</div>--%>
 
-    <div class="c100 p${abandonment} big  " style="float: right">
-        <span>기권 ${abandonment}명</span>
-        <div class="slice">
-            <div class="bar"></div>
-            <div class="fill"></div>
-        </div>
+    <%--<div class="c100 p${vote} big  " style="float: right; ">--%>
+        <%--<span> 투표 ${vote}명</span>--%>
+        <%--<div class="slice">--%>
+            <%--<div class="bar"></div>--%>
+            <%--<div class="fill"></div>--%>
+        <%--</div>--%>
+    <%--</div>--%>
+
+
+    <!-- Jumbotron -->
+    <div class="jumbotron">
+        <h1>${image.name} 승리!</h1>
+        <p class="lead"> <img src="${image.teamPhotoUrl}" width="800" height="200" ></p>
+        <p><a class="btn btn-lg btn-success" href="#" role="button">치열한 경쟁 끝에 승리 하였습니다 축하드립니다</a></p>
     </div>
 
-    <div class="c100 p${vote} big  " style="float: right; ">
-        <span> 투표 ${vote}명</span>
-        <div class="slice">
-            <div class="bar"></div>
-            <div class="fill"></div>
+    <!-- Example row of columns -->
+    <div class="row">
+        <div class="col-lg-4">
+            <p class="text-danger">
+
+            <div class="c100 p${vote} big  " style="float: right; ">
+                <span> 투표 ${vote}명</span>
+                <div class="slice">
+                    <div class="bar"></div>
+                    <div class="fill"></div>
+                </div>
+            </div>
+            </p>
         </div>
+
+        <div class="col-lg-4">
+            <p>
+            <div class="c100 p${abandonment} big  " style="float: right;" >
+                <span>기권 ${abandonment}명</span>
+                <div class="slice">
+                    <div class="bar"></div>
+                    <div class="fill"></div>
+                </div>
+            </div>
+
+            </p>
+
+        </div>
+
     </div>
+
+    <!-- Example row of columns -->
 
 </div>
 
