@@ -40,6 +40,10 @@
         h2{
             font-family:'Jeju Gothic', serif;
         }
+
+        .layer { display: none; }
+        .layer1 { display: none; }
+
     </style>
 
 </head>
@@ -57,11 +61,11 @@
                     </thead>
 
                     <tbody>
-                    <form action="/register" id="candiRegist" name="candiRegist" method="post" encType="multiplart/form-data">
+                    <form action="/register" name="cadiRegister" method="post" enctype="multipart/form-data">
                         <tr>
                             <th>선거 종류 선택 </th>
-                            <td colspan="4">
-                                <select class="form-control" id="electionIdx" name="electionIdx" style="width:25%">
+                            <td >
+                                <select class="form-control" id="electionIdx" name="electionIdx" style="width:100%">
                                     <option value="1"
                                             <c:if test="${electionIdx == 1}">selected</c:if>>총학생회
                                     </option>
@@ -73,6 +77,59 @@
                                     </option>
                                 </select>
                             </td>
+                        <th>
+                            <div class="layer">
+                                학부를 선택해주세요
+
+                            </div>
+
+                            <div class="layer1">
+                                학과를 선택해주세요
+                            </div>
+                        </th>
+
+
+                        <td>
+                            <div class="layer">
+
+                                <select class="form-control" id="department1" name="department1" style="width:100%">
+                                    <option value="0">학부를 선택해 주세요</option>
+
+                                    <option value="인문융합자율학부">인문융합 자율학부</option>
+
+                                    <option value="사회융합자율학부">사회융합 자율학부</option>
+
+                                    <option value="미디어컨텐츠융합자율학부">미디어컨텐츠융합 자율학부</option>
+
+                                    <option value="IT융합자율학부">IT융합 자율학부</option>
+
+                                </select>
+
+                            </div>
+
+                            <div class="layer1">
+
+                                <select class="form-control" id="department2" name="department2" style="width:100%">
+                                    <option value="0">학과를 선택해 주세요</option>
+                                    <option value="신학과">신학과</option>
+                                    <option value="영어학과">영어학과</option>
+                                    <option value="일어일본학과">일어일본학과</option>
+                                    <option value="중어중국학과">중어중국학과</option>
+                                    <option value="사회복지학과">사회복지학과</option>
+                                    <option value="사회과학부">사회과학부</option>
+                                    <option value="신문방송학과">신문방송학과</option>
+                                    <option value="경영학부">경영학부</option>
+                                    <option value="디지털컨텐츠학과">디지털컨텐츠학과</option>
+                                    <option value="컴퓨터공학과">컴퓨터공학과</option>
+                                    <option value="소프트웨어공학과">소프트웨어공학과</option>
+                                    <option value="정보통신학과">정보통신학과</option>
+                                    <option value="글로컬IT학과">글로컬IT학과</option>
+
+                                </select>
+
+
+                            </div>
+                        </td>
                         </tr>
                         <tr>
                             <th>팀이름: </th>
@@ -84,6 +141,7 @@
                             <th>부후보 학번: </th>
                             <td><input type="text" id = "candidate2idx" name="candidate2idx" class="form-control"/></td>
                         </tr>
+
                         <tr>
                             <th>정후보사진: </th>
                             <td><input type="file" placeholder="파일을 선택하세요." id = "profileUrl1" name="profileUrl1" class="form-control" /></td>
@@ -96,6 +154,7 @@
                             <td colspan = '4'><input type="file" placeholder="파일을 선택하세요." id = "pledge" name="pledge" class="form-control" /></td>
                             <td colspan = '3'></td>
                         </tr>
+
 
                         <tr>
                             <th>추천서: </th>
@@ -123,8 +182,7 @@
 
                         <td colspan="4">
 <%--                            <button type="button" id ="createRegister" class="pull-right" style="margin-bottom: 30px">등록</button>--%>
-                            <button type="button" onclick="candiRegister(candiRegist)" class="pull-right" style="margin-bottom: 10px">등록</button>
-
+                                                    <button type="button" onclick="candiRegister(cadiRegister)" class="pull-right" style="margin-bottom: 10px">등록</button>
                         </td>
                     </form>
                     </tbody>
@@ -138,14 +196,48 @@
 </div>
 <script>
 
+//    function candiRegister(form){
+//        if(confirm('선거 후보 등록을 하시겠습니까?') ==true){
+//            form.submit();
+//        }
+//        else
+//            return false
+//
+//    }
+
     function candiRegister(form){
-        if (confirm('선거 후보 등록을 하시겠습니까?') == true) {
-            form.submit();
+        if(confirm('선거 후보 등록을 하시겠습니까?') ==true){
+            $(function(){
+                    $.ajax({
+                        url : "register",
+                        type : "POST",
+                        contentType: 'application/json',
+                        data : JSON.stringify({
+                            electionIdx : $("#electionIdx").val(),
+                            name : $("#name").val(),
+                            candidate1idx : $("#candidate1idx").val(),
+                            candidate2idx : $("#candidate2idx").val(),
+                            pledge : $("#pledge").val(),
+                            reccoPhotoUrl : $("#reccoPhotoUrl").val(),
+                            electioneeringFileUrl : $("#electioneeringFileUrl").val(),
+                            teamPhotoUrl : $("#teamPhotoUrl").val(),
+                            oathPhotoUrl : $("#oathPhotoUrl").val(),
+                            candidate1CertiUrl : $("#candidate1CertiUrl").val(),
+                            candidate2CertiUrl : $("#candidate2CertiUrl").val(),
+                            profileUrl1 : $("#profileUrl1").val(),
+                            profileUrl2 : $("#profileUrl2").val(),
+
+                        }),
+                        success : function(result) {
+                            alert(result);
+                        },
+                    })
+            });
         }
         else
-            return false;
+            return false
+
     }
-    //
     // $(function(){
     //     $("#createRegister").click(function(){
     //         $.ajax({
@@ -154,7 +246,7 @@
     //             contentType: 'application/json',
     //             data : JSON.stringify({
     //                 electionIdx : $("#electionIdx").val(),
-    //                 name : $("#teamName").val(),
+    //                 name : $("#name").val(),
     //                 candidate1idx : $("#candidate1idx").val(),
     //                 candidate2idx : $("#candidate2idx").val(),
     //                 pledge : $("#pledge").val(),
@@ -168,6 +260,26 @@
     //         })
     //     });
     // })
+
+
+    jQuery('#electionIdx').change(function() {
+        var state = jQuery('#electionIdx option:selected').val();
+        if ( state == '2' ) {
+            jQuery('.layer').show();
+        } else {
+            jQuery('.layer').hide();
+        }
+    });
+
+
+    jQuery('#electionIdx').change(function() {
+        var state = jQuery('#electionIdx option:selected').val();
+        if ( state == '3' ) {
+            jQuery('.layer1').show();
+        } else {
+            jQuery('.layer1').hide();
+        }
+    });
 </script>
 </body>
 </html>

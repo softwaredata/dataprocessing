@@ -24,7 +24,7 @@ public interface TeamMapper {
     @Insert("insert into Teams(name, candidate1_idx, candidate2_idx, pledge, recco_photo_url, electioneering_file_url, team_photo_url,\n" +
             "oath_photo_url, election_idx, candidate1_certi_url, candidate2_certi_url,type_chk)" +
             " values(#{name}, #{candidate1idx}, #{candidate2idx}, #{pledge}, #{reccoPhotoUrl}, #{electioneeringFileUrl}, #{teamPhotoUrl}," +
-            " #{oathPhotoUrl}, #{electionIdx}, #{candidate1CertiUrl}, #{candidate2CertiUrl},#{typeChk} )")
+            " #{oathPhotoUrl}, #{electionIdx}, #{candidate1CertiUrl}, #{candidate2CertiUrl},#{typeChk})")
     void insertTeam(Team team);
 
 
