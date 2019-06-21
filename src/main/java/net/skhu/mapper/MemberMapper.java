@@ -27,6 +27,8 @@ public interface MemberMapper {
     int findUser(int studentIdx);
     
     //개인정보 변경
+
+
     @Select("SELECT * FROM Member WHERE studentIdx = #{studentIdx}")
     Member findByStuId(int studentIdx);
     

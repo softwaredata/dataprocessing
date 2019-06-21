@@ -50,6 +50,7 @@
 					<input type="password" placeholder="password" name="password" id="pw"/>
 					<button>login</button>
 					<p class="message">
+
 						<br />
 						<a href="signUp"><span>회원가입 </span></a>
 						<a href="findPws"><span>비밀번호찾기 </span></a>
@@ -57,6 +58,7 @@
 						<a href="mypage"><span>회원정보 수정 </span></a>
 						<a href="main"><span>메인페이지 </span></a>
 						<br /> <br /> <br />
+
 					</p>
 				</form>
 			</div>

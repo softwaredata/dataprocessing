@@ -53,7 +53,8 @@
                         <header>
                             <h2><a href="#"><strong>${team.name} 팀</strong></a></h2>
                         </header>
-                        <a href="#" class="image featured"><img src="images/pic05.jpg" alt="" /> 팀 메인 사진</a>
+                        <label>팀사진</label>
+                        <a href="#" class="image featured" style="width: 60%"><img src="${team.teamPhotoUrl}" alt=""/></a>
 
                         <p>${team.name} 팀 입니다</p>
                         <ul class="actions">

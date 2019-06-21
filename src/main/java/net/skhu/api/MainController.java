@@ -5,7 +5,6 @@ import net.skhu.domain.Team;
 import net.skhu.mapper.TeamMapper;
 import net.skhu.service.CheckVoteDayPossibleService;
 import net.skhu.service.ElectionService;
-import net.skhu.util.auth.Auth;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
