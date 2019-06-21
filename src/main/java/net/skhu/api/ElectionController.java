@@ -4,7 +4,10 @@ minsub
 package net.skhu.api;
 
 import lombok.extern.slf4j.Slf4j;
+
 import net.skhu.domain.Election;
+
+import net.skhu.aws.AmazonS3Util;
 import net.skhu.domain.Team;
 import net.skhu.domain.UserToElection;
 import net.skhu.dto.ElectionRequest;
@@ -46,8 +49,9 @@ public class ElectionController {
     public String election(Model model, @PathVariable("electionType") int electionType, HttpServletResponse response) throws IOException {
         model.addAttribute("electionType",electionType);
         boolean electionCheck= electionService.electionCheck(model,electionType,response);
-        if(electionCheck == true)
+        if(electionCheck == true) {
             return "election/realVote";
+        }
         else
             return "main/main";
     }

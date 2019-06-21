@@ -11,7 +11,7 @@
 <section id="footer">
     <div class="container">
         <header>
-            <h2><strong>MyPage</strong></h2>
+            <h2><strong></strong></h2>
         </header>
         <div class="row">
             <div class="col-6 col-12-medium">
@@ -44,7 +44,7 @@
                                 <li class="icon fa-home">
                                     이름 : 홍길동<br />
                                 </li>
-                                <li class="icon fa-twitter">
+                                <li class="icon fa-bandcamp">
                                     <a href="#">학과 : ------------ </a>
                                 </li>
                                 <li class="icon fa-phone">

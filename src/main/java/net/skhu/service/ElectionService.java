@@ -32,7 +32,7 @@ import java.util.Optional;
 @Service
 public class ElectionService {
 
-    private static org.slf4j.Logger logger = LoggerFactory.getLogger(ElectionController.class);
+    private static org.slf4j.Logger logger = LoggerFactory.getLogger(ElectionService.class);
 
     private final CheckVoteDayPossibleService checkVoteDayPossibleService;
     private final ElectionMapper electionMapper;

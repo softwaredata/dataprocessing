@@ -49,6 +49,7 @@ public class PwsService {
         // 아이디가 없으면
 
         else if(memberMapper.findUser(member.getStudentIdx())==0) {
+
             out.print("존재하지 않는 아이디 입니다.");
             out.close();
         }
