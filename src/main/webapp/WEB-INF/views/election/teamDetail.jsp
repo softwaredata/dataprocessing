@@ -47,10 +47,11 @@
                                     </a>
                                 </h2>
                             </header>
-                            <a href="#" class="image featured"><img src="images/pic04.jpg" alt="" />후보팀 사진</a>
+                            <label>후보팀 사진</label>
+                            <a href="#" class="image featured" style="width: 60%"><img src="${teamDetail.teamPhotoUrl}" alt="" /></a>
                             <h3>공약</h3>
                             <p>
-                                <a href="#" class="image featured"><img src="images/pic04.jpg" alt="" />공약 이미지파일</a>
+                                <a href="#" class="image featured"><img src="${teamDetail.pledge}" alt="" /></a>
 
                             </p>
 

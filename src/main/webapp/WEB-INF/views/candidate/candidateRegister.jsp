@@ -57,7 +57,7 @@
                     </thead>
 
                     <tbody>
-                    <form action="/register" name="cadiRegister" method="post" encType="multiplart/form-data">
+                    <form action="/register" id="candiRegist" name="candiRegist" method="post" encType="multiplart/form-data">
                         <tr>
                             <th>선거 종류 선택 </th>
                             <td colspan="4">
@@ -66,13 +66,17 @@
                                             <c:if test="${electionIdx == 1}">selected</c:if>>총학생회
                                     </option>
                                     <option value="2"
-                                            <c:if test="${electionIdx == 1}">selected</c:if>>학부대표
+                                            <c:if test="${electionIdx == 2}">selected</c:if>>학부대표
                                     </option>
                                     <option value="3"
-                                            <c:if test="${electionIdx == 1}">selected</c:if>>전공대표
+                                            <c:if test="${electionIdx == 3}">selected</c:if>>전공대표
                                     </option>
                                 </select>
                             </td>
+                        </tr>
+                        <tr>
+                            <th>팀이름: </th>
+                            <td colspan="4"><input type="text" placeholder="팀이름을 입력하세요 " id="name" name="name" class="form-control"/></td>
                         </tr>
                         <tr>
                             <th>정후보 학번: </th>
@@ -81,13 +85,16 @@
                             <td><input type="text" id = "candidate2idx" name="candidate2idx" class="form-control"/></td>
                         </tr>
                         <tr>
-                            <th>팀이름: </th>
-                            <td colspan="4"><input type="text" placeholder="팀이름을 입력하세요 " id="name" name="name" class="form-control"/></td>
-                        </tr>
+                            <th>정후보사진: </th>
+                            <td><input type="file" placeholder="파일을 선택하세요." id = "profileUrl1" name="profileUrl1" class="form-control" /></td>
 
+                            <th>부후보사진: </th>
+                            <td><input type="file" placeholder="파일을 선택하세요." id = "profileUrl2" name="profileUrl2"  class="form-control"  /></td>
+                        </tr>
                         <tr>
                             <th>공약: </th>
-                            <td colspan = '4'><input type="file" placeholder="파일을 선택하세요." id = "pledge" placeholder="내용을 입력하세요. " name="pledge" class="form-control" /></td>
+                            <td colspan = '4'><input type="file" placeholder="파일을 선택하세요." id = "pledge" name="pledge" class="form-control" /></td>
+                            <td colspan = '3'></td>
                         </tr>
 
                         <tr>
@@ -115,8 +122,9 @@
                         </tr>
 
                         <td colspan="4">
-                                            <button type="button" id ="createRegister" class="pull-right" style="margin-bottom: 30px">등록</button>
-<%--                            <button type="button" onclick="candiRegister(cadiRegister)" class="pull-right" style="margin-bottom: 10px">등록</button>--%>
+<%--                            <button type="button" id ="createRegister" class="pull-right" style="margin-bottom: 30px">등록</button>--%>
+                            <button type="button" onclick="candiRegister(candiRegist)" class="pull-right" style="margin-bottom: 10px">등록</button>
+
                         </td>
                     </form>
                     </tbody>
@@ -131,35 +139,35 @@
 <script>
 
     function candiRegister(form){
-        if(confirm('선거 후보 등록을 하시겠습니까?') ==true){
+        if (confirm('선거 후보 등록을 하시겠습니까?') == true) {
             form.submit();
         }
         else
-            return false
-
+            return false;
     }
-    $(function(){
-        $("#createRegister").click(function(){
-            $.ajax({
-                url : "register",
-                type : "POST",
-                contentType: 'application/json',
-                data : JSON.stringify({
-                    electionIdx : $("#electionIdx").val(),
-                    name : $("#name").val(),
-                    candidate1idx : $("#candidate1idx").val(),
-                    candidate2idx : $("#candidate2idx").val(),
-                    pledge : $("#pledge").val(),
-                    reccoPhotoUrl : $("#reccoPhotoUrl").val(),
-                    electioneeringFileUrl : $("#electioneeringFileUrl").val(),
-                    teamPhotoUrl : $("#teamPhotoUrl").val(),
-                    oathPhotoUrl : $("#oathPhotoUrl").val(),
-                    candidate1CertiUrl : $("#candidate1CertiUrl").val(),
-                    candidate2CertiUrl : $("#candidate2CertiUrl").val()
-                }),
-            })
-        });
-    })
+    //
+    // $(function(){
+    //     $("#createRegister").click(function(){
+    //         $.ajax({
+    //             url : "register",
+    //             type : "POST",
+    //             contentType: 'application/json',
+    //             data : JSON.stringify({
+    //                 electionIdx : $("#electionIdx").val(),
+    //                 name : $("#teamName").val(),
+    //                 candidate1idx : $("#candidate1idx").val(),
+    //                 candidate2idx : $("#candidate2idx").val(),
+    //                 pledge : $("#pledge").val(),
+    //                 reccoPhotoUrl : $("#reccoPhotoUrl").val(),
+    //                 electioneeringFileUrl : $("#electioneeringFileUrl").val(),
+    //                 teamPhotoUrl : $("#teamPhotoUrl").val(),
+    //                 oathPhotoUrl : $("#oathPhotoUrl").val(),
+    //                 candidate1CertiUrl : $("#candidate1CertiUrl").val(),
+    //                 candidate2CertiUrl : $("#candidate2CertiUrl").val()
+    //             }),
+    //         })
+    //     });
+    // })
 </script>
 </body>
 </html>
