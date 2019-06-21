@@ -2,7 +2,7 @@ package net.skhu.email;
 
 import lombok.*;
 
-@Builder
+@Getter
 @NoArgsConstructor
 public class Email {
     private String sender;//보내는사람

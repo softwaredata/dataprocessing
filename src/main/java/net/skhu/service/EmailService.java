@@ -1,10 +1,6 @@
 package net.skhu.service;
 
 
-<<<<<<< HEAD
-import lombok.AllArgsConstructor;
-=======
->>>>>>> develop
 import lombok.extern.slf4j.Slf4j;
 import net.skhu.email.Email;
 import org.springframework.lang.Nullable;
@@ -28,10 +24,6 @@ public class EmailService {
     public EmailService(final JavaMailSender javaMailSender) {
         this.javaMailSender = javaMailSender;
     }
-<<<<<<< HEAD
-=======
-
->>>>>>> develop
 
     public void sendMail(Email email) throws MessagingException {
         MimeMessage message = javaMailSender.createMimeMessage();

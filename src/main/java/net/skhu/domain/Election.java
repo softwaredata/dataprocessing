@@ -23,8 +23,10 @@ public class Election {
 
     private LocalDateTime regEndDate;
 
+    private String department;
+
     @Builder
-    public Election(int idx,int name, LocalDateTime voteStartDate, LocalDateTime voteEndDate, int type, LocalDateTime regStartDate, LocalDateTime regEndDate) {
+    public Election(int idx,int name, LocalDateTime voteStartDate, LocalDateTime voteEndDate, int type, LocalDateTime regStartDate, LocalDateTime regEndDate, String department) {
         this.idx=idx;
         this.name = name;
         this.voteStartDate = voteStartDate;
@@ -32,5 +34,6 @@ public class Election {
         this.type = type;
         this.regStartDate = regStartDate;
         this.regEndDate = regEndDate;
+        this.department = department;
     }
 }

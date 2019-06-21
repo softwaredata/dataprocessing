@@ -71,18 +71,11 @@
             $.ajax({
                 url : "find_pws",
                 type : "POST",
-<<<<<<< HEAD
-                data : {
-                    id : $("#id").val(),
-                    email : $("#email").val()
-                },
-=======
                 contentType : "application/json",
                 data : JSON.stringify({
                     id : $("#id").val(),
                     email : $("#email").val()
                 }),
->>>>>>> develop
                 success : function(result) {
                     alert(result);
                 },
@@ -90,11 +83,6 @@
         });
     })
 </script>
-
-<<<<<<< HEAD
-=======
-
->>>>>>> develop
 </body>
 
 </html>
