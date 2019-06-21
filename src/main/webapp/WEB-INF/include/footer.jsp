@@ -42,13 +42,10 @@
                         <div class="col-6 col-12-small">
                             <ul class="icons">
                                 <li class="icon fa-home">
-                                    이름 : 홍길동<br />
+                                    이름 <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${user.name}<br />
                                 </li>
                                 <li class="icon fa-bandcamp">
-                                    <a href="#">학과 : ------------ </a>
-                                </li>
-                                <li class="icon fa-phone">
-                                    전화번호 : 010-0000-0000
+                                    학과 <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${user.department}
                                 </li>
 
                             </ul>
@@ -57,11 +54,11 @@
                             <ul class="icons">
 
                                 <li class="icon fa-dribbble">
-                                    <a href="#">학번 : 20-------</a>
+                                    학번  <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${user.studentIdx}
                                 </li>
 
-                                <li class="icon fa-envelope">
-                                    <a href="#">이메일 : <br/> MyEmail@ email.com</a>
+                                <li class="icon fa-envelope" >
+                                    이메일  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${user.email}
                                 </li>
                             </ul>
                         </div>

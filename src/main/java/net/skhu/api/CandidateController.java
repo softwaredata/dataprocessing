@@ -3,6 +3,7 @@ package net.skhu.api;
 import lombok.extern.slf4j.Slf4j;
 import net.skhu.aws.AmazonS3Util;
 import net.skhu.domain.Candidate;
+import net.skhu.domain.Member;
 import net.skhu.domain.Team;
 import net.skhu.mapper.CandidateMapper;
 import net.skhu.mapper.TeamMapper;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -32,86 +34,56 @@ public class CandidateController {
 
     private final CandidateMapper candidateMapper;
 
-    public CandidateController(final TeamMapper teamMapper, final S3FileUploadService s3FileUploadService, CandidateMapper candidateMapper) {
+    public CandidateController(final TeamMapper teamMapper, final S3FileUploadService s3FileUploadService, final CandidateMapper candidateMapper) {
         this.teamMapper = teamMapper;
         this.s3FileUploadService = s3FileUploadService;
         this.candidateMapper = candidateMapper;
     }
 
     @GetMapping("candidateCheck")
-    public String candidateCheck(Model model){
-        Team team = teamMapper.findTeamMatchId(201932001);
+    public String candidateCheck(Model model, HttpSession session){
+        Member user =(Member)session.getAttribute("user");
+
+        Team team = teamMapper.findTeamMatchId(user.getStudentIdx());
         model.addAttribute("team",team);
         return "candidate/candidateCheck";
     }
 
     //입후보 등록
     @GetMapping("candiRegister")
-    public String createCandidate(Model model){
+    public String createCandidate(HttpSession session){
+        Member user =(Member)session.getAttribute("user");
+
         return "candidate/register";
     }
 
     @PostMapping("register")
-    public String createRegister(@RequestBody Team team, HttpServletResponse response,HttpServletRequest request) throws IOException {
+    public void createRegister(@RequestBody Team team, HttpServletResponse response,HttpServletRequest request,HttpSession session) throws IOException {
+        Member user =(Member)session.getAttribute("user");
+
         response.setContentType("text/html;charset=utf-8");
         PrintWriter out = response.getWriter();
+        String redirectUrl = request.getRequestURI();
 
         boolean check=s3FileUploadService.registVaildateCheck(team);
         if(check==false) {
-
             out.println("정보를 모두 입력하세요");
             out.close();
-            return "candidate/register";
+        }
+        else if(s3FileUploadService.alreadyRegistCheck(team)==false){
+            out.println("이미 등록된 후보자입니다");
+            out.close();
         }
         else {
-            logger.info(team.toString());
-            AmazonS3Util.uploadFile( team.getName()+"_공약", team.getPledge());
-            logger.info(AmazonS3Util.getFileURL(team.getName()+"_공약"));
-            AmazonS3Util.uploadFile( team.getName()+"_추천서", team.getReccoPhotoUrl());
-            AmazonS3Util.uploadFile( team.getName()+"_선거운동단", team.getElectioneeringFileUrl());
-            AmazonS3Util.uploadFile( team.getName()+"_팀사진", team.getTeamPhotoUrl());
-            AmazonS3Util.uploadFile( team.getName()+"_선거서약서", team.getOathPhotoUrl());
-            AmazonS3Util.uploadFile( team.getName()+"_정후보_재학증명서", team.getCandidate1CertiUrl());
-            AmazonS3Util.uploadFile( team.getName()+"_부후보_재학증명서", team.getCandidate2CertiUrl());
-            AmazonS3Util.uploadFile( team.getName()+"_정후보_프로필사진", team.getProfileUrl1());
-            AmazonS3Util.uploadFile( team.getName()+"_부후보_프로필사진", team.getProfileUrl2());
-
-            Candidate candidate1 = Candidate.builder()
-                    .idx(team.getCandidate1idx())
-                    .profileUrl(AmazonS3Util.getFileURL(team.getName()+"_정후보_프로필사진"))
-                    .build();
-
-            Candidate candidate2 = Candidate.builder()
-                    .idx(team.getCandidate2idx())
-                    .profileUrl(AmazonS3Util.getFileURL(team.getName()+"_부후보_프로필사진"))
-                    .build();
-
-            candidateMapper.insertCandidate(candidate1);
-            candidateMapper.insertCandidate(candidate2);
-
-
-            Team insertTeam = Team.builder()
-                    .name(team.getName())
-                    .candidate1idx(team.getCandidate1idx())
-                    .candidate2idx(team.getCandidate2idx())
-                    .pledge(AmazonS3Util.getFileURL(team.getName()+"_공약"))
-                    .reccoPhotoUrl(AmazonS3Util.getFileURL(team.getName()+"_추천서"))
-                    .electioneeringFileUrl(AmazonS3Util.getFileURL(team.getName()+"_선거운동단"))
-                    .teamPhotoUrl(AmazonS3Util.getFileURL(team.getName()+"_팀사진"))
-                    .oathPhotoUrl(AmazonS3Util.getFileURL(team.getName()+"_선거서약서"))
-                    .candidate1CertiUrl(AmazonS3Util.getFileURL(team.getName()+"_정후보_재학증명서"))
-                    .candidate2CertiUrl(AmazonS3Util.getFileURL(team.getName()+"_정후보_재학증명서"))
-                    .typeChk(0)
-                    .electionIdx(team.getElectionIdx())
-                    .build();
-
-            teamMapper.insertTeam(insertTeam);
+            out.println("잠시만 기다려 주세요!");
+            s3FileUploadService.registerS3FileUpload(team);
             out.println("후보 등록 신청이 되었습니다. 관리자의 승인을 기다려 주세요");
             out.flush();
+            redirectUrl="/main";
 
-            return "redirect:/main";
+
         }
-
+        response.sendRedirect(redirectUrl);
     }
 
 }

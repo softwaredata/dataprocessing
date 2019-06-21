@@ -13,19 +13,7 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<<<<<<< HEAD
-    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-    <link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap/dist/css/bootstrap.min.css"/>
-    <link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.css"/>
-
-    <script src="http://code.jquery.com/jquery-latest.js"></script>
-
-    <title>비밀번호 찾기</title>
-=======
     <link href="resources/bootstrap/css/bootstrap.css" rel="stylesheet"
           type="text/css" />
     <link rel="stylesheet" href="resources/bootstrap/css/login.css">
@@ -39,7 +27,7 @@
     <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
     <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
     <title>비밀번호찾기</title>
->>>>>>> develop
+
 </head>
 <body>
 <div class="container">
