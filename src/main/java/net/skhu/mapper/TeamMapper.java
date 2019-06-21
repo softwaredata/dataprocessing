@@ -7,7 +7,7 @@ import java.util.List;
 
 @Mapper
 public interface TeamMapper {
-    @Select("select * from Teams where election_Idx = #{electionIdx}")
+    @Select("select * from Teams where election_Idx = #{electionIdx} and type_chk =1")
     List<Team> findTeams(int electionIdx);
 
     @Select("select * from Teams where idx = #{teamNum}")
