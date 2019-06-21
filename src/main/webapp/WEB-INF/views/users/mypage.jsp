@@ -59,9 +59,10 @@
 				<!-- 나중에 못 바꾸게 하기~ -->
 				<div class='kickass_field'>
 					<input maxlength='30' required='required' type="text"
-						   class="form-control onlyAlphabetAndNumber" id="studentIdx" readonly
+						   class="form-control onlyAlphabetAndNumber" id="studentIdx" name="studentIdx" readonly
 						   data-rule-required="true" value = "${member.studentIdx}">
 					<lable for="inputId"> 학번 </lable>
+
 				</div>
 			</div>
 
@@ -70,7 +71,7 @@
 				<div class='kickass_field'>
 
 					<input maxlength='30' required='required' type="password"
-						   class="form-control" id="password" name="excludeHangul"
+						   class="form-control" id="password" name="password"
 						   data-rule-required="true" placeholder="비밀번호 입력">
 					<lable for="inputPassword"> 비밀번호 </lable>
 				</div>
@@ -91,7 +92,7 @@
 				<!-- value값 이름으로 하기  -->
 				<div class='kickass_field'>
 					<input required='required' type="text"
-						   class="form-control onlyHangul" id="name"
+						   class="form-control onlyHangul" id="name" name="name"
 						   maxlength="15" value = "${member.name}" readonly>
 					<lable for="inputName"> 이름 </lable>
 				</div>
@@ -101,7 +102,7 @@
 				<!-- 학내 메일을 사용하기  -->
 				<div class='kickass_field'>
 					<input required='required' type="email" class="form-control"
-						   id="email" data-rule-required="true" value = "${member.email}"
+						   id="email" name="email" data-rule-required="true" value = "${member.email}"
 						   maxlength="40">
 
 					<lable for="inputEmail">이메일 </lable>
@@ -111,38 +112,34 @@
 			<div class="form-group">
 				<div class='kickass_field'>
 
-					<select class="form-control" id="major">
-						<option value="11"
-								<c:if test="${major.departmentId == 11}">selected</c:if>>디지털
+					<select class="form-control" id="department" name="department">
+						<option value="디지털컨텐츠학과"
+								<c:if test="${member.department.equals('디지털컨텐츠학과')}">selected</c:if>>디지털
 							컨텐츠학과</option>
-						<option value="12"
-								<c:if test="${major.departmentId == 12 }">selected</c:if>>소프트웨어
+						<option value="소프트웨어공학과"
+								<c:if test="${member.department.equals('소프트웨어공학과')}">selected</c:if>>소프트웨어
 							공학과</option>
-						<option value="13"
-								<c:if test="${major.departmentId == 13 }">selected</c:if>>정보통신학과</option>
-						<option value="14"
-								<c:if test="${major.departmentId == 14}">selected</c:if>>컴퓨터공학과</option>
-						<option value="15"
-								<c:if test="${major.departmentId ==15}">selected</c:if>>글로컬
-							IT학과</option>
-						<option value="20"
-								<c:if test="${major.departmentId ==20}">selected</c:if>>경영학부</option>
-						<option value="21"
-								<c:if test="${major.departmentId ==21}">selected</c:if>>디지털컨텐츠학과</option>
-						<option value="23"
-								<c:if test="${major.departmentId ==23}">selected</c:if>>사회과학부</option>
-						<option value="24"
-								<c:if test="${major.departmentId ==24}">selected</c:if>>사회복지학과</option>
-						<option value="26"
-								<c:if test="${major.departmentId ==26}">selected</c:if>>신문방송학과</option>
-						<option value="30"
-								<c:if test="${major.departmentId ==30}">selected</c:if>>신학과</option>
-						<option value="31"
-								<c:if test="${major.departmentId ==31}">selected</c:if>>영어학과</option>
-						<option value="32"
-								<c:if test="${major.departmentId ==32}">selected</c:if>>일어일본학과</option>
-						<option value="34"
-								<c:if test="${major.departmentId ==34}">selected</c:if>>중어중국학과</option>
+						<option value="정보통신학과"
+								<c:if test="${member.department.equals('정보통신학과')}">selected</c:if>>정보통신학과</option>
+
+						<option value="글로컬IT학과"
+								<c:if test="${member.department.equals('글로컬IT학과')}">selected</c:if>>글로컬IT학과</option>
+						<option value="경영학부"
+								<c:if test="${member.department.equals('경영학부')}">selected</c:if>>경영학부</option>
+						<option value="사회과학부"
+								<c:if test="${member.department.equals('사회과학부')}">selected</c:if>>사회과학부</option>
+						<option value="사회복지학과"
+								<c:if test="${member.department.equals('사회복지학과')}">selected</c:if>>사회복지학과</option>
+						<option value="신문방송학과"
+								<c:if test="${member.department.equals('신문방송학과')}">selected</c:if>>신문방송학과</option>
+						<option value="신학과"
+								<c:if test="${member.department.equals('신학과')}">selected</c:if>>신학과</option>
+						<option value="영어학과"
+								<c:if test="${member.department.equals('영어학과')}">selected</c:if>>영어학과</option>
+						<option value="일어일본학과"
+								<c:if test="${member.department.equals('일어일본학과')}">selected</c:if>>일어일본학과</option>
+						<option value="중어중국학과"
+								<c:if test="${member.department.equals('중어중국학과')}">selected</c:if>>중어중국학과</option>
 					</select>
 					<lable for="inputMajor">학과 </lable>
 
@@ -153,9 +150,8 @@
 			<div class="form-group">
 				<div class='kickass_field'>
 
-					<button type="submit" class="btn btn-default">정보 수정</button>
-					<br /><br />
-					<a href="/main" class="btn badge-light">메인으로</a>
+
+					<button type="submit" class="btn btn-default">수정 완료</button>
 				</div>
 			</div>
 		</fieldset>
@@ -361,9 +357,7 @@
 </script>
 <!--// 본문 들어가는 부분 -->
 <hr />
-<!-- 푸터 들어가는 부분 -->
 
-<!--// 푸터 들어가는 부분 -->
 
 </body>
 </html>

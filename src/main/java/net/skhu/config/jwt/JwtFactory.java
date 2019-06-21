@@ -4,6 +4,7 @@ import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
 import lombok.extern.slf4j.Slf4j;
 import net.skhu.config.security.MemberContext;
+import net.skhu.domain.Member;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
@@ -29,13 +30,28 @@ public class JwtFactory {
             token = JWT.create()
                     .withIssuer(ISSUER)
                     .withClaim("USERNAME", memberContext.getUsername())
-                    .withClaim("USER_ROLE", memberContext.getAuthorities().toString())
+                    .withClaim("USERROLE", memberContext.getAuthorities().toString())
                     .sign(Algorithm.HMAC256(SECRET));
 
         } catch(UnsupportedEncodingException e) {
             log.error(e.getMessage());
         }
     return token;
+    }
+
+    public static String create(Member member) {
+        String token = null;
+        try {
+            token = JWT.create()
+                    .withIssuer(ISSUER)
+                    .withClaim("USERNAME", member.getStudentIdx())
+                    .withClaim("USERROLE", member.getType())
+                    .sign(Algorithm.HMAC256(SECRET));
+
+        } catch(UnsupportedEncodingException e) {
+            log.error(e.getMessage());
+        }
+        return token;
     }
 
 }

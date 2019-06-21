@@ -29,7 +29,6 @@ public class MainController {
         this.checkVoteDayPossibleService = checkVoteDayPossibleService;
     }
 
-
     @GetMapping("main")
     public String main(){
 

@@ -22,10 +22,11 @@ public class SignUpService {
                 .name(signUpRequestDto.getName())
                 .studentIdx(signUpRequestDto.getStudentIdx())
                 .department(signUpRequestDto.getDepartment())
-                .password(passwordEncoder.encode(signUpRequestDto.getPassword()))
+                .password(passwordEncoder.encode(signUpRequestDto.getPassword1()))
                 .email(signUpRequestDto.getEmail())
-                .type(signUpRequestDto.getType())
+                .type(0)
                 .build();
+
 
         memberMapper.insertUsers(member);
        return member;
