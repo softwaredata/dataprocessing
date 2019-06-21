@@ -1,8 +1,6 @@
 package net.skhu.service;
 
 import lombok.extern.slf4j.Slf4j;
-import net.skhu.config.jwt.JwtFactory;
-import net.skhu.config.jwt.TokenRes;
 import net.skhu.domain.Member;
 import net.skhu.dto.LoginRequest;
 import net.skhu.exception.LoginException;
