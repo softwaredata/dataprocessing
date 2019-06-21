@@ -12,11 +12,11 @@ import org.springframework.stereotype.Service;
 import javax.mail.MessagingException;
 import javax.servlet.http.HttpServletResponse;
 import java.io.PrintWriter;
+import java.util.Optional;
 
 @Slf4j
 @Service
 public class PwsService {
-
     private final PasswordEncoder passwordEncoder;
     private final MemberMapper memberMapper;
 
@@ -32,7 +32,7 @@ public class PwsService {
 
         response.setContentType("text/html;charset=utf-8");
         PrintWriter out = response.getWriter();
-        
+
         Member member= Member.builder()
                 .studentIdx(pwsReq.getId())
                 .email(pwsReq.getEmail())
@@ -79,13 +79,13 @@ public class PwsService {
 
     public void send_email(Member member, String pw) throws MessagingException {
 
-        String sender= "dont_reply";
-        String recipient= member.getEmail();
+        String sender = "dont_reply";
+        String recipient = member.getEmail();
         String subject = "SKHU VOTE(성공회대 투표 시스템) 임시 비밀번호 입니다. 재발신 하지 마세요!";
-        String content="";
+        String content = "";
 
         content += member.getStudentIdx() + "님의 임시 비밀번호 입니다. 비밀번호를 변경하여 사용하세요.";
-        content += "임시 비밀번호 : "+pw ;
+        content += "임시 비밀번호 : " + pw;
 
         Email email = Email.builder()
                 .sender(sender)
@@ -96,6 +96,7 @@ public class PwsService {
 
         emailService.sendMail(email);
 
+        emailService.sendMail(email);
     }
 
 }

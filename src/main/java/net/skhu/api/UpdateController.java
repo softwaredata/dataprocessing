@@ -25,7 +25,6 @@ import javax.servlet.http.HttpSession;
 public class UpdateController {
     private static org.slf4j.Logger logger = LoggerFactory.getLogger(UpdateController.class);
     private final PwsService pwsService;
-
     private final MemberMapper memberMapper;
 
     private final PasswordEncoder passwordEncoder;

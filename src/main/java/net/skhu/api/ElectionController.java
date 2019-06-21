@@ -4,9 +4,13 @@ minsub
 package net.skhu.api;
 
 import lombok.extern.slf4j.Slf4j;
+
 import net.skhu.domain.Member;
+import net.skhu.domain.Election;
+import net.skhu.aws.AmazonS3Util;
 import net.skhu.domain.Team;
 import net.skhu.domain.UserToElection;
+import net.skhu.dto.ElectionRequest;
 import net.skhu.mapper.MemberMapper;
 import net.skhu.mapper.TeamMapper;
 import net.skhu.service.CheckVoteDayPossibleService;
@@ -14,11 +18,14 @@ import net.skhu.service.ElectionService;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.List;
+import java.util.Optional;
 
 @Slf4j
 @Controller
@@ -77,6 +84,35 @@ public class ElectionController {
         log.info(userToElection.toString());
         electionService.studentGoVote(userToElection,response);
 
+    }
+
+    //@Secured("ROLE_ADMIN")
+    @GetMapping("admin/electionManagement/{type}")
+//    @GetMapping("admin/electionManagement")
+    public String electionManagement(@PathVariable(value = "type", required = false)final String type, Model model, HttpServletResponse response,HttpSession session) throws IOException {
+//    public String electionManagement(@RequestParam(value = "type", required = false)final String type, Model model, HttpServletResponse response,HttpSession session) throws IOException {
+        Member user =(Member)session.getAttribute("user");
+
+        ElectionRequest election = electionService.getElection(type, response);
+        model.addAttribute("election", election);
+        model.addAttribute("type", type);
+        return  "admin/electionManagement";
+    }
+
+    @PostMapping("admin/electionManagement/{type}")
+//    @PostMapping("admin/electionManagement")
+    public String electionManagement(@PathVariable(value = "type", required = false)final String type,@RequestBody ElectionRequest electionRequest, HttpServletResponse response,HttpSession session) throws IOException {
+//  public String electionManagement(@RequestBody ElectionRequest electionRequest, HttpServletResponse response,HttpSession session) throws IOException {
+
+            Member user =(Member)session.getAttribute("user");
+
+        Election election = electionService.setElection(electionRequest, response);
+
+        if(election == null) {
+            return "redirect:admin/electionManagement";
+        }
+
+        return "main/main";
     }
 
 }

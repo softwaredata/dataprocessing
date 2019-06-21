@@ -32,7 +32,7 @@
             </header>
             <div class="row aln-center">
                 <div class="col-4 col-6-medium col-12-small">
-
+                    <c:if test="${user.type==0}">
                     <!-- Feature -->
                     <section>
                         <a href="realVote/1" class="image featured"><img src="images/pic01.jpg" alt="" /></a>
@@ -65,6 +65,42 @@
                         </header>
                         <p>이것은 <strong>전공대표 선거입니다.</strong> <br/>자신의 전공의 전공대표를 뽑아주세요</p>
                     </section>
+                    </c:if>
+
+                    <c:if test="${user.type==1}">
+                    <!-- Feature -->
+                    <section>
+                        <a href="admin/electionManagement/1" class="image featured"><img src="images/pic01.jpg" alt="" /></a>
+                        <header>
+                            <h3>총학생회</h3>
+                        </header>
+                        <p>이것은 <strong>총학생회 선거입니다.</strong> <br/>학교의 총학생회를 뽑아주세요</p>
+                    </section>
+
+                </div>
+                <div class="col-4 col-6-medium col-12-small">
+
+                    <!-- Feature -->
+                    <section>
+                        <a href="admin/electionManagement/2" class="image featured"><img src="images/pic02.jpg" alt="" /></a>
+                        <header>
+                            <h3>학부대표</h3>
+                        </header>
+                        <p>이것은 <strong>학표대표 선거입니다.</strong> <br/>자신의 학부의 학부대표를 뽑아주세요</p>
+                    </section>
+
+                </div>
+                <div class="col-4 col-6-medium col-12-small">
+
+                    <!-- Feature -->
+                    <section>
+                        <a href="admin/electionManagement/3" class="image featured"><img src="images/pic03.jpg" alt="" /></a>
+                        <header>
+                            <h3>전공대표</h3>
+                        </header>
+                        <p>이것은 <strong>전공대표 선거입니다.</strong> <br/>자신의 전공의 전공대표를 뽑아주세요</p>
+                    </section>
+                    </c:if>
 
                 </div>
             </div>
