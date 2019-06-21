@@ -126,46 +126,40 @@
                                     <option value="글로컬IT학과">글로컬IT학과</option>
 
                                 </select>
-
-
                             </div>
                         </td>
                         </tr>
                         <tr>
                             <th>팀이름: </th>
-                            <td colspan="4"><input type="text" placeholder="팀이름을 입력하세요 " id="name" name="name" class="form-control"/></td>
+                            <td><input type="text" placeholder="팀이름을 입력하세요 " id="name" name="name" class="form-control"/></td>
+                            <th>팀 사진: </th>
+                            <td><input type="file" placeholder="파일을 선택하세요. " name="teamPhotoUrl" id="teamPhotoUrl" class="form-control"/></td>
                         </tr>
+
                         <tr>
                             <th>정후보 학번: </th>
                             <td><input type="text" id = "candidate1idx" name="candidate1idx" class="form-control"/></td>
-                            <th>부후보 학번: </th>
-                            <td><input type="text" id = "candidate2idx" name="candidate2idx" class="form-control"/></td>
+                            <th>정후보사진: </th>
+                            <td><input type="file" placeholder="파일을 선택하세요." id = "profileUrl1" name="profileUrl1" class="form-control" /></td>
                         </tr>
 
                         <tr>
-                            <th>정후보사진: </th>
-                            <td><input type="file" placeholder="파일을 선택하세요." id = "profileUrl1" name="profileUrl1" class="form-control" /></td>
-
+                            <th>부후보 학번: </th>
+                            <td><input type="text" id = "candidate2idx" name="candidate2idx" class="form-control"/></td>
                             <th>부후보사진: </th>
                             <td><input type="file" placeholder="파일을 선택하세요." id = "profileUrl2" name="profileUrl2"  class="form-control"  /></td>
                         </tr>
+
                         <tr>
                             <th>공약: </th>
-                            <td colspan = '4'><input type="file" placeholder="파일을 선택하세요." id = "pledge" name="pledge" class="form-control" /></td>
-                            <td colspan = '3'></td>
-                        </tr>
-
-
-                        <tr>
+                            <td><input type="file" placeholder="파일을 선택하세요." id = "pledge" name="pledge" class="form-control" /></td>
                             <th>추천서: </th>
                             <td><input type="file" placeholder="파일을 선택하세요. " name="reccoPhotoUrl" id= "reccoPhotoUrl" class="form-control"/></td>
-                            <th>선거 운동 본부원 명단: </th>
-                            <td><input type="file" placeholder="파일을 선택하세요. " name="electioneeringFileUrl" id= "electioneeringFileUrl" class="form-control"/></td>
                         </tr>
 
                         <tr>
-                            <th>팀 사진: </th>
-                            <td><input type="file" placeholder="파일을 선택하세요. " name="teamPhotoUrl" id="teamPhotoUrl" class="form-control"/></td>
+                            <th>선거 운동 본부원 명단: </th>
+                            <td><input type="file" placeholder="파일을 선택하세요. " name="electioneeringFileUrl" id= "electioneeringFileUrl" class="form-control"/></td>
                             <th>선거 서약서 사진: </th>
                             <td><input type="file" placeholder="파일을 선택하세요. " name="oathPhotoUrl" id="oathPhotoUrl" class="form-control"/></td>
 
