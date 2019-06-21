@@ -6,7 +6,6 @@ import lombok.*;
 @NoArgsConstructor
 @Setter
 public class Member {
-
     private String name;
 
     private Integer studentIdx;
