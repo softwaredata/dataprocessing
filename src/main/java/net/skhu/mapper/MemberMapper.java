@@ -1,7 +1,6 @@
 package net.skhu.mapper;
 
 import net.skhu.domain.Member;
-
 import org.apache.ibatis.annotations.*;
 
 

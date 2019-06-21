@@ -28,4 +28,7 @@ public interface TeamMapper {
     void insertTeam(Team team);
 
 
+    @Select("select * from Teams where candidate1_idx = #{candidateIdx} or candidate2_idx =#{candidateIdx}")
+    Team findTeamMatchId(int candidateIdx);
+
 }
