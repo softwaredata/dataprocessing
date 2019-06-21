@@ -20,30 +20,12 @@
     <script src="${R}res/common.js"></script>
     <link rel="stylesheet" href="${R}res/common.css">
     <link rel="stylesheet" href="${R}res/table.css">
+    <link rel="stylesheet" href="${R}res/circle.css">
+    <link rel="stylesheet" href="${R}res/circle.scss">
 
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript">
-        google.charts.load('current', {'packages':['corechart']});
-        google.charts.setOnLoadCallback(drawChart);
-
-        function drawChart() {
-
-            var data = google.visualization.arrayToDataTable([
-                ['투표', 'Hours per Day'],
-                ['투표',     11],
-                ['기권',     7]
-            ]);
-
-            var options = {
-                title: '선거 결과'
-            };
-
-            var chart = new google.visualization.PieChart(document.getElementById('piechart'));
-
-            chart.draw(data, options);
-        }
-    </script>
-
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <link href="http://nethna.bootstrapcdn.com/bootstrap/2.3.2/css/bootstrap.min.css"
+          rel="stylesheet">
 </head>
 <body>
 
@@ -57,8 +39,22 @@
 </section>
 
 <div class="container">
-    <h3>후보자 승인 신청 목록</h3>
 
+    <div class="c100 p${abandonment} big  " style="float: right">
+        <span>기권 ${abandonment}명</span>
+        <div class="slice">
+            <div class="bar"></div>
+            <div class="fill"></div>
+        </div>
+    </div>
+
+    <div class="c100 p${vote} big  " style="float: right; ">
+        <span> 투표 ${vote}명</span>
+        <div class="slice">
+            <div class="bar"></div>
+            <div class="fill"></div>
+        </div>
+    </div>
 
 </div>
 

@@ -14,7 +14,7 @@ public class VoteResultController {
 
     private final ElectionResultMapper electionResultMapper;
 
-    @GetMapping("/vote")
+    @GetMapping("vote")
     public String totalVote(Model model, UserToElection userToElection, Member member){
 
         model.addAttribute("abandonment", electionResultMapper.findByElectionAbandonment(userToElection));
