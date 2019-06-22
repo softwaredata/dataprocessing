@@ -42,8 +42,9 @@
 
     <!-- Main -->
     <section id="main">
-        <div class="container" style="margin-left: 20%;margin-right: auto;">
+        <div class="container" style="margin-left: 40%;margin-right: auto;">
             <div class="row">
+
                 <c:forEach items="${teamList}" var="team">
                 <!-- Content -->
                 <div id="content" class="col-8 col-12-medium">
@@ -53,14 +54,14 @@
                         <header>
                             <h2><a href="#"><strong>${team.name} 팀</strong></a></h2>
                         </header>
-                        <a href="#" class="image featured"><img src="images/pic05.jpg" alt="" /> 팀 메인 사진</a>
+                        <a href="#" class="image featured" style="width: 40%"><img src="${R}${team.teamPhotoUrl}" alt=""/></a>
 
                         <p>${team.name} 팀 입니다</p>
                         <ul class="actions">
                             <li><a href="/teamDetail/${electionType}/${team.idx}" class="button icon fa-vcard" >더보기</a></li>
                             <li>
                                 <form name="vote_form" method="post" >
-                                    <input type="hidden" id="studentidx" name="studentidx" value="201432005">
+                                    <input type="hidden" id="studentidx" name="studentidx" value="${user.studentIdx}">
                                     <input type="hidden" id="electionidx" name="electionidx" value="${election.idx}">
                                     <input type="hidden"  id="teamidx" name="teamidx" value="${team.idx}">
                                     <input type="hidden"  id="abandonment" name="abandonment" value="0">
@@ -74,14 +75,16 @@
 
             </div>
             <br/><br/><br/><br/>
+            <c:if test="${teamList.size() != 0}">
             <div id="goAbandonment" style="margin-left: 55%">
                 <form name="abandonment" method="post" >
-                    <input type="hidden"  id="studentidx0" name="studentidx" value="201432005">
+                    <input type="hidden"  id="studentidx0" name="studentidx" value="${user.studentIdx}">
                     <input type="hidden"  id="electionidx0" name="electionidx" value="${election.idx}">
                     <input type="hidden"  id="abandonment0" name="abandonment" value="1">
                     <button type="button" onclick="abandonmentCheck()" class="button icon fa-balance-scale">기권</button>
                 </form>
             </div>
+            </c:if>
         </div>
     </section>
 

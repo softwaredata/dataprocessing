@@ -14,18 +14,18 @@ public class SignUpRequest {
 
     private String department;
 
-    private String password;
+    private String password1;
 
     private String email;
 
     private Integer type;
 
     @Builder
-    public SignUpRequest(String name, Integer studentIdx, String department, String password, String email, Integer type) {
+    public SignUpRequest(String name, Integer studentIdx, String department, String password1, String email, Integer type) {
         this.name = name;
         this.studentIdx = studentIdx;
         this.department = department;
-        this.password = password;
+        this.password1 = password1;
         this.email = email;
         this.type = type;
     }

@@ -1,6 +1,5 @@
 package net.skhu.config.security.filter;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import net.skhu.config.security.token.PreAuthorizationToken;
 import net.skhu.dto.LoginRequest;
 import org.springframework.security.core.Authentication;
@@ -8,7 +7,6 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter;
 import org.springframework.security.web.authentication.AuthenticationFailureHandler;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
-import org.springframework.util.StringUtils;
 
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;

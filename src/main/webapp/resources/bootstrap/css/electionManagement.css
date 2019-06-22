@@ -1,0 +1,107 @@
+@charset "UTF-8";
+.generation {
+	width: 3.0em;
+	font-weight: bold;
+	text-align: center;
+}
+
+body {
+	background-color: white;
+	text-align: center;
+}
+
+.variety {
+<<<<<<< HEAD
+	padding-left: 5%;
+	padding-bottom: 0.5%;
+	text-align: left;
+=======
+	padding-left: 11%;
+	padding-bottom: 0.5%;
+	text-align: left;
+	font-weight: bold;
+	margin: 10px;
+	margin-top: 20px;
+>>>>>>> e71a403a1e507f5de6bb2c848dbbf87c1bfb1404
+}
+
+.container {
+	padding: 0 0 3.0em 0;
+	text-align: center;
+	/**width: 100%;**/
+}
+
+.col-md-5 {
+	display: inline-block;
+	width: 45%;
+}
+
+h2 {
+	margin: 0 0 0.8em 0;
+<<<<<<< HEAD
+=======
+	display: inline;
+>>>>>>> e71a403a1e507f5de6bb2c848dbbf87c1bfb1404
+}
+.date-management {
+	margin: 1.5em 0.5em;
+	padding: 1.2em 1.2em;
+}
+
+.datetimes {
+	padding: 0.2em 0.5em;
+	width: 40%;
+	font-size: 120%;
+	font-weight: bold;
+	text-align: center;
+	color: black;
+}
+
+.drp-calendar {
+	background-color: white;
+}
+
+.table-condensed {
+	width: 50%
+}
+
+.table-condensed > thead {
+	background-color: white;
+	color: black;
+}
+
+.daterangepicker .drp-calendar.right {
+	margin-left: 12%;
+}
+
+select {
+	font-weight: bold;
+	color: black;
+	font-size: 0.8em;
+}
+
+.daterangepicker td.active, .daterangepicker td.active:hover {
+	background-color: #f9a59b;
+}
+<<<<<<< HEAD
+=======
+
+.left .right {
+	position: relative;
+}
+
+.left {
+	left: 95px;
+}
+
+.right {
+	left: 95px;
+}
+
+#category {
+	margin-bottom: 30px;
+	width: 25%;
+	position: relative;
+	left: 145px;
+}
+>>>>>>> e71a403a1e507f5de6bb2c848dbbf87c1bfb1404

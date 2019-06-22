@@ -39,17 +39,14 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
         return new HttpSessionEventPublisher();
     }
 
-//    private final LoginRequestProvider loginRequestProvider;
-//
-//    public WebSecurityConfiguration(final LoginRequestProvider loginRequestProvider) {
-//        this.loginRequestProvider = loginRequestProvider;
-//    }
-
-//    protected LoginRequestFilter getLoginRequestFilter() throws Exception {
-//        LoginRequestFilter loginRequestFilter = new LoginRequestFilter("/login-processing", loginAuthenticationSuccessHandler, loginAuthenticationFailureHandler);
-//        loginRequestFilter.setAuthenticationManager(super.authenticationManagerBean());
-//        return loginRequestFilter;
-//    }
+    public WebSecurityConfiguration(final LoginRequestProvider loginRequestProvider) {
+        this.loginRequestProvider = loginRequestProvider;
+    }
+    protected LoginRequestFilter getLoginRequestFilter() throws Exception {
+        LoginRequestFilter loginRequestFilter = new LoginRequestFilter("/login-processing", loginAuthenticationSuccessHandler, loginAuthenticationFailureHandler);
+        loginRequestFilter.setAuthenticationManager(super.authenticationManagerBean());
+        return loginRequestFilter;
+    }
 
     @Override
     public void configure(WebSecurity web) throws Exception {
@@ -87,15 +84,15 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
                 //.expiredUrl("/sessionExpired.html")
                 .invalidSessionUrl("/invalidSession.html");
 
-       // http.authenticationProvider(loginRequestProvider);
+        http.authenticationProvider(loginRequestProvider);
 
         http
                 .headers()
                 .frameOptions().sameOrigin()
                 .httpStrictTransportSecurity().disable();//security가 iframe을 방어하는걸 제거
 
-       // http
-             //   .addFilterBefore(getLoginRequestFilter(), UsernamePasswordAuthenticationFilter.class);
+        http
+               .addFilterBefore(getLoginRequestFilter(), UsernamePasswordAuthenticationFilter.class);
         http
                 .authenticationProvider(loginRequestProvider);
     }
@@ -133,4 +130,3 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 //        }
 //    }
 }
-

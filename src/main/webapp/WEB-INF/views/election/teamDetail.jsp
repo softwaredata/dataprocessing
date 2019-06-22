@@ -42,15 +42,16 @@
                         <!-- Post -->
                         <article class="box post">
                             <header>
-                                <h2><a href="#">
-                                     <strong>팀별 강조할 말 한문장</strong>
-                                    </a>
-                                </h2>
+<%--                                <h2><a href="#">--%>
+<%--                                     <strong></strong>--%>
+<%--                                    </a>--%>
+<%--                                </h2>--%>
                             </header>
-                            <a href="#" class="image featured"><img src="images/pic04.jpg" alt="" />후보팀 사진</a>
+                            <label>팀 사진</label>
+                            <a href="#" class="image featured" style="width: 60%"><img src="${teamDetail.teamPhotoUrl}" alt="" /></a>
                             <h3>공약</h3>
                             <p>
-                                <a href="#" class="image featured"><img src="images/pic04.jpg" alt="" />공약 이미지파일</a>
+                                <a href="#" class="image featured"><img src="${teamDetail.pledge}" alt="" /></a>
 
                             </p>
 
@@ -58,9 +59,6 @@
                                 <li><a href="/realVote/${electionType}" class="button icon fa-file">투표창으로</a></li>
                             </ul>
                         </article>
-
-
-
                     </div>
 
                     <!-- Sidebar -->
@@ -77,8 +75,7 @@
                                             <span class="date">정후보: ${teamDetail.candidate1idx} ${teamDetail.name1}</span>
                                             <h3><a href="#"></a></h3>
                                         </header>
-                                        <a href="#" class="image featured"><img src="images/pic04.jpg" alt="" /> 정후보 사진</a>
-                                        <p> 정후보 간단한 소개? 넣을까 말까</p>
+                                        <a href="#" class="image featured"><img src="${teamImage.profileUrl1}" alt="" /></a>
                                     </article>
 
                                 </li>
@@ -90,8 +87,7 @@
                                             <span class="date">부후보: ${teamDetail.candidate2idx} ${teamDetail.name2}</span>
 
                                         </header>
-                                        <a href="#" class="image featured"><img src="images/pic04.jpg" alt="" /> 부후보 사진</a>
-                                        <p>부후보 간단한 소개? 넣을까 말까</p>
+                                        <a href="#" class="image featured"><img src="${teamImage.profileUrl2}" alt="" /></a>
                                     </article>
 
                                 </li>

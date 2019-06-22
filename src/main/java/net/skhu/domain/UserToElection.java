@@ -10,10 +10,14 @@ import lombok.NoArgsConstructor;
 @Getter
 @NoArgsConstructor
 public class UserToElection {
-    int studentidx;
-    int electionidx;
-    Integer teamidx;
-    int abandonment;
+
+    private int studentidx;
+
+    private int electionidx;
+
+    private Integer teamidx;
+
+    private int abandonment;
 
     @Builder
     public UserToElection(int studentidx,int electionidx, Integer teamidx, int abandonment){

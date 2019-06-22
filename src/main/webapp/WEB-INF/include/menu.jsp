@@ -19,28 +19,18 @@
     <!-- Nav -->
     <nav id="nav">
     <ul>
-<%--        <li><a class="icon fa-home" href="/main"><span>HOME</span></a></li>--%>
-<%--        <li>--%>
-<%--            <a href="#" class="icon fa-bar-chart-o"><span>Dropdown</span></a>--%>
-<%--            <ul>--%>
-<%--                <li><a href="#">menu1</a></li>--%>
-<%--                <li><a href="#">menu2</a></li>--%>
-<%--                <li><a href="#">menu3</a></li>--%>
-<%--                <li>--%>
-<%--                    <a href="#">DropDown2</a>--%>
-<%--                    <ul>--%>
-<%--                        <li><a href="#">menu1</a></li>--%>
-<%--                        <li><a href="#">menu2</a></li>--%>
-<%--                        <li><a href="#">menu3</a></li>--%>
-<%--                    </ul>--%>
-<%--                </li>--%>
-<%--            </ul>--%>
-<%--        </li>--%>
-        <li><a class="icon fa-cog" href="#"><span>MYPAGE</span></a></li>
-        <li><a class="icon fa-retweet" href="#"><span>입후보등록</span></a></li>
+        <c:if test="${user.type == 0}">
+        <li><a class="icon fa-cog" href="/mypage"><span>MYPAGE</span></a></li>
+
+        <li><a class="icon fa-retweet" href="/candiRegister"><span>입후보등록</span></a></li>
+
         <li><a class="icon fa-retweet" href="/candidateCheck"><span>입후보신청현황</span></a></li>
-        <li><a class="icon fa-retweet" href="#"><span>입후보관리</span></a></li>
-        <li><a class="icon fa-sitemap" href="/login"><span>logout</span></a></li>
+        </c:if>
+        <c:if test="${user.type == 1}">
+            <li><a class="icon fa-retweet" href="/admin/electionManagement"><span>선거개설</span></a></li>
+            <li><a class="icon fa-retweet" href="/list"><span>입후보관리</span></a></li>
+        </c:if>
+        <li><a class="icon fa-sitemap" href="/logout"><span>logout</span></a></li>
     </ul>
     </nav>
 
