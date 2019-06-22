@@ -28,7 +28,7 @@
         </c:if>
         <c:if test="${user.type == 1}">
             <li><a class="icon fa-retweet" href="/admin/electionManagement"><span>선거개설</span></a></li>
-            <li><a class="icon fa-retweet" href="#"><span>입후보관리</span></a></li>
+            <li><a class="icon fa-retweet" href="/list"><span>입후보관리</span></a></li>
         </c:if>
         <li><a class="icon fa-sitemap" href="/logout"><span>logout</span></a></li>
     </ul>

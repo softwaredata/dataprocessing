@@ -36,4 +36,5 @@ public class Election {
         this.regEndDate = regEndDate;
         this.department = department;
     }
+
 }

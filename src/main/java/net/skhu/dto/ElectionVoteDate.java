@@ -19,6 +19,7 @@ public class ElectionVoteDate {
 
     private int type;
 
+
     @Builder
     public ElectionVoteDate(int idx,LocalDate voteStartDate, LocalDate voteEndDate, int name, int type) {
         this.idx =idx;

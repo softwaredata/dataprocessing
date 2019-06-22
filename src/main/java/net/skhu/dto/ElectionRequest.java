@@ -1,9 +1,11 @@
 package net.skhu.dto;
 
+
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
 
 /**
  * Created by bomi on 2019-05-16.
@@ -32,4 +34,5 @@ public class ElectionRequest {
         this.regEndDate = regEndDate;
         this.name = name;
     }
+
 }

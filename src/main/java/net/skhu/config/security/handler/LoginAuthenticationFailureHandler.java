@@ -5,7 +5,6 @@ import net.skhu.exception.LoginException;
 import net.skhu.mapper.MemberMapper;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.authentication.AuthenticationFailureHandler;
-import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 
 import javax.servlet.ServletException;

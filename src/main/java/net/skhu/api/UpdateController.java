@@ -55,9 +55,11 @@ public class UpdateController {
     public String mypage(Model model, HttpSession session){
         Member user =(Member)session.getAttribute("user");
 
+
     	Member member = memberMapper.findByStuId(user.getStudentIdx());
+
         model.addAttribute("member",member);
-    	
+
         return "users/mypage";
     }
 
@@ -68,7 +70,7 @@ public class UpdateController {
         log.info(member.toString());
 
         member.setPassword(passwordEncoder.encode(member.getPassword()));
-    	memberMapper.updateInfo(member);
+        memberMapper.updateInfo(member);
         log.info(member.toString());
         model.addAttribute("member", member);
 
@@ -76,7 +78,7 @@ public class UpdateController {
         return "redirect:/mypage";
 
     }
-    
+
 
 
 }

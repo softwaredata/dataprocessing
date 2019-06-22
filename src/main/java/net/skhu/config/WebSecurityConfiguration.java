@@ -14,9 +14,9 @@
 //import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 //import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 //
-////@Configuration
-////@EnableWebSecurity
-////@EnableGlobalMethodSecurity(prePostEnabled = true)
+//@Configuration
+//@EnableWebSecurity
+//@EnableGlobalMethodSecurity(prePostEnabled = true)
 //public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 //
 //    private final LoginAuthenticationFailureHandler loginAuthenticationFailureHandler;
@@ -32,17 +32,17 @@
 //        this.loginRequestProvider = loginRequestProvider;
 //    }
 //
-////    private final LoginRequestProvider loginRequestProvider;
-////
-////    public WebSecurityConfiguration(final LoginRequestProvider loginRequestProvider) {
-////        this.loginRequestProvider = loginRequestProvider;
-////    }
+//    private final LoginRequestProvider loginRequestProvider;
 //
-////    protected LoginRequestFilter getLoginRequestFilter() throws Exception {
-////        LoginRequestFilter loginRequestFilter = new LoginRequestFilter("/login-processing", loginAuthenticationSuccessHandler, loginAuthenticationFailureHandler);
-////        loginRequestFilter.setAuthenticationManager(super.authenticationManagerBean());
-////        return loginRequestFilter;
-////    }
+//    public WebSecurityConfiguration(final LoginRequestProvider loginRequestProvider) {
+//        this.loginRequestProvider = loginRequestProvider;
+//    }
+//
+//    protected LoginRequestFilter getLoginRequestFilter() throws Exception {
+//        LoginRequestFilter loginRequestFilter = new LoginRequestFilter("/login-processing", loginAuthenticationSuccessHandler, loginAuthenticationFailureHandler);
+//        loginRequestFilter.setAuthenticationManager(super.authenticationManagerBean());
+//        return loginRequestFilter;
+//    }
 //
 //    @Override
 //    public void configure(WebSecurity web) throws Exception {
@@ -95,32 +95,32 @@
 //                .authenticationProvider(this.loginRequestProvider);
 //    }
 //
-////    @Bean
-////    @Override
-////    protected UserDetailsService userDetailsService() {
-////        UserDetails user =
-////                User.withDefaultPasswordEncoder()
-////                        .username("user")
-////                        .password("password")
-////                        .roles("USER")
-////                        .build();
-////
-////        System.out.println("들어온다");
-////
-////        return new InMemoryUserDetailsManager(user);
-////    }
+//    @Bean
+//    @Override
+//    protected UserDetailsService userDetailsService() {
+//        UserDetails user =
+//                User.withDefaultPasswordEncoder()
+//                        .username("user")
+//                        .password("password")
+//                        .roles("USER")
+//                        .build();
 //
-////    @Configuration
-////    public static class AuthenticationConfiguration extends GlobalAuthenticationConfigurerAdapter {
-////
-////        @Autowired
-////        SecurityAdminDetailsService adminDetailsService;
-////
-////        @Override
-////        public void init(AuthenticationManagerBuilder auth) throws Exception {
-////            auth.userDetailsService(adminDetailsService).passwordEncoder(new PasswordEncoderConfig().passwordEncoder());
-////        }
-////    }
+//        System.out.println("들어온다");
+//
+//        return new InMemoryUserDetailsManager(user);
+//    }
+//
+//    @Configuration
+//    public static class AuthenticationConfiguration extends GlobalAuthenticationConfigurerAdapter {
+//
+//        @Autowired
+//        SecurityAdminDetailsService adminDetailsService;
+//
+//        @Override
+//        public void init(AuthenticationManagerBuilder auth) throws Exception {
+//            auth.userDetailsService(adminDetailsService).passwordEncoder(new PasswordEncoderConfig().passwordEncoder());
+//        }
+//    }
 //}
 //
 
