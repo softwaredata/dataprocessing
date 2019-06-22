@@ -17,8 +17,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="${R}assets/css/main.css" />
     <link rel="stylesheet" href="${R}resources/table.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/innks/NanumSquareRound/master/nanumsquareround.min.css">
+    <link rel="stylesheet" href="//cdn.rawgit.com/hiun/NanumSquare/master/nanumsquare.css">
 
 </head>
+
+
 <body class="homepage is-preload">
 <div id="page-wrapper">
 
@@ -29,14 +33,14 @@
 
     <!-- Banner -->
     <section id="banner">
-        <div class="container">
-            <p><strong>입후보등록 신청 현황</strong></p>
+        <div class="container" >
+            <p style="font-family:'Jeju Gothic', serif;">입후보등록 신청 현황</p>
         </div>
     </section>
 
     <!-- Main -->
     <section id="main">
-        <div class="container">
+        <div class="container" style="font-family:'NanumSquareRound',sans-serif;">
             <div class="row">
 
                 <!-- Content -->
@@ -48,10 +52,11 @@
                     <div class="container">
                         <ul class="responsive-table">
                             <li class="table-header">
-                                <div class="col col-3">팀 이름</div>
-                                <div class="col col-3">정 후보</div>
-                                <div class="col col-3">부 후보</div>
-                                <div class="col col-4">승인 상태</div>
+
+                                <div class="col col-3" style="font-size: 25px"><strong>팀 이름</strong></div>
+                                <div class="col col-3" style="font-size: 25px"><strong>정 후보</strong></div>
+                                <div class="col col-3" style="font-size: 25px"><strong>부 후보</strong></div>
+                                <div class="col col-4" style="font-size: 25px"><strong>승인 상태</strong></div>
                             </li>
                             <li class="table-row">
                                 <c:if test="${team !=null}">
@@ -95,6 +100,18 @@
 <script src="${R}assets/js/breakpoints.min.js"></script>
 <script src="${R}assets/js/util.js"></script>
 <script src="${R}assets/js/main.js"></script>
-
+<style type="text/css">
+    @import url(http://fonts.googleapis.com/earlyaccess/hanna.css);
+    @import url(http://fonts.googleapis.com/earlyaccess/jejugothic.css);
+    body{
+        background-color:white;
+    }
+    p{
+        font-family:'Jeju Gothic', serif;
+    }
+    body{
+        font-family:'NanumSquareRound',sans-serif;
+    }
+</style>
 </body>
 </html>

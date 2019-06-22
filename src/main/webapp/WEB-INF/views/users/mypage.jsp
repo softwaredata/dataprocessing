@@ -19,12 +19,15 @@
 	<script src="${R}resources/bootstrap/js/bootstrap.min.js"></script>
 	<!-- Respond.js 으로 IE8 에서 반응형 기능을 활성화하세요 (https://github.com/scottjehl/Respond) -->
 	<script src="${R}resources/bootstrap/js/respond.js"></script>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="assets/css/logo.css" />
 </head>
 <body>
 
 
 <!--// 헤더 들어가는 부분 -->
-
+<%@include file="/WEB-INF/include/logo.jsp"%>
 <!-- 모달창 -->
 <div class="modal fade" id="defaultModal">
 	<div class="modal-dialog">
@@ -140,6 +143,14 @@
 								<c:if test="${member.department.equals('일어일본학과')}">selected</c:if>>일어일본학과</option>
 						<option value="중어중국학과"
 								<c:if test="${member.department.equals('중어중국학과')}">selected</c:if>>중어중국학과</option>
+						<option value="인문융합자율학부"
+								<c:if test="${member.department.equals('인문융합자율학부')}">selected</c:if>>인문융합자율학부</option>
+						<option value="사회융합자율학부"
+								<c:if test="${member.department.equals('사회융합자율학부')}">selected</c:if>>중어중국학과</option>
+						<option value="미디어컨텐츠융합자율학부"
+								<c:if test="${member.department.equals('미디어컨텐츠융합자율학부')}">selected</c:if>>미디어컨텐츠융합자율학부</option>
+						<option value="IT융합자율학부"
+								<c:if test="${member.department.equals('IT융합자율학부')}">selected</c:if>>IT융합자율학부</option>
 					</select>
 					<lable for="inputMajor">학과 </lable>
 
@@ -152,7 +163,6 @@
 					<div class='kickass_field'>
 						<button type="submit" class="btn btn-default">정보 수정</button>
 						<br /><br />
-						<a href="/main" class="btn badge-light">메인으로</a>
 					</div>
 				</div>
 			</fieldset>

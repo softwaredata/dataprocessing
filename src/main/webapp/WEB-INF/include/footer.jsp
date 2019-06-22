@@ -8,6 +8,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <c:url var="R" value="/" />
+<head>
+    <link rel="stylesheet" href="//cdn.rawgit.com/hiun/NanumSquare/master/nanumsquare.css">
+</head>
 <section id="footer">
     <div class="container">
         <header>
@@ -35,7 +38,7 @@
                     </form>
                 </section>
             </div>
-            <div class="col-6 col-12-medium">
+            <div class="col-6 col-12-medium" style="font-family: 'NanumSquareRound',sans-serif;">
                 <section>
                     <p>투표를 하기전에 내 정보가 정확한지 확인해 주세요!</p>
                     <div class="row">
