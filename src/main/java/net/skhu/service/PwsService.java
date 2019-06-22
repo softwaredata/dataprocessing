@@ -65,7 +65,12 @@ public class PwsService {
             }
 
             //비밀번호인코딩
-            member.setPassword(passwordEncoder.encode(pw));
+             member= Member.builder()
+                     .studentIdx(pwsReq.getId())
+                     .email(pwsReq.getEmail())
+//                   .password(passwordEncoder.encode(pw))
+                     .password(pw)
+                     .build();
             //비밀번호 변경
             memberMapper.updatePws(member);
 
@@ -96,7 +101,6 @@ public class PwsService {
 
         emailService.sendMail(email);
 
-        emailService.sendMail(email);
     }
 
 }
