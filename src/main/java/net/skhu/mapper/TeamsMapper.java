@@ -1,6 +1,7 @@
 package net.skhu.mapper;
 
 import net.skhu.domain.Candidate;
+import net.skhu.domain.Member;
 import net.skhu.domain.Teams;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Mapper;
@@ -28,6 +29,15 @@ public interface TeamsMapper {
             "on t.candidate2_idx = c.idx\n" +
             "where t.idx = #{idx}")
     Candidate findBySubCandidateTeam(int idx);
+
+    @Select("select * from Member where studentIdx = #{idx}")
+    Member findByCandidateMember(int idx);
+
+    @Select("select * from Member where studentIdx = #{idx}")
+    Member findBySubCandidateMember(int idx);
+
+    @Select("select * from Teams where idx = #{idx}")
+    Teams findByPicture(int idx);
 
     @Select("select * from Teams where idx = ${idx}")
     Teams findByTeam(int idx);

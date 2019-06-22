@@ -7,6 +7,7 @@ import net.skhu.dto.SignUpRequest;
 import net.skhu.mapper.MemberMapper;
 import net.skhu.service.LoginService;
 import net.skhu.service.SignUpService;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -33,10 +34,13 @@ public class LoginController {
 
     private final SignUpService signUpService;
 
-    public LoginController(final LoginService loginService, MemberMapper memberMapper, SignUpService signUpService) {
+    private final PasswordEncoder passwordEncoder;
+
+    public LoginController(final LoginService loginService, MemberMapper memberMapper, SignUpService signUpService, PasswordEncoder passwordEncoder) {
         this.loginService = loginService;
         this.memberMapper = memberMapper;
         this.signUpService = signUpService;
+        this.passwordEncoder = passwordEncoder;
     }
 
 //    @PostMapping("login")

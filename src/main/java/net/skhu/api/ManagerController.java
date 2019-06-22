@@ -36,9 +36,14 @@ public class ManagerController {
     }
 
     @GetMapping("/team")
-    public String teamInformation(Model model, @RequestParam("idx") int idx){
+    public String teamInformation(Model model, @RequestParam("idx") int idx,
+                                  @RequestParam("candidate1Idx") int candidate1Idx,
+                                  @RequestParam("candidate2Idx") int candidate2Idx){
         model.addAttribute("team",teamsMapper.findByCandidateTeam(idx));
         model.addAttribute("teamSub",teamsMapper.findBySubCandidateTeam(idx));
+        model.addAttribute("candidate",teamsMapper.findByCandidateMember(candidate1Idx));
+        model.addAttribute("subCandidate",teamsMapper.findBySubCandidateMember(candidate2Idx));
+        model.addAttribute("picture",teamsMapper.findByPicture(idx));
         return "manager/candidateInformation";
     }
 }

@@ -8,11 +8,11 @@ import org.apache.ibatis.annotations.*;
 public interface MemberMapper {
 
 
-    @Select("SELECT * FROM member WHERE idx = {id}")
-    Member findById(@Param("id") int idx);
+    @Select("SELECT * FROM Member WHERE studentIdx = #{studentIdx}")
+    Member findById(int studentIdx);
 
     @Select("SELECT * FROM Member WHERE studentIdx = #{id} AND password = #{password}")
-    Member findByIdAndPassword(@Param("id") final int id, @Param("password") final String passwd);
+    Member findByIdAndPassword(@Param("id") final int id, @Param("password") final String password);
 
 
     @Insert("insert into Member(name, studentIdx, department, password, email, type)" +

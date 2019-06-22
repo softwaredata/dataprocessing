@@ -47,7 +47,7 @@
         </thead>
         <tbody>
         <c:forEach var="selectCandidates" items="${ selectCandidate }">
-            <tr data-url="team?idx=${ selectCandidates.idx }" class="table-row">
+            <tr data-url="team?idx=${ selectCandidates.idx }&candidate1Idx=${selectCandidates.candidate1Idx}&candidate2Idx=${selectCandidates.candidate2Idx}" class="table-row">
                 <td class="col col-1">${ selectCandidates.name }</td>
                 <td class="col col-2">${ selectCandidates.candidate1Idx }</td>
                 <td class="col col-3">${ selectCandidates.candidate2Idx }</td>
