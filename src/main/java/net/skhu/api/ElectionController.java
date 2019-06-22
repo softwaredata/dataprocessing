@@ -90,10 +90,8 @@ public class ElectionController {
     }
 
     //@Secured("ROLE_ADMIN")
-    @GetMapping("admin/electionManagement/{type}")
-//    @GetMapping("admin/electionManagement")
-    public String electionManagement(@PathVariable(value = "type", required = false)final String type, Model model, HttpServletResponse response,HttpSession session) throws IOException {
-//    public String electionManagement(@RequestParam(value = "type", required = false)final String type, Model model, HttpServletResponse response,HttpSession session) throws IOException {
+    @GetMapping("admin/electionManagement")
+   public String electionManagement(@RequestParam(value = "type", required = false)final String type, Model model, HttpServletResponse response,HttpSession session) throws IOException {
         Member user =(Member)session.getAttribute("user");
 
         ElectionRequest election = electionService.getElection(type, response);
@@ -102,20 +100,22 @@ public class ElectionController {
         return  "admin/electionManagement";
     }
 
-    @PostMapping("admin/electionManagement/{type}")
-//    @PostMapping("admin/electionManagement")
-    public String electionManagement(@PathVariable(value = "type", required = false)final String type,@RequestBody ElectionRequest electionRequest, HttpServletResponse response,HttpSession session) throws IOException {
-//  public String electionManagement(@RequestBody ElectionRequest electionRequest, HttpServletResponse response,HttpSession session) throws IOException {
+    @PostMapping("admin/electionManagement")
+    public void electionManagement(@RequestBody ElectionRequest electionRequest, HttpServletResponse response,HttpSession session) throws IOException {
+        Member user = (Member) session.getAttribute("user");
+        //Election election = electionService.setElection(electionRequest, response);
+        electionService.setElection(electionRequest, response);
 
-            Member user =(Member)session.getAttribute("user");
 
-        Election election = electionService.setElection(electionRequest, response);
+//        if(election == null) {
+//            return "redirect:/admin/electionManagement";
+//        }
+//        else {
+//
+//            return "redirect:/main";
+//        }
+//    }
 
-        if(election == null) {
-            return "redirect:admin/electionManagement";
-        }
-
-        return "main/main";
     }
 
 }
