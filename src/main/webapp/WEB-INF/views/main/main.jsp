@@ -9,13 +9,17 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <c:url var="R" value="/" />
+
 <!DOCTYPE HTML>
 <html>
 <head>
+
     <title>SKHU VOTE</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/innks/NanumSquareRound/master/nanumsquareround.min.css">
+    <link rel="stylesheet" href="//cdn.rawgit.com/hiun/NanumSquare/master/nanumsquare.css">
 </head>
 <body class="homepage is-preload">
 <div id="page-wrapper">
@@ -28,10 +32,10 @@
         <div class="container">
 
             <header>
-                <h2> <strong>투표하실 선거를 선택해주세요!</strong></h2>
+                <h2 style="font-family: 'Nanum Square',sans-serif;"> <strong>투표하실 선거를 선택해주세요!</strong></h2>
             </header>
             <div class="row aln-center">
-                <div class="col-4 col-6-medium col-12-small">
+                <div class="col-4 col-6-medium col-12-small" style="font-family: 'NanumSquareRound',sans-serif;">
                     <c:if test="${user.type==0}">
                     <!-- Feature -->
                     <section>
@@ -43,7 +47,7 @@
                     </section>
 
                 </div>
-                <div class="col-4 col-6-medium col-12-small">
+                <div class="col-4 col-6-medium col-12-small" style="font-family: 'NanumSquareRound',sans-serif;">
 
                     <!-- Feature -->
                     <section>
@@ -55,7 +59,7 @@
                     </section>
 
                 </div>
-                <div class="col-4 col-6-medium col-12-small">
+                <div class="col-4 col-6-medium col-12-small" style="font-family: 'NanumSquareRound',sans-serif;">
 
                     <!-- Feature -->
                     <section>
@@ -78,7 +82,7 @@
                     </section>
 
                 </div>
-                <div class="col-4 col-6-medium col-12-small">
+                <div class="col-4 col-6-medium col-12-small" style="font-family: 'NanumSquareRound',sans-serif;">
 
                     <!-- Feature -->
                     <section>
@@ -90,7 +94,7 @@
                     </section>
 
                 </div>
-                <div class="col-4 col-6-medium col-12-small">
+                <div class="col-4 col-6-medium col-12-small" style="font-family: 'NanumSquareRound',sans-serif;">
 
                     <!-- Feature -->
                     <section>

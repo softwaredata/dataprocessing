@@ -28,7 +28,8 @@ h2 small {
     margin-bottom: 25px;
 }
 .responsive-table .table-header {
-    background-color: #95A5A6;
+
+    background-color: #f0f0f0;
     font-size: 14px;
     text-transform: uppercase;
     letter-spacing: 0.03em;
@@ -64,7 +65,8 @@ h2 small {
         padding: 10px 0;
     }
     .responsive-table .col:before {
-        color: #6C7A89;
+
+        color: #95A5A6;
         padding-right: 10px;
         content: attr(data-label);
         flex-basis: 50%;

@@ -31,14 +31,19 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/innks/NanumSquareRound/master/nanumsquareround.min.css">
+    <link rel="stylesheet" href="//cdn.rawgit.com/hiun/NanumSquare/master/nanumsquare.css">
     <style type="text/css">
         @import url(http://fonts.googleapis.com/earlyaccess/hanna.css);
         @import url(http://fonts.googleapis.com/earlyaccess/jejugothic.css);
         body{
             background-color:white;
         }
-        h2{
+        p{
             font-family:'Jeju Gothic', serif;
+        }
+        body{
+            font-family:'NanumSquareRound',sans-serif;
         }
 
         .layer { display: none; }
@@ -47,19 +52,26 @@
     </style>
 
 </head>
-<body>
+<body class="homepage is-preload">
 <div id="page-wrapper">
-    <%--heder--%>
+
+    <!-- Header -->
     <%@include file="/WEB-INF/include/menu.jsp"%>
 
-    <section id="features">
+    <!-- Features -->
+
+    <!-- Banner -->
+    <section id="banner">
+        <div class="container" >
+            <p style="font-family:'Jeju Gothic', serif;">입후보 등록</p>
+        </div>
+    </section>
+
+
+        <section id="main">
         <div class="container">
             <div class="row aln-center">
                 <table class="table table-bordered">
-                    <thead>
-                    <h2 style="margin-bottom: 0px" > 입후보 등록 </h2>
-                    </thead>
-
                     <tbody>
                     <form action="/register" name="cadiRegister" method="post" enctype="multipart/form-data">
                         <tr>
