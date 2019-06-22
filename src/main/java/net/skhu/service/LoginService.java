@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Optional;
 
 /**
  * Created by bomi on 2019-05-03.
@@ -38,12 +39,9 @@ public class LoginService {
 
         try {
             int studentIdx = Integer.parseInt(loginRequest.getId());
-            Member member = memberMapper.findByIdAndPassword(studentIdx, loginRequest.getPassword());
+            return Optional.ofNullable(memberMapper.findByIdAndPassword(studentIdx,loginRequest.getPassword()))
+                    .orElseThrow(() -> new LoginException("아이디 혹은 비밀번호를 확인해주세요"));
 
-            if(member == null) {
-                throw new LoginException("아이디 혹은 비밀번호를 확인해주세요");
-            }
-            return member;
         } catch(NumberFormatException e) {
             response.setContentType("text/html;charset=utf-8");
             PrintWriter out = response.getWriter();

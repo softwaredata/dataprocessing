@@ -5,9 +5,11 @@ package net.skhu.api;
 
 import lombok.extern.slf4j.Slf4j;
 
+
 import net.skhu.domain.Member;
 import net.skhu.domain.Election;
 import net.skhu.aws.AmazonS3Util;
+
 import net.skhu.domain.Team;
 import net.skhu.domain.UserToElection;
 import net.skhu.dto.ElectionRequest;
@@ -15,7 +17,9 @@ import net.skhu.mapper.MemberMapper;
 import net.skhu.mapper.TeamMapper;
 import net.skhu.service.CheckVoteDayPossibleService;
 import net.skhu.service.ElectionService;
+
 import org.slf4j.LoggerFactory;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
@@ -31,7 +35,6 @@ import java.util.Optional;
 @Controller
 @RequestMapping("/")
 public class ElectionController {
-    private static org.slf4j.Logger logger = LoggerFactory.getLogger(ElectionController.class);
 
     private final TeamMapper teamMapper;
 
@@ -56,7 +59,7 @@ public class ElectionController {
 
         model.addAttribute("electionType",electionType);
         boolean electionCheck= electionService.electionCheck(model,electionType,response);
-        if(electionCheck == true) {
+        if(electionCheck){
             return "election/realVote";
         }
         else

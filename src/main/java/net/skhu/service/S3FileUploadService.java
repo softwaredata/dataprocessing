@@ -1,19 +1,18 @@
 package net.skhu.service;
 
 import lombok.extern.slf4j.Slf4j;
+
 import net.skhu.api.CandidateController;
 import net.skhu.aws.AmazonS3Util;
 import net.skhu.domain.Candidate;
+
 import net.skhu.domain.Team;
 import net.skhu.mapper.CandidateMapper;
 import net.skhu.mapper.TeamMapper;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintWriter;
 
 @Slf4j
 @Service
