@@ -14,7 +14,7 @@ public interface ElectionResultMapper {
 //    @Select("select count(*) 총투표수 from User_to_election where election_idx = #{electionidx} and abandonment = 0")
 //    int findByElectionVote(UserToElection userToElection);
 
-
+    //TODO ElectionResultMapper election_idx 수정하기
     @Select("select count(*) 총기권투표수 from User_to_election where election_idx = 4 and abandonment = 1")
     int findByElectionAbandonment(UserToElection userToElection);
 

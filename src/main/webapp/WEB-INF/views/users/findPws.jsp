@@ -13,6 +13,7 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
     <link href="resources/bootstrap/css/bootstrap.css" rel="stylesheet"
           type="text/css" />
     <link rel="stylesheet" href="resources/bootstrap/css/login.css">
@@ -26,6 +27,7 @@
     <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
     <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
     <title>비밀번호찾기</title>
+
 </head>
 <body>
 <div class="container">
@@ -69,8 +71,6 @@
         });
     })
 </script>
-
-
 </body>
 
 </html>

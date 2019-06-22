@@ -69,7 +69,7 @@
             <div class="form-group" id="divPassword">
                 <div class='kickass_field'>
 
-                    <input maxlength='30'  type="password"
+                    <input maxlength='30'  type="password" required='required'
                            data-rule-required="true"  class="form-control" id="password1" name="password1">
                     <lable for="inputPassword"> 비밀번호 </lable>
                 </div>

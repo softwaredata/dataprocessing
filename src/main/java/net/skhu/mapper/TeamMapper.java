@@ -31,4 +31,15 @@ public interface TeamMapper {
     @Select("select * from Teams where candidate1_idx = #{candidateIdx} or candidate2_idx =#{candidateIdx}")
     Team findTeamMatchId(int candidateIdx);
 
+
+    @Select("select t.idx,t.name,t.candidate1_idx,t.candidate2_idx, c1.profile_url profileUrl1, c2.profile_url profileUrl2\n" +
+            "from Teams t left join Candidates c1\n" +
+            "on t.candidate1_idx = c1.idx\n" +
+            "left join Candidates c2\n" +
+            "on t.candidate2_idx =c2.idx\n" +
+            "where t.idx=  #{teamNum}")
+    Team findTeamForCandiImg(int teamNum);
+
+    @Select("select count(*) from Teams where candidate1_idx =#{candidate1idx} or candidate2_idx=#{candidate2idx}")
+    int registPossible(Team team);
 }

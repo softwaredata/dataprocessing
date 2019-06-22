@@ -19,11 +19,18 @@
     <!-- Nav -->
     <nav id="nav">
     <ul>
+        <c:if test="${user.type == 0}">
         <li><a class="icon fa-cog" href="/mypage"><span>MYPAGE</span></a></li>
+
         <li><a class="icon fa-retweet" href="/candiRegister"><span>입후보등록</span></a></li>
+
         <li><a class="icon fa-retweet" href="/candidateCheck"><span>입후보신청현황</span></a></li>
-        <li><a class="icon fa-retweet" href="#"><span>입후보관리</span></a></li>
-        <li><a class="icon fa-sitemap" href="/login"><span>logout</span></a></li>
+        </c:if>
+        <c:if test="${user.type == 1}">
+            <li><a class="icon fa-retweet" href="/admin/electionManagement"><span>선거개설</span></a></li>
+            <li><a class="icon fa-retweet" href="#"><span>입후보관리</span></a></li>
+        </c:if>
+        <li><a class="icon fa-sitemap" href="/logout"><span>logout</span></a></li>
     </ul>
     </nav>
 

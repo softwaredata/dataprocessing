@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 /**
@@ -47,13 +48,19 @@ public class LoginController {
 //}
 
     @PostMapping("login-processing")
-    public String loginProcessing(@RequestParam("id") String id, @RequestParam("password") String pw, Model model, HttpServletResponse response) throws IOException {
+
+    public String loginProcessing(@RequestParam("id")String id, @RequestParam("password")String pw, Model model, HttpServletResponse response
+                                ,HttpSession session) throws IOException {
+
         System.out.println(id);
         System.out.println(pw);
         LoginRequest loginRequest = new LoginRequest(id, pw);
 
         Member member = loginService.login(loginRequest, response);
         model.addAttribute("member", member);
+
+        session.setAttribute("user", member);
+
 
         return "main/main";
     }
@@ -81,6 +88,7 @@ public class LoginController {
         return "login";
     }
 
+
     @GetMapping("signUp")
     public String signUpGo() {
         return "users/signUp";
@@ -105,6 +113,13 @@ public class LoginController {
 
         signUpService.signUp(signUpRequest);
         return "redirect:login";
+    }
+
+
+    @GetMapping("logout")
+    public String logout(HttpSession session){
+        session.removeAttribute("user");
+        return "redirect:/";
     }
 
 }

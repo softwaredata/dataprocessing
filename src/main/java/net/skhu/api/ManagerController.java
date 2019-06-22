@@ -16,6 +16,7 @@ public class ManagerController {
 
     private final TeamsMapper teamsMapper;
 
+
     @GetMapping("/list")
     public String findCandidate(Model model, Member member){
         model.addAttribute("selectCandidate", teamsMapper.findByTeams());
@@ -32,5 +33,12 @@ public class ManagerController {
     public String deleteTeam(@RequestParam("idx") int idx, Member member) {
         teamsMapper.deleteTeams(idx);
         return "redirect:list";
+    }
+
+    @GetMapping("/team")
+    public String teamInformation(Model model, @RequestParam("idx") int idx){
+        model.addAttribute("team",teamsMapper.findByCandidateTeam(idx));
+        model.addAttribute("teamSub",teamsMapper.findBySubCandidateTeam(idx));
+        return "manager/candidateInformation";
     }
 }
