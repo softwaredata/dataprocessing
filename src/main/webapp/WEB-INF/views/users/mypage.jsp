@@ -156,7 +156,7 @@
 
 				</div>
 			</div>
-
+			<input type="hidden" name="type" value="${member.type}">
 
 
 				<div class="form-group">
@@ -269,6 +269,7 @@
                 divEmail.addClass("has-success");
             }
         });
+
 
 
         //------- validation 검사

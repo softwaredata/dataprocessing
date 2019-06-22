@@ -69,7 +69,8 @@ public class UpdateController {
         log.info(member.toString());
 
 
-        member.setPassword(passwordEncoder.encode(member.getPassword()));
+//        member.setPassword(passwordEncoder.encode(member.getPassword()));
+        member.setPassword(member.getPassword());
         memberMapper.updateInfo(member);
         log.info(member.toString());
         model.addAttribute("member", member);

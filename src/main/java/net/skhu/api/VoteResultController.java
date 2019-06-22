@@ -23,6 +23,7 @@ public class VoteResultController {
         model.addAttribute("image",electionResultMapper.findByCandidateImages(electionResultMapper.findByCandidateInformation(electionidx)));
         model.addAttribute("endTime",electionResultMapper.findByEndTime(electionidx));
         model.addAttribute("now", LocalDateTime.now());
+        model.addAttribute("electionidx",electionidx);
         return "vote/voteResult";
     }
 
