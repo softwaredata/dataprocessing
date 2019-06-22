@@ -32,7 +32,7 @@
         <div class="container">
 
             <header>
-                <h2 style="font-family: 'Nanum Square',sans-serif;"> <strong>투표하실 선거를 선택해주세요!</strong></h2>
+                <h2 style="font-family: 'Nanum Square',sans-serif;"> <strong>선거를 선택해주세요!</strong></h2>
             </header>
             <div class="row aln-center">
                 <div class="col-4 col-6-medium col-12-small" style="font-family: 'NanumSquareRound',sans-serif;">
