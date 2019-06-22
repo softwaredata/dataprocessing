@@ -78,11 +78,11 @@ public class CandidateController {
             s3FileUploadService.registerS3FileUpload(team);
             out.println("후보 등록 신청이 되었습니다. 관리자의 승인을 기다려 주세요");
             out.flush();
-            redirectUrl="/main";
+//            redirectUrl="/main";
 
 
         }
-        response.sendRedirect(redirectUrl);
+//        response.sendRedirect(redirectUrl);
     }
 
 }
