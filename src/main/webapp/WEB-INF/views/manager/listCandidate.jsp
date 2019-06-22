@@ -41,18 +41,16 @@
               <th>팀 이름</th>
               <th>정후보</th>
               <th>부후보</th>
-              <th>공약</th>
               <th>승인</th>
               <th>거절</th>
           </tr>
         </thead>
         <tbody>
         <c:forEach var="selectCandidates" items="${ selectCandidate }">
-            <tr class="table-row">
+            <tr data-url="team?idx=${ selectCandidates.idx }" class="table-row">
                 <td class="col col-1">${ selectCandidates.name }</td>
                 <td class="col col-2">${ selectCandidates.candidate1Idx }</td>
                 <td class="col col-3">${ selectCandidates.candidate2Idx }</td>
-                <td class="col col-4">${ selectCandidates.pledge }</td>
 
                 <td>
                 <a href="update?idx=${ selectCandidates.idx }" class="btn btn-primary" data-confirm-update>

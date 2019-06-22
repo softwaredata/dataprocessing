@@ -17,6 +17,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 @Slf4j
 @Controller
@@ -24,7 +25,6 @@ import javax.servlet.http.HttpServletResponse;
 public class UpdateController {
     private static org.slf4j.Logger logger = LoggerFactory.getLogger(UpdateController.class);
     private final PwsService pwsService;
-
     private final MemberMapper memberMapper;
 
     private final PasswordEncoder passwordEncoder;
@@ -43,7 +43,6 @@ public class UpdateController {
     }
 
     @PostMapping("find_pws")
-
     public void updatePws(@RequestBody PwsReq pwsReq, HttpServletResponse response) throws Exception{
 
         logger.info(pwsReq.toString());
@@ -53,9 +52,12 @@ public class UpdateController {
 
     //개인정보 수정
     @GetMapping("mypage")
-    public String mypage(Model model){
+    public String mypage(Model model, HttpSession session){
+        Member user =(Member)session.getAttribute("user");
 
-        Member member = memberMapper.findByStuId(201632009);
+
+    	Member member = memberMapper.findByStuId(user.getStudentIdx());
+
         model.addAttribute("member",member);
 
         return "users/mypage";
@@ -63,7 +65,7 @@ public class UpdateController {
 
     @RequestMapping(value = "/mypage" ,  method = RequestMethod.POST)
 
-    public String updateMypage(Member member,  RedirectAttributes redirectAttributes, Model model){
+    public String updateMypage(Member member,  RedirectAttributes redirectAttributes, Model model,HttpSession session){
 
         log.info(member.toString());
 
@@ -71,6 +73,8 @@ public class UpdateController {
         memberMapper.updateInfo(member);
         log.info(member.toString());
         model.addAttribute("member", member);
+
+        session.setAttribute("user",member);
         return "redirect:/mypage";
 
     }

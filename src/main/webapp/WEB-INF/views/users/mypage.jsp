@@ -72,7 +72,7 @@
 
 					<input maxlength='30' required='required' type="password"
 						   class="form-control" id="password" name="password"
-						   data-rule-required="true" placeholder="비밀번호 입력">
+						   data-rule-required="true" placeholder="비밀번호 입력" value="${user.password}">
 					<lable for="inputPassword"> 비밀번호 </lable>
 				</div>
 			</div>
@@ -82,7 +82,7 @@
 
 					<input required='required' type="password" class="form-control"
 						   id="passwordCheck" data-rule-required="true"
-						   placeholder="비밀번호를 한번 더 입력해주세요" maxlength="30">
+						   placeholder="비밀번호를 한번 더 입력해주세요" maxlength="30" value="${user.password}">
 					<lable for="inputPasswordCheck"> 비밀번호확인 </lable>
 				</div>
 			</div>
@@ -148,15 +148,17 @@
 
 
 
-			<div class="form-group">
-				<div class='kickass_field'>
-
-
-					<button type="submit" class="btn btn-default">수정 완료</button>
+				<div class="form-group">
+					<div class='kickass_field'>
+						<button type="submit" class="btn btn-default">정보 수정</button>
+						<br /><br />
+						<a href="/main" class="btn badge-light">메인으로</a>
+					</div>
 				</div>
-			</div>
-		</fieldset>
-	</form>
+			</fieldset>
+		</form>
+	</div>
+
 </div>
 
 <!--// 본문 들어가는 부분 -->

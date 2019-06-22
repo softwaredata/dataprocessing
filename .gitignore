@@ -60,7 +60,7 @@ tmp/**/*
 ### VS Code ###
 .vscode/
 
+
 ###aws###
 /src/main/java/net/skhu/aws
-/src/main/java/net/skhu/service/AWSService.java
 
