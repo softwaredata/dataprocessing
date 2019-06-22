@@ -1,5 +1,6 @@
 package net.skhu.mapper;
 
+import net.skhu.domain.Election;
 import net.skhu.domain.Teams;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
@@ -33,4 +34,6 @@ public interface ElectionResultMapper {
     @Select("select * from Teams where idx = #{idx}")
     Teams findByCandidateImages(Teams idx);
 
+    @Select("select * from Election where type = #{type}")
+    Election findByEndTime(int type);
 }
