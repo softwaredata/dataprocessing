@@ -19,12 +19,15 @@
 	<script src="${R}resources/bootstrap/js/bootstrap.min.js"></script>
 	<!-- Respond.js 으로 IE8 에서 반응형 기능을 활성화하세요 (https://github.com/scottjehl/Respond) -->
 	<script src="${R}resources/bootstrap/js/respond.js"></script>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="assets/css/logo.css" />
 </head>
 <body>
 
 
 <!--// 헤더 들어가는 부분 -->
-
+<%@include file="/WEB-INF/include/logo.jsp"%>
 <!-- 모달창 -->
 <div class="modal fade" id="defaultModal">
 	<div class="modal-dialog">
@@ -153,7 +156,6 @@
 
 						<button type="submit" class="btn btn-default">정보 수정</button>
 						<br /><br />
-						<a href="/main" class="btn badge-light">메인으로</a>
 					</div>
 				</div>
 			</fieldset>
