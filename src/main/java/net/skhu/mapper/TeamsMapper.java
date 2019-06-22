@@ -30,6 +30,7 @@ public interface TeamsMapper {
             "where t.idx = #{idx}")
     Candidate findBySubCandidateTeam(int idx);
 
+
     @Select("select * from Member where studentIdx = #{idx}")
     Member findByCandidateMember(int idx);
 
