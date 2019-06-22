@@ -53,10 +53,10 @@
                         <ul class="responsive-table">
                             <li class="table-header">
 
-                                <div class="col col-3" style="font-size: 25px">팀 이름</div>
-                                <div class="col col-3" style="font-size: 25px">정 후보</div>
-                                <div class="col col-3" style="font-size: 25px">부 후보</div>
-                                <div class="col col-4" style="font-size: 25px">승인 상태</div>
+                                <div class="col col-3" style="font-size: 25px"><strong>팀 이름</strong></div>
+                                <div class="col col-3" style="font-size: 25px"><strong>정 후보</strong></div>
+                                <div class="col col-3" style="font-size: 25px"><strong>부 후보</strong></div>
+                                <div class="col col-4" style="font-size: 25px"><strong>승인 상태</strong></div>
                             </li>
                             <li class="table-row">
                                 <c:if test="${team !=null}">

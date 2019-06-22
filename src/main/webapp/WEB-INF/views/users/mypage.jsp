@@ -143,6 +143,14 @@
 								<c:if test="${member.department.equals('일어일본학과')}">selected</c:if>>일어일본학과</option>
 						<option value="중어중국학과"
 								<c:if test="${member.department.equals('중어중국학과')}">selected</c:if>>중어중국학과</option>
+						<option value="인문융합자율학부"
+								<c:if test="${member.department.equals('인문융합자율학부')}">selected</c:if>>인문융합자율학부</option>
+						<option value="사회융합자율학부"
+								<c:if test="${member.department.equals('사회융합자율학부')}">selected</c:if>>중어중국학과</option>
+						<option value="미디어컨텐츠융합자율학부"
+								<c:if test="${member.department.equals('미디어컨텐츠융합자율학부')}">selected</c:if>>미디어컨텐츠융합자율학부</option>
+						<option value="IT융합자율학부"
+								<c:if test="${member.department.equals('IT융합자율학부')}">selected</c:if>>IT융합자율학부</option>
 					</select>
 					<lable for="inputMajor">학과 </lable>
 
