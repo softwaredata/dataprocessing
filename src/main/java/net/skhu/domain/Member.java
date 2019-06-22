@@ -4,7 +4,6 @@ import lombok.*;
 
 @Getter
 @NoArgsConstructor
-@Setter
 public class Member {
     private String name;
 

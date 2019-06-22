@@ -45,6 +45,9 @@
         <div class="container" style="margin-left: 40%;margin-right: auto;">
             <div class="row">
 
+                <c:if test="${teamList.size() == 0}">
+                    <h2><strong>입후보 등록기간입니다</strong></h2>
+                </c:if>
                 <c:forEach items="${teamList}" var="team">
                 <!-- Content -->
                 <div id="content" class="col-8 col-12-medium">
@@ -54,7 +57,7 @@
                         <header>
                             <h2><a href="#"><strong>${team.name} 팀</strong></a></h2>
                         </header>
-                        <a href="#" class="image featured" style="width: 40%"><img src="${R}${team.teamPhotoUrl}" alt=""/></a>
+                        <a href="#" class="image featured" style="width: 40%"><img src="${team.teamPhotoUrl}" alt=""/></a>
 
                         <p>${team.name} 팀 입니다</p>
                         <ul class="actions">

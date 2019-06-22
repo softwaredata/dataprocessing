@@ -264,10 +264,10 @@ $('button').on('click', function() {
                 regStartDate: regStart,
                 regEndDate: regEnd,
                 department: department
-            })
-            // success: function () {
-            //     alert("저장되었습니다.");
-            // }
+            }),
+            success : function(result) {
+                alert(result);
+            },
         });
     }
 });

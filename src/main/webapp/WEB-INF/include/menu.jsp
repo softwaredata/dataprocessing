@@ -27,7 +27,6 @@
         <li><a class="icon fa-retweet" href="/candidateCheck"><span>입후보신청현황</span></a></li>
         </c:if>
         <c:if test="${user.type == 1}">
-            <li><a class="icon fa-retweet" href="/admin/electionManagement"><span>선거개설</span></a></li>
             <li><a class="icon fa-retweet" href="/list"><span>입후보관리</span></a></li>
         </c:if>
 

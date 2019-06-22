@@ -1,6 +1,7 @@
 package net.skhu.api;
 
 import lombok.extern.slf4j.Slf4j;
+import net.skhu.aws.AmazonS3Util;
 import net.skhu.domain.Member;
 import net.skhu.dto.LoginRequest;
 import net.skhu.dto.SignUpRequest;
@@ -64,6 +65,13 @@ public class LoginController {
         model.addAttribute("member", member);
 
         session.setAttribute("user", member);
+
+        String one = AmazonS3Util.getFileURL("총학생회.jpg");
+        String two = AmazonS3Util.getFileURL("학부대표.jpg");
+        String three =AmazonS3Util.getFileURL("전공대표.jpg");
+        model.addAttribute("one",one);
+        model.addAttribute("two",two);
+        model.addAttribute("three",three);
 
 
         return "main/main";
