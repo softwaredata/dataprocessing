@@ -2,9 +2,6 @@ package net.skhu.config.security.token;
 
 import net.skhu.dto.LoginRequest;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.GrantedAuthority;
-
-import java.util.Collection;
 
 /**
  * Created by bomi on 2019-06-10.

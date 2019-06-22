@@ -17,8 +17,8 @@ public class JwtRequestMatcher implements RequestMatcher {
 
     public JwtRequestMatcher(List<String> path, String processingPath) {
         this.orRequestMatcher = new OrRequestMatcher(path.stream()
-                                                            .map(p -> new AntPathRequestMatcher(p))
-                                                            .collect(Collectors.toList()));
+                .map(p -> new AntPathRequestMatcher(p))
+                .collect(Collectors.toList()));
         this.processingMatcher = new AntPathRequestMatcher(processingPath);
     }
 
