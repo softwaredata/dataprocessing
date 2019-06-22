@@ -21,7 +21,16 @@ public interface ElectionResultMapper {
             "where e.type = #{electionidx} and u.abandonment = 0")
     int findByElectionVote(int electionidx);
 
+    @Select("select u.team_idx idx, count(*) tt\n" +
+            "from Election e inner join User_to_election u\n" +
+            "on e.idx = u.election_idx\n" +
+            "where e.type = #{electionidx} and u.abandonment = 0\n" +
+            "group by u.team_idx\n" +
+            "order by tt desc\n" +
+            "limit 1")
+    Teams findByCandidateInformation(int electionidx);
+
     @Select("select * from Teams where idx = #{idx}")
-    Teams findByCandidateImages(int idx);
+    Teams findByCandidateImages(Teams idx);
 
 }
