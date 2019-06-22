@@ -29,6 +29,16 @@
         <c:if test="${user.type == 1}">
             <li><a class="icon fa-retweet" href="/list"><span>입후보관리</span></a></li>
         </c:if>
+
+        <li>
+            <a href="#" class="icon fa-bar-chart-o"><span>선거 결과</span></a>
+            <ul>
+                <li><a href="/vote?electionidx=1">총학</a></li>
+                <li><a href="/vote?electionidx=2">학부</a></li>
+                <li><a href="/vote?electionidx=3">전공</a></li>
+            </ul>
+        </li>
+
         <li><a class="icon fa-sitemap" href="/logout"><span>logout</span></a></li>
     </ul>
     </nav>

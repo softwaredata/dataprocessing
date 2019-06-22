@@ -26,6 +26,8 @@
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <link href="http://nethna.bootstrapcdn.com/bootstrap/2.3.2/css/bootstrap.min.css"
           rel="stylesheet">
+
+    <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
 </head>
 <body>
 
@@ -58,6 +60,7 @@
 
 
     <!-- Jumbotron -->
+        <c:if test="${endTime.voteEndDate <= now}">
     <div class="jumbotron">
         <h1>${image.name} 승리!</h1>
         <p class="lead"> <img src="${image.teamPhotoUrl}" width="800" height="200" ></p>
@@ -92,6 +95,15 @@
             </p>
 
         </div>
+        </c:if>
+
+        <c:if test="${endTime.voteEndDate > now}">
+            <div class="jumbotron">
+                <h1>아직 투표 결과가 안나왔습니다!</h1>
+                <p class="lead">아직 투표가 진행 중이니 기다려 주시기 바랍니다</p>
+                <p><a class="btn btn-lg btn-success" href="#" role="button">끝나고 눌러주세여!</a></p>
+            </div>
+        </c:if>
 
     </div>
 
