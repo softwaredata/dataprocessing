@@ -3,6 +3,7 @@ package net.skhu.domain;
 import lombok.*;
 
 @Getter
+@Setter
 @NoArgsConstructor
 public class Member {
     private String name;
