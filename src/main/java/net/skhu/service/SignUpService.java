@@ -22,7 +22,7 @@ public class SignUpService {
                 .name(signUpRequestDto.getName())
                 .studentIdx(signUpRequestDto.getStudentIdx())
                 .department(signUpRequestDto.getDepartment())
-                .password(signUpRequestDto.getPassword1())
+                .password(passwordEncoder.encode(signUpRequestDto.getPassword1()))
                 .email(signUpRequestDto.getEmail())
                 .type(0)
                 .build();

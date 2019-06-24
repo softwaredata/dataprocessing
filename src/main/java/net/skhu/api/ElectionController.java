@@ -20,6 +20,8 @@ import net.skhu.service.ElectionService;
 
 import org.slf4j.LoggerFactory;
 
+import org.springframework.security.access.annotation.Secured;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
@@ -40,18 +42,12 @@ public class ElectionController {
 
     private final ElectionService electionService;
 
-    private final CheckVoteDayPossibleService checkVoteDayPossibleService;
-
-    private final MemberMapper memberMapper;
-
-    public ElectionController(final TeamMapper teamMapper, final ElectionService electionService,
-                              final CheckVoteDayPossibleService checkVoteDayPossibleService, final MemberMapper memberMapper) {
+    public ElectionController(final TeamMapper teamMapper, final ElectionService electionService) {
         this.teamMapper = teamMapper;
         this.electionService = electionService;
-        this.checkVoteDayPossibleService = checkVoteDayPossibleService;
-        this.memberMapper = memberMapper;
     }
 
+    @PreAuthorize("hasAuthority('ROLE_USER')")
     @GetMapping("realVote/{electionType}")
     public String election(Model model, @PathVariable("electionType") int electionType, HttpServletResponse response, HttpSession session) throws IOException {
 
@@ -66,6 +62,7 @@ public class ElectionController {
             return "main/main";
     }
 
+    @PreAuthorize("hasAuthority('ROLE_USER')")
     @GetMapping("teamDetail/{electionType}/{teamNum}")
     public String teamDetail(Model model, @PathVariable("electionType") int electionType,
                              @PathVariable("teamNum") int teamNum,HttpSession session){
@@ -79,6 +76,7 @@ public class ElectionController {
         return "election/teamDetail";
     }
 
+    @PreAuthorize("hasAuthority('ROLE_USER')")
     @PostMapping("goForVote")
     public void memberToVote(@RequestBody UserToElection userToElection, HttpServletResponse response,HttpSession session) throws IOException {
 
@@ -90,6 +88,7 @@ public class ElectionController {
     }
 
     //@Secured("ROLE_ADMIN")
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     @GetMapping("admin/electionManagement")
    public String electionManagement(@RequestParam(value = "type", required = false)final String type, Model model, HttpServletResponse response,HttpSession session) throws IOException {
         Member user =(Member)session.getAttribute("user");
@@ -100,21 +99,13 @@ public class ElectionController {
         return  "admin/electionManagement";
     }
 
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     @PostMapping("admin/electionManagement")
     public void electionManagement(@RequestBody ElectionRequest electionRequest, HttpServletResponse response,HttpSession session) throws IOException {
         Member user = (Member) session.getAttribute("user");
         //Election election = electionService.setElection(electionRequest, response);
         electionService.setElection(electionRequest, response);
 
-
-//        if(election == null) {
-//            return "redirect:/admin/electionManagement";
-//        }
-//        else {
-//
-//            return "redirect:/main";
-//        }
-//    }
 
     }
 

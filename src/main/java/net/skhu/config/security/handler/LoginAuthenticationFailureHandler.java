@@ -5,6 +5,7 @@ import net.skhu.exception.LoginException;
 import net.skhu.mapper.MemberMapper;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.authentication.AuthenticationFailureHandler;
+import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 
 import javax.servlet.ServletException;
@@ -16,7 +17,7 @@ import java.io.IOException;
  * Created by bomi on 2019-06-10.
  */
 
-//@Component
+@Component
 public class LoginAuthenticationFailureHandler implements AuthenticationFailureHandler {
 
     private final MemberMapper memberMapper;

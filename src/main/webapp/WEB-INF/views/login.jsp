@@ -23,7 +23,7 @@
 	<script src="${R}resources/bootstrap/js/bootstrap.min.js"></script>
 	<!-- Respond.js 으로 IE8 에서 반응형 기능을 활성화하세요 (https://github.com/scottjehl/Respond) -->
 	<script src="${R}resources/bootstrap/js/respond.js"></script>
-	<title>성공회대학교 투표 시스템</title>
+	<title>SKHU VOTE</title>
 
 
 	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
@@ -35,7 +35,7 @@
 
 
 
-<form name="frm" action="/login-processing" method="post">
+<div name="frm" action="/loginProcessing" method="post">
 
 	<div class="container">
 		<div class="info">
@@ -48,7 +48,7 @@
 					src="images/vote.png" alt="" />
 		</div>
 
-		<form class="login-form">
+		<form class="login-form" name="frm" action="/perform_login" method="POST">
 			<input type="text" placeholder="userId" name="id" id="id"/>
 			<input type="password" placeholder="password" name="password" id="pw" style="font-family: Roboto, sans-serif;"/>
 			<button>login</button>
@@ -64,7 +64,7 @@
 	</div>
 
 
-</form>
+</div>
 
 <script>
     $('.message a').click(function(){
@@ -72,24 +72,26 @@
     });
 </script>
 
-<script>
-    $(function(){
-        $("button").click(function(){
-            $.ajax({
-                url : "login-processing",
-                type : "POST",
-                contentType : "application/json",
-                data : JSON.stringify({
-                    id : $("#id").val(),
-                    email : $("#pw").val()
-                }),
-                success : function(result) {
-                    alert(result);
-                },
-            })
-        });
-    })
-</script>
+<%--<script>--%>
+    <%--$(function(){--%>
+        <%--$("button").click(function(){--%>
+            <%--$.ajax({--%>
+                <%--url : "login-processing",--%>
+                <%--type : "POST",--%>
+                <%--contentType : "application/json",--%>
+				<%--dataType: 'json',--%>
+                <%--data : JSON.stringify({--%>
+                    <%--id : $("#id").val(),--%>
+                    <%--email : $("#pw").val()--%>
+                <%--}),--%>
+                <%--success : function(result) {--%>
+                    <%--// alert(result);--%>
+					<%--console.log(result);--%>
+                <%--}--%>
+            <%--})--%>
+        <%--});--%>
+    <%--})--%>
+<%--</script>--%>
 
 
 </body>

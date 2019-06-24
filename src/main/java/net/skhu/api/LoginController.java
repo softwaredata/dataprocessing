@@ -1,5 +1,6 @@
 package net.skhu.api;
 
+import com.sun.javafx.collections.MappingChange;
 import lombok.extern.slf4j.Slf4j;
 import net.skhu.aws.AmazonS3Util;
 import net.skhu.domain.Member;
@@ -11,15 +12,13 @@ import net.skhu.service.SignUpService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 /**
  * Created by bomi on 2019-05-03.
@@ -30,53 +29,14 @@ import java.io.IOException;
 @RequestMapping("/")
 public class LoginController {
 
-    private final LoginService loginService;
-    private final MemberMapper memberMapper;
-
     private final SignUpService signUpService;
 
-    private final PasswordEncoder passwordEncoder;
+    private final LoginService loginService;
 
-    public LoginController(final LoginService loginService, MemberMapper memberMapper, SignUpService signUpService, PasswordEncoder passwordEncoder) {
-        this.loginService = loginService;
-        this.memberMapper = memberMapper;
+    public LoginController(final SignUpService signUpService, final LoginService loginService) {
         this.signUpService = signUpService;
-        this.passwordEncoder = passwordEncoder;
+        this.loginService = loginService;
     }
-
-//    @PostMapping("login")
-//    public String login(@RequestBody(required = false) LoginRequest loginReq) {
-//        log.info("come");
-//        log.info(loginReq.toString());
-//        loginService.login(loginReq);
-//        return "main/main";
-//}
-
-    @PostMapping("login-processing")
-
-    public String loginProcessing(@RequestParam("id")String id, @RequestParam("password")String pw, Model model, HttpServletResponse response
-                                ,HttpSession session) throws IOException {
-
-        System.out.println(id);
-        System.out.println(pw);
-        LoginRequest loginRequest = new LoginRequest(id, pw);
-
-        Member member = loginService.login(loginRequest, response);
-        model.addAttribute("member", member);
-
-        session.setAttribute("user", member);
-
-        String one = AmazonS3Util.getFileURL("총학생회.jpg");
-        String two = AmazonS3Util.getFileURL("학부대표.jpg");
-        String three =AmazonS3Util.getFileURL("전공대표.jpg");
-        model.addAttribute("one",one);
-        model.addAttribute("two",two);
-        model.addAttribute("three",three);
-
-
-        return "main/main";
-    }
-
 
     @GetMapping({"", "login"})
     public String login(Model model, HttpServletRequest request) {
@@ -89,16 +49,13 @@ public class LoginController {
 
     //로그인 실패
     @GetMapping(value = "login-error")
-    public String loginError(Model model) {
+    public String loginError(Model model, HttpServletResponse response) {
+        loginService.push(response);
         model.addAttribute("loginError", true);
         model.addAttribute("findError", false);
         return "login";
     }
 
-    @PostMapping("login-error")
-    public String loginError() {
-        return "login";
-    }
 
 
     @GetMapping("signUp")
