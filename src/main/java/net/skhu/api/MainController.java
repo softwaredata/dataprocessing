@@ -47,6 +47,7 @@ public class MainController {
         SecurityUserDetails securityUserDetails = (SecurityUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         Member user = securityUserDetails.getMember();
 
+        log.error(securityUserDetails.getAuthorities().toString());
         session.setAttribute("user", user);
         //log.error(user.toString());
         //model.addAttribute("user", user);
