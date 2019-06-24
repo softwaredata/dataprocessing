@@ -1,13 +1,6 @@
 package net.skhu.config;
 
-import net.skhu.config.security.SecurityAdminDetailsService;
-import net.skhu.config.security.filter.LoginRequestFilter;
-import net.skhu.config.security.handler.LoginAuthenticationFailureHandler;
-import net.skhu.config.security.handler.LoginAuthenticationSuccessHandler;
-import net.skhu.config.security.provider.LoginRequestProvider;
-import net.skhu.service.LoginService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
+import net.skhu.config.security.SecurityUserDetailsService;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
@@ -15,10 +8,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-import org.springframework.security.web.session.HttpSessionEventPublisher;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @Configuration
@@ -55,13 +45,13 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 //    }
 
 
-    private final SecurityAdminDetailsService securityAdminDetailsService;
+    private final SecurityUserDetailsService securityUserDetailsService;
 
     private final PasswordEncoder passwordEncoder;
 
-    public WebSecurityConfiguration(final SecurityAdminDetailsService securityAdminDetailsService,
+    public WebSecurityConfiguration(final SecurityUserDetailsService securityUserDetailsService,
                                     final PasswordEncoder passwordEncoder) {
-        this.securityAdminDetailsService = securityAdminDetailsService;
+        this.securityUserDetailsService = securityUserDetailsService;
         this.passwordEncoder = passwordEncoder;
     }
 
@@ -119,8 +109,8 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 //        authenticationManagerBuilder
 //                .authenticationProvider(this.loginRequestProvider);
 //
- authenticationManagerBuilder
-                .userDetailsService(securityAdminDetailsService)
+        authenticationManagerBuilder
+                .userDetailsService(securityUserDetailsService)
                 .passwordEncoder(passwordEncoder);
 
     }

@@ -41,6 +41,17 @@ public class LoginService {
 //        return new SecurityUser(member);
 //    }
 
+    public void push(HttpServletResponse response){
+        try {
+            response.setContentType("text/html;charset=utf-8");
+            PrintWriter out = response.getWriter();
+            out.println("<script>alert('아이디 혹은 비밀번호를 확인해주세요');</script>");
+            out.flush();
+        } catch(IOException e) {
+            log.error(e.getMessage());
+        }
+    }
+
     public Member login(final LoginRequest loginRequest, HttpServletResponse response) throws IOException {
         if(loginRequest == null) throw new LoginException("no");
 

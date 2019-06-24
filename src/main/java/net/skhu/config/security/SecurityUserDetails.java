@@ -10,7 +10,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 /**
  * Created by bomi on 2019-06-21.
  */
-public class SecurityAdminDetails extends User {
+public class SecurityUserDetails extends User {
     private static final long serialVersionUID = 1L;
 
     @Getter
@@ -19,7 +19,7 @@ public class SecurityAdminDetails extends User {
     @Getter
     Member member;
 
-    public SecurityAdminDetails(Member member, String authority) {
+    public SecurityUserDetails(Member member, String authority) {
 
         super(
                 String.valueOf(member.getStudentIdx()),
