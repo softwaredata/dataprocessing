@@ -71,7 +71,7 @@
     <script src="${R}resources/bootstrap/js/bootstrap-datetimepicker.js"></script>
     <link rel="stylesheet" type="text/css" href="${R}resources/bootstrap/css/datetimepickerstyle.css" />
 
-    <title>성공회대학교 투표 시스템</title>
+    <title>SKHU VOTE</title>
 </head>
 <body>
 <!-- Header -->

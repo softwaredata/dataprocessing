@@ -41,24 +41,34 @@ public class S3FileUploadService {
 
     public void registerS3FileUpload(Team team) throws IOException {
 
-        AmazonS3Util.uploadFile( team.getName().charAt(0)+"pledge", team.getPledge());
-        AmazonS3Util.uploadFile( team.getName().charAt(0)+"reccoPhoto", team.getReccoPhotoUrl());
-        AmazonS3Util.uploadFile( team.getName().charAt(0)+"electioneering", team.getElectioneeringFileUrl());
-        AmazonS3Util.uploadFile( team.getName().charAt(0)+"teamPhoto", team.getTeamPhotoUrl());
-        AmazonS3Util.uploadFile( team.getName().charAt(0)+"oathPhoto", team.getOathPhotoUrl());
-        AmazonS3Util.uploadFile( team.getName().charAt(0)+"candi1Certi", team.getCandidate1CertiUrl());
-        AmazonS3Util.uploadFile( team.getName().charAt(0)+"candi2Certi", team.getCandidate2CertiUrl());
-        AmazonS3Util.uploadFile( team.getName().charAt(0)+"candi1Profile", team.getProfileUrl1());
-        AmazonS3Util.uploadFile( team.getName().charAt(0)+"candi2Profile", team.getProfileUrl2());
+//        AmazonS3Util.uploadFile( team.getName().charAt(0)+"pledge", team.getPledge());
+//        AmazonS3Util.uploadFile( team.getName().charAt(0)+"reccoPhoto", team.getReccoPhotoUrl());
+//        AmazonS3Util.uploadFile( team.getName().charAt(0)+"electioneering", team.getElectioneeringFileUrl());
+//        AmazonS3Util.uploadFile( team.getName().charAt(0)+"teamPhoto", team.getTeamPhotoUrl());
+//        AmazonS3Util.uploadFile( team.getName().charAt(0)+"oathPhoto", team.getOathPhotoUrl());
+//        AmazonS3Util.uploadFile( team.getName().charAt(0)+"candi1Certi", team.getCandidate1CertiUrl());
+//        AmazonS3Util.uploadFile( team.getName().charAt(0)+"candi2Certi", team.getCandidate2CertiUrl());
+//        AmazonS3Util.uploadFile( team.getName().charAt(0)+"candi1Profile", team.getProfileUrl1());
+//        AmazonS3Util.uploadFile( team.getName().charAt(0)+"candi2Profile", team.getProfileUrl2());
+
+        AmazonS3Util.uploadFile( team.getName()+"pledge", team.getPledge());
+        AmazonS3Util.uploadFile( team.getName()+"reccoPhoto", team.getReccoPhotoUrl());
+        AmazonS3Util.uploadFile( team.getName()+"electioneering", team.getElectioneeringFileUrl());
+        AmazonS3Util.uploadFile( team.getName()+"teamPhoto", team.getTeamPhotoUrl());
+        AmazonS3Util.uploadFile( team.getName()+"oathPhoto", team.getOathPhotoUrl());
+        AmazonS3Util.uploadFile( team.getName()+"candi1Certi", team.getCandidate1CertiUrl());
+        AmazonS3Util.uploadFile( team.getName()+"candi2Certi", team.getCandidate2CertiUrl());
+        AmazonS3Util.uploadFile( team.getName()+"candi1Profile", team.getProfileUrl1());
+        AmazonS3Util.uploadFile( team.getName()+"candi2Profile", team.getProfileUrl2());
 
         Candidate candidate1 = Candidate.builder()
                 .idx(team.getCandidate1idx())
-                .profileUrl(AmazonS3Util.getFileURL(team.getName().charAt(0)+"candi1Profile"))
+                .profileUrl(AmazonS3Util.getFileURL(team.getName()+"candi1Profile"))
                 .build();
 
         Candidate candidate2 = Candidate.builder()
                 .idx(team.getCandidate2idx())
-                .profileUrl(AmazonS3Util.getFileURL(team.getName().charAt(0)+"candi2Profile"))
+                .profileUrl(AmazonS3Util.getFileURL(team.getName()+"candi2Profile"))
                 .build();
 
         candidateMapper.insertCandidate(candidate1);
@@ -69,13 +79,13 @@ public class S3FileUploadService {
                 .name(team.getName())
                 .candidate1idx(team.getCandidate1idx())
                 .candidate2idx(team.getCandidate2idx())
-                .pledge(AmazonS3Util.getFileURL(team.getName().charAt(0)+"pledge"))
-                .reccoPhotoUrl(AmazonS3Util.getFileURL(team.getName().charAt(0)+"reccoPhoto"))
-                .electioneeringFileUrl(AmazonS3Util.getFileURL(team.getName().charAt(0)+"electioneering"))
-                .teamPhotoUrl(AmazonS3Util.getFileURL(team.getName().charAt(0)+"teamPhoto"))
-                .oathPhotoUrl(AmazonS3Util.getFileURL(team.getName().charAt(0)+"oathPhoto"))
-                .candidate1CertiUrl(AmazonS3Util.getFileURL(team.getName().charAt(0)+"candi1Certi"))
-                .candidate2CertiUrl(AmazonS3Util.getFileURL(team.getName().charAt(0)+"candi2Certi"))
+                .pledge(AmazonS3Util.getFileURL(team.getName()+"pledge"))
+                .reccoPhotoUrl(AmazonS3Util.getFileURL(team.getName()+"reccoPhoto"))
+                .electioneeringFileUrl(AmazonS3Util.getFileURL(team.getName()+"electioneering"))
+                .teamPhotoUrl(AmazonS3Util.getFileURL(team.getName()+"teamPhoto"))
+                .oathPhotoUrl(AmazonS3Util.getFileURL(team.getName()+"oathPhoto"))
+                .candidate1CertiUrl(AmazonS3Util.getFileURL(team.getName()+"candi1Certi"))
+                .candidate2CertiUrl(AmazonS3Util.getFileURL(team.getName()+"candi2Certi"))
                 .typeChk(0)
                 .electionIdx(team.getElectionIdx())
                 .build();

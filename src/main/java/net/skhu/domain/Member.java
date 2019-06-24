@@ -5,8 +5,8 @@ import lombok.*;
 import org.springframework.security.core.userdetails.User;
 
 @Getter
-@NoArgsConstructor
 @Setter
+@NoArgsConstructor
 public class Member {
     private String name;
 

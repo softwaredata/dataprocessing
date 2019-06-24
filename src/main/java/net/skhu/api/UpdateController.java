@@ -64,12 +64,13 @@ public class UpdateController {
     }
 
     @RequestMapping(value = "/mypage" ,  method = RequestMethod.POST)
-
-    public String updateMypage(Member member,  RedirectAttributes redirectAttributes, Model model,HttpSession session){
+    public String updateMypage(Member member, Model model,HttpSession session){
 
         log.info(member.toString());
 
-        member.setPassword(passwordEncoder.encode(member.getPassword()));
+
+//        member.setPassword(passwordEncoder.encode(member.getPassword()));
+        member.setPassword(member.getPassword());
         memberMapper.updateInfo(member);
         log.info(member.toString());
         model.addAttribute("member", member);

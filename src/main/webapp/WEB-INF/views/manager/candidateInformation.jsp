@@ -19,7 +19,8 @@
     <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 </head>
-<body>
+<body class="homepage is-preload">
+<div id="page-wrapper">
 <%@include file="/WEB-INF/include/menu.jsp"%>
 
 <section id="banner">
@@ -79,13 +80,75 @@
             </blockquote>
         </div>
 
+        <div class="col-sm-2 col-md-2">
+            <img src="${picture.teamPhotoUrl}"
+                 alt="" class="img-rounded img-responsive" />
+        </div>
+        <div class="col-sm-2 col-md-4">
+            <blockquote>
+                <p>팀사진</p> <small><cite title="Source Title"></cite></small>
+            </blockquote>
+        </div>
+
+
+        <div class="col-sm-2 col-md-2">
+            <img src="${picture.oathPhotoUrl}"
+                 alt="" class="img-rounded img-responsive" />
+        </div>
+        <div class="col-sm-2 col-md-4">
+            <blockquote>
+                <p>서약서</p> <small><cite title="Source Title"></cite></small>
+            </blockquote>
+        </div>
+
+        <div class="col-sm-2 col-md-2">
+            <img src="${picture.reccoPhotoUrl}"
+                 alt="" class="img-rounded img-responsive" />
+        </div>
+        <div class="col-sm-2 col-md-4">
+            <blockquote>
+                <p>추천서</p> <small><cite title="Source Title"></cite></small>
+            </blockquote>
+        </div>
+
+        <div class="col-sm-2 col-md-2">
+            <img src="${picture.electioneeringFileUrl}"
+                 alt="" class="img-rounded img-responsive" />
+        </div>
+        <div class="col-sm-2 col-md-4">
+            <blockquote>
+                <p>운동본부원</p> <small><cite title="Source Title"></cite></small>
+            </blockquote>
+        </div>
+
+
+
+        <div class="col-sm-2 col-md-2">
+            <img src="${picture.candidate1CertiUrl}"
+                 alt="" class="img-rounded img-responsive" />
+        </div>
+        <div class="col-sm-2 col-md-4">
+            <blockquote>
+                <p>정후보 재학증명서</p> <small><cite title="Source Title"></cite></small>
+            </blockquote>
+        </div>
+
+
+        <div class="col-sm-2 col-md-2">
+            <img src="${picture.candidate2CertiUrl}"
+                 alt="" class="img-rounded img-responsive" />
+        </div>
+        <div class="col-sm-2 col-md-4">
+            <blockquote>
+                <p>부후보재학증명서</p> <small><cite title="Source Title"></cite></small>
+            </blockquote>
+        </div>
+
+
+    </div>
 
     </div>
 </div>
-
-
-
-        </div>
 
 <link rel="stylesheet" href="${R}res/table.css">
 <!-- Scripts -->

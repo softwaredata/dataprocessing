@@ -19,12 +19,14 @@ public class SecurityAdminDetails extends User {
     @Getter
     Member member;
 
-    public SecurityAdminDetails(Member member) {
+    public SecurityAdminDetails(Member member, String authority) {
+
         super(
                 String.valueOf(member.getStudentIdx()),
                 member.getPassword(),
-                AuthorityUtils.createAuthorityList("ROLE_ADMIN")
+                AuthorityUtils.createAuthorityList(authority)
         );
+
         id = member.getStudentIdx();
         this.member = member;
     }

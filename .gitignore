@@ -61,6 +61,6 @@ tmp/**/*
 .vscode/
 
 
-###aws###
+
 /src/main/java/net/skhu/aws
 

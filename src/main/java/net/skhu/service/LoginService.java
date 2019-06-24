@@ -22,7 +22,7 @@ import java.util.Optional;
  */
 @Slf4j
 @Service
-public class LoginService implements UserDetailsService {
+public class LoginService {
     private final MemberMapper memberMapper;
 
     private final PasswordEncoder passwordEncoder;
@@ -32,14 +32,14 @@ public class LoginService implements UserDetailsService {
         this.passwordEncoder = passwordEncoder;
     }
 
-    @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        Member member = memberMapper.findByStuId(Integer.parseInt(username));
-        if (member == null) {
-            throw new UsernameNotFoundException("login fail");
-        }
-        return new SecurityUser(member);
-    }
+//    @Override
+//    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+//        Member member = memberMapper.findByStuId(Integer.parseInt(username));
+//        if (member == null) {
+//            throw new UsernameNotFoundException("login fail");
+//        }
+//        return new SecurityUser(member);
+//    }
 
     public Member login(final LoginRequest loginRequest, HttpServletResponse response) throws IOException {
         if(loginRequest == null) throw new LoginException("no");

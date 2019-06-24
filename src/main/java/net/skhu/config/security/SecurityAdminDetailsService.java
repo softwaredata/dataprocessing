@@ -1,6 +1,7 @@
 package net.skhu.config.security;
 
 import net.skhu.domain.Member;
+import net.skhu.domain.SecurityUser;
 import net.skhu.mapper.MemberMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -30,6 +31,9 @@ public class SecurityAdminDetailsService implements UserDetailsService {
         //System.out.println(member.getStudentIdx());
         if(member == null)
             throw new UsernameNotFoundException("login fail");
-        return new SecurityAdminDetails(member);
+        if(member.getType() == 0) {
+            return new SecurityAdminDetails(member, "ROLE_USER");
+        }
+        return new SecurityAdminDetails(member, "ROLE_ADMIN");
     }
 }

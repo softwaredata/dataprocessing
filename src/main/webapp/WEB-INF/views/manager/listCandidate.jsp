@@ -19,8 +19,15 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="${R}res/common.js"></script>
     <link rel="stylesheet" href="${R}res/common.css">
-    <link rel="stylesheet" href="${R}res/table.css">
+    <link rel="stylesheet" href="${R}resources/table.css">
 </head>
+<style>
+    @import url(//fonts.googleapis.com/earlyaccess/jejugothic.css);
+
+    th{
+        color: black;
+    }
+</style>
 <body>
 
 <!-- Header -->
@@ -28,16 +35,16 @@
 
 <section id="banner">
     <div class="container">
-        <p><strong>입후보 등록 현황</strong></p>
+        <p style="font-family:'Jeju Gothic', sans-serif;">입후보 등록 현황</p>
     </div>
 </section>
 
 <div class="container">
-    <h3>후보자 승인 신청 목록</h3>
+    <h3 style="font-family:'Jeju Gothic', sans-serif;">후보자 승인 신청 목록</h3>
 
     <table class="responsive-table">
         <thead class="table-header">
-          <tr>
+          <tr style="font-family:'NanumSquareRound',sans-serif;">
               <th>팀 이름</th>
               <th>정후보</th>
               <th>부후보</th>
@@ -45,7 +52,7 @@
               <th>거절</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody style="font-family:'NanumSquareRound',sans-serif;">
         <c:forEach var="selectCandidates" items="${ selectCandidate }">
             <tr data-url="team?idx=${ selectCandidates.idx }&candidate1Idx=${selectCandidates.candidate1Idx}&candidate2Idx=${selectCandidates.candidate2Idx}" class="table-row">
                 <td class="col col-1">${ selectCandidates.name }</td>

@@ -23,7 +23,7 @@
 	<script src="${R}resources/bootstrap/js/bootstrap.min.js"></script>
 	<!-- Respond.js 으로 IE8 에서 반응형 기능을 활성화하세요 (https://github.com/scottjehl/Respond) -->
 	<script src="${R}resources/bootstrap/js/respond.js"></script>
-	<title>성공회대학교 투표 시스템</title>
+	<title>SKHU VOTE</title>
 
 
 	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
@@ -50,7 +50,7 @@
 
 		<form class="login-form" name="frm" action="/perform_login" method="POST">
 			<input type="text" placeholder="userId" name="id" id="id"/>
-			<input type="password" placeholder="password" name="password" id="pw"/>
+			<input type="password" placeholder="password" name="password" id="pw" style="font-family: Roboto, sans-serif;"/>
 			<button>login</button>
 			<p class="message">
 
@@ -58,9 +58,6 @@
 				<a href="signUp"><span>회원가입 </span></a>
 				<a href="findPws"><span>비밀번호찾기 </span></a>
 				</br>
-				<a href="mypage"><span>회원정보 수정 </span></a>
-				<a href="main"><span>메인페이지 </span></a>
-				<br /> <br /> <br />
 
 			</p>
 		</form>
@@ -95,6 +92,7 @@
         <%--});--%>
     <%--})--%>
 <%--</script>--%>
+
 
 </body>
 

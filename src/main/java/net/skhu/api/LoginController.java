@@ -2,6 +2,7 @@ package net.skhu.api;
 
 import com.sun.javafx.collections.MappingChange;
 import lombok.extern.slf4j.Slf4j;
+import net.skhu.aws.AmazonS3Util;
 import net.skhu.domain.Member;
 import net.skhu.dto.LoginRequest;
 import net.skhu.dto.SignUpRequest;

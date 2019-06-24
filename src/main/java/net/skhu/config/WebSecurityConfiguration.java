@@ -118,9 +118,11 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(AuthenticationManagerBuilder authenticationManagerBuilder) throws Exception {
 //        authenticationManagerBuilder
 //                .authenticationProvider(this.loginRequestProvider);
-        authenticationManagerBuilder
+//
+ authenticationManagerBuilder
                 .userDetailsService(securityAdminDetailsService)
                 .passwordEncoder(passwordEncoder);
+
     }
 
 }

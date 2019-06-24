@@ -137,7 +137,7 @@ public class ElectionService {
         return request;
    }
 
-   public Election setElection(ElectionRequest electionReq, HttpServletResponse response) throws IOException {
+   public void setElection(ElectionRequest electionReq, HttpServletResponse response) throws IOException {
        response.setContentType("text/html; charset=utf-8");
        PrintWriter out = response.getWriter();
 
@@ -169,12 +169,10 @@ public class ElectionService {
        int num = electionMapper.update(election);
 
        if(num != 0) {
-           PrintWriter writer = response.getWriter();
-           writer.print("success");
-           writer.close();
+           out.println("선거 정보가 저장되었습니다.");
+           out.close();
        }
-
-       return election;
+//       return election;
    }
 
 }
