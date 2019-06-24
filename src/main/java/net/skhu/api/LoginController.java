@@ -28,50 +28,11 @@ import java.io.IOException;
 @RequestMapping("/")
 public class LoginController {
 
-    private final LoginService loginService;
-    private final MemberMapper memberMapper;
-
     private final SignUpService signUpService;
 
-    private final PasswordEncoder passwordEncoder;
-
-    public LoginController(final LoginService loginService, final MemberMapper memberMapper,
-                           final SignUpService signUpService, final PasswordEncoder passwordEncoder) {
-        this.loginService = loginService;
-        this.memberMapper = memberMapper;
+    public LoginController(final SignUpService signUpService) {
         this.signUpService = signUpService;
-        this.passwordEncoder = passwordEncoder;
     }
-
-//    @PostMapping("login")
-//    public String login(@RequestBody(required = false) LoginRequest loginReq) {
-//        log.info("come");
-//        log.info(loginReq.toString());
-//        loginService.login(loginReq);
-//        return "main/main";
-//}
-
-//    @PostMapping("login-processing")
-//    public String loginProcessing(
-////            @RequestParam("id")String id,
-////                                  @RequestParam("password")String pw,
-//                                  @RequestBody java.util.Map<String, Object> maps,
-//                                  Model model,
-//                                  HttpServletResponse response
-//                                ,HttpSession session) throws IOException {
-//
-//        System.out.println(maps.toString());
-////        LoginRequest loginRequest = new LoginRequest(id, pw);
-////
-////        Member member = loginService.login(loginRequest, response);
-////        model.addAttribute("member", member);
-////
-////        session.setAttribute("user", member);
-//
-//
-//        return "main/main";
-//    }
-
 
     @GetMapping({"", "login"})
     public String login(Model model, HttpServletRequest request) {

@@ -15,6 +15,7 @@ import net.skhu.domain.Member;
 import net.skhu.mapper.MemberMapper;
 
 import org.slf4j.LoggerFactory;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.User;
@@ -25,17 +26,21 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.IOException;
 
 @Slf4j
 @Controller
 @RequestMapping("/")
 public class MainController {
 
-    private static org.slf4j.Logger logger = LoggerFactory.getLogger(MainController.class);
-
+    @PreAuthorize("hasAuthority('ROLE_USER') OR hasAuthority('ROLE_ADMIN')")
     @GetMapping("main")
-    public String main(HttpSession session, Model model) {
+    public String userMain(HttpSession session, Model model) {
         System.out.println("mainController-get");
         Member user = (Member) session.getAttribute("user");
 
@@ -49,23 +54,18 @@ public class MainController {
         return "main/main";
     }
 
+
     @PostMapping("main")
     public String postmain(HttpSession session, Model model){
         System.out.println("mainController-post");
         // TODO- 세션 관리
         SecurityAdminDetails securityAdminDetails = (SecurityAdminDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-
-//        String one = AmazonS3Util.getFileURL("총학생회.jpg");
-//        String two = AmazonS3Util.getFileURL("학부대표.jpg");
-//        String three =AmazonS3Util.getFileURL("전공대표.jpg");
-//        model.addAttribute("one",one);
-//        model.addAttribute("two",two);
-//        model.addAttribute("three",three);
-
         Member user = securityAdminDetails.getMember();
+
         session.setAttribute("user", user);
         //log.error(user.toString());
         //model.addAttribute("user", user);
+
         return "redirect:main";
     }
 

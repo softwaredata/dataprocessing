@@ -79,7 +79,7 @@
         <div class="jumbotron">
             <h3><strong>${image.name} 후보가 당선되었습니다!</strong></h3>
             <p class="lead"> <img src="${image.teamPhotoUrl}" width="700" height="500" ></p>
-            <p><a class="btn btn-lg btn-success" href="#" role="button">치열한 경쟁 끝에 당선 되었습니다 축하드립니다</a></p>
+            <p><a class="btn btn-lg btn-success" href="#" role="button">치열한 경쟁 끝에 당선 되었습니다 축하드립니다.</a></p>
         </div>
 
         <!-- Example row of columns -->
@@ -115,7 +115,7 @@
             <c:if test="${endTime.voteEndDate > now}">
                 <div class="jumbotron">
                     <h2><strong>아직 투표 결과가 안나왔습니다!</strong></h2>
-                    <p class="lead">아직 투표가 진행 중입니다. 투표가 기간이 끝나면 확인해주시기 바랍니다</p>
+                    <p class="lead" style="text-align: center;">아직 투표가 진행 중입니다. 투표가 기간이 끝나면 확인해주시기 바랍니다.</p>
     <%--                <p><a class="btn btn-lg btn-success" href="#" role="button">끝나고 눌러주세여!</a></p>--%>
                 </div>
             </c:if>
