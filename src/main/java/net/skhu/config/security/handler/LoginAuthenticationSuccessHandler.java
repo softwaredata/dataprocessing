@@ -10,6 +10,7 @@ import org.springframework.security.web.DefaultRedirectStrategy;
 import org.springframework.security.web.RedirectStrategy;
 import org.springframework.security.web.WebAttributes;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
+import org.springframework.stereotype.Component;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -22,7 +23,7 @@ import java.io.IOException;
  */
 
 @Slf4j
-//@Component
+@Component
 public class LoginAuthenticationSuccessHandler implements AuthenticationSuccessHandler {
 
     //private final JwtFactory jwtFactory;

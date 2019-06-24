@@ -12,11 +12,14 @@ import org.springframework.stereotype.Service;
  * Created by bomi on 2019-06-21.
  */
 
-//@Service
+@Service
 public class SecurityAdminDetailsService implements UserDetailsService {
 
-    @Autowired
-    private MemberMapper memberMapper;
+    private final MemberMapper memberMapper;
+
+    public SecurityAdminDetailsService(final MemberMapper memeberMapper) {
+        this.memberMapper = memeberMapper;
+    }
 
     @Override
     public UserDetails loadUserByUsername(String id) throws UsernameNotFoundException  {

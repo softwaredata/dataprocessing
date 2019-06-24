@@ -20,6 +20,8 @@ import net.skhu.service.ElectionService;
 
 import org.slf4j.LoggerFactory;
 
+import org.springframework.security.access.annotation.Secured;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
@@ -90,6 +92,7 @@ public class ElectionController {
     }
 
     //@Secured("ROLE_ADMIN")
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     @GetMapping("admin/electionManagement/{type}")
 //    @GetMapping("admin/electionManagement")
     public String electionManagement(@PathVariable(value = "type", required = false)final String type, Model model, HttpServletResponse response,HttpSession session) throws IOException {

@@ -1,5 +1,6 @@
 package net.skhu.api;
 
+import com.sun.javafx.collections.MappingChange;
 import lombok.extern.slf4j.Slf4j;
 import net.skhu.domain.Member;
 import net.skhu.dto.LoginRequest;
@@ -10,10 +11,7 @@ import net.skhu.service.SignUpService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -36,7 +34,8 @@ public class LoginController {
 
     private final PasswordEncoder passwordEncoder;
 
-    public LoginController(final LoginService loginService, MemberMapper memberMapper, SignUpService signUpService, PasswordEncoder passwordEncoder) {
+    public LoginController(final LoginService loginService, final MemberMapper memberMapper,
+                           final SignUpService signUpService, final PasswordEncoder passwordEncoder) {
         this.loginService = loginService;
         this.memberMapper = memberMapper;
         this.signUpService = signUpService;
@@ -51,23 +50,26 @@ public class LoginController {
 //        return "main/main";
 //}
 
-    @PostMapping("login-processing")
-
-    public String loginProcessing(@RequestParam("id")String id, @RequestParam("password")String pw, Model model, HttpServletResponse response
-                                ,HttpSession session) throws IOException {
-
-        System.out.println(id);
-        System.out.println(pw);
-        LoginRequest loginRequest = new LoginRequest(id, pw);
-
-        Member member = loginService.login(loginRequest, response);
-        model.addAttribute("member", member);
-
-        session.setAttribute("user", member);
-
-
-        return "main/main";
-    }
+//    @PostMapping("login-processing")
+//    public String loginProcessing(
+////            @RequestParam("id")String id,
+////                                  @RequestParam("password")String pw,
+//                                  @RequestBody java.util.Map<String, Object> maps,
+//                                  Model model,
+//                                  HttpServletResponse response
+//                                ,HttpSession session) throws IOException {
+//
+//        System.out.println(maps.toString());
+////        LoginRequest loginRequest = new LoginRequest(id, pw);
+////
+////        Member member = loginService.login(loginRequest, response);
+////        model.addAttribute("member", member);
+////
+////        session.setAttribute("user", member);
+//
+//
+//        return "main/main";
+//    }
 
 
     @GetMapping({"", "login"})
@@ -87,10 +89,6 @@ public class LoginController {
         return "login";
     }
 
-    @PostMapping("login-error")
-    public String loginError() {
-        return "login";
-    }
 
 
     @GetMapping("signUp")

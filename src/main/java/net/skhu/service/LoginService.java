@@ -2,9 +2,13 @@ package net.skhu.service;
 
 import lombok.extern.slf4j.Slf4j;
 import net.skhu.domain.Member;
+import net.skhu.domain.SecurityUser;
 import net.skhu.dto.LoginRequest;
 import net.skhu.exception.LoginException;
 import net.skhu.mapper.MemberMapper;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -18,7 +22,7 @@ import java.util.Optional;
  */
 @Slf4j
 @Service
-public class LoginService {
+public class LoginService implements UserDetailsService {
     private final MemberMapper memberMapper;
 
     private final PasswordEncoder passwordEncoder;
@@ -26,6 +30,15 @@ public class LoginService {
     public LoginService(final MemberMapper memberMapper, final PasswordEncoder passwordEncoder) {
         this.memberMapper = memberMapper;
         this.passwordEncoder = passwordEncoder;
+    }
+
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        Member member = memberMapper.findByStuId(Integer.parseInt(username));
+        if (member == null) {
+            throw new UsernameNotFoundException("login fail");
+        }
+        return new SecurityUser(member);
     }
 
     public Member login(final LoginRequest loginRequest, HttpServletResponse response) throws IOException {

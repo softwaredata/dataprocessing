@@ -1,6 +1,8 @@
 package net.skhu.domain;
 
+import com.amazonaws.services.identitymanagement.model.UserDetail;
 import lombok.*;
+import org.springframework.security.core.userdetails.User;
 
 @Getter
 @NoArgsConstructor

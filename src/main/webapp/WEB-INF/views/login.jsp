@@ -35,7 +35,7 @@
 
 
 
-<form name="frm" action="/login-processing" method="post">
+<div name="frm" action="/loginProcessing" method="post">
 
 	<div class="container">
 		<div class="info">
@@ -48,7 +48,7 @@
 					src="images/vote.png" alt="" />
 		</div>
 
-		<form class="login-form">
+		<form class="login-form" name="frm" action="/perform_login" method="POST">
 			<input type="text" placeholder="userId" name="id" id="id"/>
 			<input type="password" placeholder="password" name="password" id="pw"/>
 			<button>login</button>
@@ -67,7 +67,7 @@
 	</div>
 
 
-</form>
+</div>
 
 <script>
     $('.message a').click(function(){
@@ -75,24 +75,26 @@
     });
 </script>
 
-<script>
-    $(function(){
-        $("button").click(function(){
-            $.ajax({
-                url : "login-processing",
-                type : "POST",
-                contentType : "application/json",
-                data : JSON.stringify({
-                    id : $("#id").val(),
-                    email : $("#pw").val()
-                }),
-                success : function(result) {
-                    alert(result);
-                },
-            })
-        });
-    })
-</script>
+<%--<script>--%>
+    <%--$(function(){--%>
+        <%--$("button").click(function(){--%>
+            <%--$.ajax({--%>
+                <%--url : "login-processing",--%>
+                <%--type : "POST",--%>
+                <%--contentType : "application/json",--%>
+				<%--dataType: 'json',--%>
+                <%--data : JSON.stringify({--%>
+                    <%--id : $("#id").val(),--%>
+                    <%--email : $("#pw").val()--%>
+                <%--}),--%>
+                <%--success : function(result) {--%>
+                    <%--// alert(result);--%>
+					<%--console.log(result);--%>
+                <%--}--%>
+            <%--})--%>
+        <%--});--%>
+    <%--})--%>
+<%--</script>--%>
 
 </body>
 

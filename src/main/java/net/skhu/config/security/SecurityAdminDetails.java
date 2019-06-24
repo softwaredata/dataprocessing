@@ -16,6 +16,9 @@ public class SecurityAdminDetails extends User {
     @Getter
     int id;
 
+    @Getter
+    Member member;
+
     public SecurityAdminDetails(Member member) {
         super(
                 String.valueOf(member.getStudentIdx()),
@@ -23,5 +26,6 @@ public class SecurityAdminDetails extends User {
                 AuthorityUtils.createAuthorityList("ROLE_ADMIN")
         );
         id = member.getStudentIdx();
+        this.member = member;
     }
 }
