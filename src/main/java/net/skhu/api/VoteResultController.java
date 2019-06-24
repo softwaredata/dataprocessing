@@ -2,6 +2,7 @@ package net.skhu.api;
 
 import lombok.RequiredArgsConstructor;
 import net.skhu.mapper.ElectionResultMapper;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,6 +16,7 @@ public class VoteResultController {
 
     private final ElectionResultMapper electionResultMapper;
 
+    @PreAuthorize("hasAuthority('ROLE_USER') OR hasAuthority('ROLE_ADMIN')")
     @GetMapping("vote")
     public String totalVote(Model model, @RequestParam("electionidx") int electionidx){
 

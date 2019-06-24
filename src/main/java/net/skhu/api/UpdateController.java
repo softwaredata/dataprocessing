@@ -8,6 +8,7 @@ import net.skhu.dto.PwsReq;
 import net.skhu.mapper.MemberMapper;
 import net.skhu.service.PwsService;
 import org.slf4j.LoggerFactory;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -27,12 +28,9 @@ public class UpdateController {
     private final PwsService pwsService;
     private final MemberMapper memberMapper;
 
-    private final PasswordEncoder passwordEncoder;
-
-    public UpdateController(final PwsService pwsService, final MemberMapper memberMapper, PasswordEncoder passwordEncoder) {
+    public UpdateController(final PwsService pwsService, final MemberMapper memberMapper) {
         this.pwsService = pwsService;
         this.memberMapper = memberMapper;
-        this.passwordEncoder = passwordEncoder;
     }
 
     @GetMapping("findPws")
@@ -51,6 +49,7 @@ public class UpdateController {
     }
 
     //개인정보 수정
+    @PreAuthorize("hasAuthority('ROLE_ADMIN') OR hasAuthority('ROLE_USER')")
     @GetMapping("mypage")
     public String mypage(Model model, HttpSession session){
         Member user =(Member)session.getAttribute("user");
@@ -63,7 +62,8 @@ public class UpdateController {
         return "users/mypage";
     }
 
-    @RequestMapping(value = "/mypage" ,  method = RequestMethod.POST)
+    @PreAuthorize("hasAuthority('ROLE_ADMIN') OR hasAuthority('ROLE_USER')")
+    @PostMapping("mypage")
     public String updateMypage(Member member, Model model,HttpSession session){
 
         log.info(member.toString());
@@ -76,7 +76,7 @@ public class UpdateController {
         model.addAttribute("member", member);
 
         session.setAttribute("user",member);
-        return "redirect:/mypage";
+        return "redirect:mypage";
 
     }
 

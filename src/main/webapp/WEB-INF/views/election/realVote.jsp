@@ -84,7 +84,7 @@
                     <input type="hidden"  id="studentidx0" name="studentidx" value="${user.studentIdx}">
                     <input type="hidden"  id="electionidx0" name="electionidx" value="${election.idx}">
                     <input type="hidden"  id="abandonment0" name="abandonment" value="1">
-                    <button type="button" onclick="abandonmentCheck()" class="button icon fa-balance-scale">기권</button>
+                    <button type="button" onclick="abandonmentCheck()" class="button icon fa-balance-scale" style="position: relative; right: 80px;">기권</button>
                 </form>
             </div>
             </c:if>

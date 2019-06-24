@@ -2,9 +2,13 @@ package net.skhu.service;
 
 import lombok.extern.slf4j.Slf4j;
 import net.skhu.domain.Member;
+import net.skhu.domain.SecurityUser;
 import net.skhu.dto.LoginRequest;
 import net.skhu.exception.LoginException;
 import net.skhu.mapper.MemberMapper;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -26,6 +30,26 @@ public class LoginService {
     public LoginService(final MemberMapper memberMapper, final PasswordEncoder passwordEncoder) {
         this.memberMapper = memberMapper;
         this.passwordEncoder = passwordEncoder;
+    }
+
+//    @Override
+//    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+//        Member member = memberMapper.findByStuId(Integer.parseInt(username));
+//        if (member == null) {
+//            throw new UsernameNotFoundException("login fail");
+//        }
+//        return new SecurityUser(member);
+//    }
+
+    public void push(HttpServletResponse response){
+        try {
+            response.setContentType("text/html;charset=utf-8");
+            PrintWriter out = response.getWriter();
+            out.println("<script>alert('아이디 혹은 비밀번호를 확인해주세요');</script>");
+            out.flush();
+        } catch(IOException e) {
+            log.error(e.getMessage());
+        }
     }
 
     public Member login(final LoginRequest loginRequest, HttpServletResponse response) throws IOException {
