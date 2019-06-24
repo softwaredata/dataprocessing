@@ -11,6 +11,7 @@ import net.skhu.mapper.CandidateMapper;
 import net.skhu.mapper.TeamMapper;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 import java.io.IOException;
 
@@ -29,10 +30,10 @@ public class S3FileUploadService {
     public boolean registVaildateCheck(Team team) throws IOException {
         logger.info(team.toString());
 
-        if(team.getName()==null || team.getCandidate1idx()==0 || team.getCandidate2idx()==0 || team.getPledge()==""
-                || team.getReccoPhotoUrl()=="" || team.getElectioneeringFileUrl()=="" || team.getTeamPhotoUrl()=="" ||
-                team.getOathPhotoUrl()=="" || team.getCandidate1CertiUrl()=="" || team.getCandidate2CertiUrl()=="" ||team.getProfileUrl1()==""||
-                team.getProfileUrl2()==""){
+        if(team.getName()==null || team.getCandidate1idx()==0 || team.getCandidate2idx()==0 || StringUtils.isEmpty(team.getPledge())
+                || StringUtils.isEmpty(team.getReccoPhotoUrl()) || StringUtils.isEmpty(team.getElectioneeringFileUrl()) || StringUtils.isEmpty(team.getTeamPhotoUrl()) ||
+                StringUtils.isEmpty(team.getOathPhotoUrl()) || StringUtils.isEmpty(team.getCandidate1CertiUrl()) || StringUtils.isEmpty(team.getCandidate2CertiUrl()) ||
+                StringUtils.isEmpty(team.getProfileUrl1())|| StringUtils.isEmpty(team.getProfileUrl2())){
             return false;
         }
         else
@@ -40,16 +41,6 @@ public class S3FileUploadService {
     }
 
     public void registerS3FileUpload(Team team) throws IOException {
-
-//        AmazonS3Util.uploadFile( team.getName().charAt(0)+"pledge", team.getPledge());
-//        AmazonS3Util.uploadFile( team.getName().charAt(0)+"reccoPhoto", team.getReccoPhotoUrl());
-//        AmazonS3Util.uploadFile( team.getName().charAt(0)+"electioneering", team.getElectioneeringFileUrl());
-//        AmazonS3Util.uploadFile( team.getName().charAt(0)+"teamPhoto", team.getTeamPhotoUrl());
-//        AmazonS3Util.uploadFile( team.getName().charAt(0)+"oathPhoto", team.getOathPhotoUrl());
-//        AmazonS3Util.uploadFile( team.getName().charAt(0)+"candi1Certi", team.getCandidate1CertiUrl());
-//        AmazonS3Util.uploadFile( team.getName().charAt(0)+"candi2Certi", team.getCandidate2CertiUrl());
-//        AmazonS3Util.uploadFile( team.getName().charAt(0)+"candi1Profile", team.getProfileUrl1());
-//        AmazonS3Util.uploadFile( team.getName().charAt(0)+"candi2Profile", team.getProfileUrl2());
 
         AmazonS3Util.uploadFile( team.getName()+"pledge", team.getPledge());
         AmazonS3Util.uploadFile( team.getName()+"reccoPhoto", team.getReccoPhotoUrl());
